@@ -361,18 +361,54 @@ web จริง จะมีช่องว่างระหว่าง navig
 .class1leftcenteralign {
     display: grid;
     align-items: start;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 16px;
+    box-sizing: border-box;
 }
 
-    /*responsive handle สำหรับ screen size เล็ก*/
-    /*code นี้เกิดขึ้นมาจากการได้ลองลด window size ขนาเล็ก ซึ่งทำให้เห็นว่า element ถูกบีบลง ซึ่งเมื่อบีบลงแล้ว element ยังต้องเต็มจอ ซึ่งก่อนไม่กำหนด web ที่แสดง -> element ที่อยู่ภายใต้ tag นี้ จะ groupping รวมกันอยู่ที่ grid 1fr อันเดียว ซึ่งขนาดของ element เล็กมาก และไม่เป็นไปตาม web จริง */
-    @media screen and (max-width:599px) {
+    @media screen and (max-width: 399px) {
         .class1leftcenteralign {
-            grid-template-columns: repeat(1, 1fr); /*กำหนดให้ทำซ้ำ โดยแต่ละครั้งมีขนาด 1fr*/
-            grid-gap: 24px;
+        grid-template-columns: 1fr;
+        gap: 24px;
         }
     }
+
+    @media screen and (max-width: 599px) {
+        .class1leftcenteralign {
+            grid-template-columns: 1fr !important;
+            gap: 24px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .class1leftcenteralign {
+            grid-template-columns: 1fr 2fr;
+            gap: 16px;
+        }
+    }
+
+    @media screen and (max-width: 1007px) {
+        .class1leftcenteralign {
+            grid-template-columns: 1fr 2fr;
+            gap: 16px;
+        }
+    }
+
+    @media screen and (max-width: 1279px) {
+        .class1leftcenteralign {
+            grid-template-columns: 1fr 2fr;
+            gap: 16px;
+        }
+    }
+
+    @media screen and (max-width: 8192px) {
+        .class1leftcenteralign {
+            grid-template-columns: 1fr 2fr;
+            gap: 16px;
+        }
+    }
+
+
+    /*responsive handle สำหรับ screen size เล็ก*/
+    /*code นี้เกิดขึ้นมาจากการได้ลองลด window size ขนาเล็ก ซึ่งทำให้เห็นว่า element ถูกบีบลง ซึ่งเมื่อบีบลงแล้ว element ยังต้องเต็มจอ ซึ่งก่อนไม่กำหนด web ที่แสดง -> element ที่อยู่ภายใต้ tag นี้ จะ groupping รวมกันอยู่ที่ grid 1fr อันเดียว ซึ่งขนาดของ element เล็กมาก และไม่เป็นไปตาม web จริง */ 
 
 /*code css สำหรับด้านซ้ายสุด (ข่าว 2 ข่าวที่เป็นรูปเล็กๆ) โดยกำหนดให้เป็น grid */
 .class1leftalign {
@@ -388,6 +424,7 @@ web จริง จะมีช่องว่างระหว่าง navig
     @media screen and (max-width:599px) {
         .class1config {
             display: grid;
+            order: 2;
         }
     }
 
@@ -515,11 +552,7 @@ web จริง จะมีช่องว่างระหว่าง navig
             font-size: 18px;
             line-height: 22px;
             text-transform: none;
-            -webkit-text-decoration: none;
             text-decoration: none;
-            -webkit-letter-spacing: -0.36px;
-            -moz-letter-spacing: -0.36px;
-            -ms-letter-spacing: -0.36px;
             letter-spacing: -0.36px;
         }
     }
@@ -3066,12 +3099,28 @@ ol, ul {
     line-height: 0.75rem;
     color: #505050;
     letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 170px;
-    margin-bottom: 5px;
+    margin: 8px 0 5px;
     text-transform: uppercase;
     text-align: right;
 }
+
+    @media screen and (max-width: 599px) {
+        .adtext2 {
+            position:relative;
+            font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            font-size: 0.75rem;
+            line-height: 0.75rem;
+            color: #505050;
+            letter-spacing: 0;
+            margin-left: auto;
+            margin-right: 45px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            text-align: right;
+        }
+}
+
 .imgadalign2 {
     border: 0.2px solid darkgray;
     vertical-align: bottom;
@@ -3081,3 +3130,83 @@ ol, ul {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.narrowclass1leftalign{
+    display: grid;
+    box-sizing: border-box;
+    align-items: start;
+}
+    @media screen and (max-width:8192px) {
+        .narrowclass1leftalign {
+            gap:16px;
+        }
+    }
+
+    @media screen and (max-width:1007px) {
+        .narrowclass1leftalign {
+            gap:16px;
+        }
+    }
+
+    @media screen and (max-width:1279px) {
+        .narrowclass1leftalign {
+            gap:16px;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .narrowclass1leftalign {
+            gap:16px;
+        }
+    }
+
+    @media screen and (max-width:599px) {
+        .narrowclass1leftalign {
+            gap:16px;
+        }
+    }
+
+    @media screen and (max-width:399px) {
+        .narrowclass1leftalign {
+            gap:16px;
+        }
+    }
+
+    @media screen and (max-width:399px) {
+        .narrowclass1config {
+            display:grid;
+            order: 2;
+        }
+    }
+
+    @media screen and (max-width:599px) {
+        .narrowclass1config {
+            display:grid;
+            order: 2;
+        }
+    }
+
+    @media screen and (max-width:8192px) {
+        .narrowclass1config {
+            display:none;
+        }
+    }
+
+    @media screen and (max-width:1279px) {
+        .narrowclass1config {
+            display:none;
+        }
+    }
+
+    @media screen and (max-width:1007px) {
+        .narrowclass1config {
+            display:none;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .narrowclass1config {
+            display:none;
+        }
+    }
