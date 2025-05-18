@@ -11,7 +11,7 @@
 button {
   appearance: none; /*ลบ style ของ button ที่ browsers กำหนดไว้ เช่น ขอบมน เงา*/
   margin: 0; /*ลบระยะห่างรอบนอกและในของปุ่ม*/
-  padding: 0;
+  padding: 0; /*ลบช่องว่างภายในปุ่ม*/
   background: none; /*ลบพื้นหลังของปุ่ม*/
   border-radius: 0; /*ลบมุมโค้งของปุ่ม*/
   border: 0; /*ลบเส้นขอบ*/
@@ -26,46 +26,47 @@ main,
 nav,
 section {
   /*การประกาศนี้เป็นการประกาศ tag ใหญ่ๆ*/
-  display: block; /*กำหนดให้การ display เป็น block element*/
+  display: block; /*กำหนดให้การ display เป็น block element โดยขึ้นบรรทัดใหม่ แต่ยังยึดความกว้างเต็ม container อยู่*/
 }
 
 img {
-  overflow-clip-margin: content-box; /*ตั้งขอบสำหรับการตัดภาพ ไม่ให้เกิน content*/
-  overflow: clip; /*ป้องกันไม่ให้ภาพล้นออกจากกรอบ*/
+  overflow-clip-margin: content-box; /* เป็น css rule ใหม่ ที่เรียกมาใช้ ตั้งค่าขอบสำหรับการตัดภาพ ไม่ให้เกิน content*/
+  overflow: clip; /*ป้องกันไม่ให้ภาพล้นออกจากกรอบ โดยไม่แสดง scroll bar ด้วย*/
 }
 
 /*End of CSS Section 1*/
 
 /* CSS Section 2 : code css ที่ใช้เพื่อกำหนดโครงสร้างพื้นฐานของส่วน header ทั้งหมด*/
 .headerall {
-  position: sticky; /*การกำหนด position ที่ใช้เพื่อกำหนดวิธีการวางตำแหน่งของหน้า web โดยกำหนดให้เป็น sticky ซึ่งหมายความว่า องค์ประกอบจะถูกวางตามตำแหน่งปกติจนกว่าจะถึงตำแหน่งที่กำหนดด้วย top, right, bottom, หรือ left จากนั้นจะติดอยู่ที่ตำแหน่งนั้นเมื่อเลื่อนหน้าเว็บ*/
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 65px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e6e8ea;
+  position: sticky; /*การกำหนด position ที่ใช้เพื่อกำหนดวิธีการวางตำแหน่งของหน้า web โดยกำหนดให้เป็น sticky ซึ่งหมายความว่า องค์ประกอบจะถูกวางตามตำแหน่งปกติจนกว่าจะถึงตำแหน่งที่กำหนดด้วย top, right, bottom, หรือ left จากนั้นจะติดอยู่ที่ตำแหน่งนั้นเมื่อเลื่อนหน้าเว็บ ซึ่งจะทำให้มันลอยอยู่ด้านบนเสมอ โดยที่การทำงาน ถึงแม้ว่าจะ scroll forward ขึ้นไป แต่เมื่อถึง top ก็ยังติดอยู่ตรงนั้น*/
+  top: 0px; /*ติดไว้ที่ด้านบนเลย*/
+  left: 0px; /*เป็นการกำหนดให้ชิดซ้ายสุดของหน้า*/
+  right: 0px; /*เป็นการกำหนดให้ชิดขวาสุดของหน้า*/
+  /*จาก top, left และ right ด้านบน คือการกำหนดให้ header ครอบคลุมเต็มความกว้างด้านบน*/
+  height: 65px; /*กำหนดความสูงของ header*/
+  background-color: #ffffff; /*กำหนด สี background ของ header ซึ่งทำขึ้นมาไว้รองรับกรณีที่อาจเกิด transparent เมื่อเลื่อนขึ้นไป*/
+  border-bottom: 1px solid #e6e8ea; /*กำหนดเส้นใต้ เพื่อแยกระหว่าง header กับ main navigation bar*/
   z-index: 4000; /*กำหนดขึ้นมาเพื่อให้ element ทุกอย่างที่อยู่ภายใต้ tag นี้ มาอยู่ลำดับที่นำหน้าตัวอื่นๆ เพราะถ้าหากไม่กำหนด ตอนเลื่อน element ของ tag อื่นๆ ยังแสดงให้เห็น (เหมือน tag นี้ไม่มีพื้นหลังสีขาว เป็น transparent ซึ่งการทำงานไม่เหมือน web จริง จึงต้องกำหนดขึ้นมา*/
 }
 /*code css ที่ใช้เพื่อกำหนดตำแหน่งของ element ทั้งหมดที่อยู่ภายใต้ tag header*/
 .allcontentinheader {
-  position: relative; /*กำหนดตำแหน่งให้สัมพันธ์กันกับตำแหน่งเดิม*/
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
+  position: relative; /*กำหนดตำแหน่งให้สัมพันธ์กันกับตำแหน่งเดิม โดยเป็น anchor สำหรับ element child ที่ใช้ position: absolute*/
+  display: flex; /*config เพื่อให้ align เนื้อหาในแนวนอน*/
+  align-items: center; /*จัด child element ต่างๆ ที่อยู่ภายใต้ ให้อยู่ตรงกลาง*/
+  padding: 12px 16px; /*กำหนดพื้นที่ว่างรอบๆ*/
 }
 
 /*code css ที่ใช้เพื่อ config เครื่องหมาย search ที่อยู่ภายใต้ div ของ header ที่อยู่ด้านซ้ายสุด*/
 .searchclass {
-  flex: 1 1 0%;
-  display: flex;
-  justify-content: start;
+  display: flex; /*ประกาศให้ใช้ flex กับ child element*/
+  flex: 1 1 0%; /*flex-grow: 1; (ให้ขยายเมื่อมีที่ว่าง), flex-shrink: 1 (ให้ย่อขนาดเมื่อต้องปรับ), flex-basis: 0% (เริ่มต้นที่ขนาด 0% แล้วขยายตาม grow) ซึ่งทำให้กล่่อง search ยดได้ และ จะแย่งพื้นที่ซ้ายสุด*/
+  justify-content: start; /*จัดให้ชิดซ้าย*/
 }
 
 /*code css ที่ใช้เพื่อ config องค์ประกอบภายในส่วนของ button ที่ใช้ค้นหา*/
 .searchbuttonclass {
-  cursor: pointer; /*เป็น attributes ที่ใช้เพื่อระบุรูปแบบของ cursor เพื่อบอกว่า elements นี้สามารถ click ได้*/
   display: flex;
+  cursor: pointer; /*เป็น attributes ที่ใช้เพื่อระบุรูปแบบของ cursor เพื่อบอกว่า elements นี้สามารถ click ได้*/
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
@@ -136,8 +137,8 @@ img {
   border: 2px solid transparent;
   outline: 2px solid transparent; /*การกำหนดขอบด้านนอกของ element*/
   flex-direction: row;
-  column-gap: 9.3px;
-  row-gap: 9.3px;
+  column-gap: 9.5px;
+  row-gap: 9.5px;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -232,15 +233,12 @@ img {
   display: inline-block; /*แสดงเป็น block แนวนอน*/
   overflow-x: hidden; /*ซ่อนเมื่อเนื้อหาในแนวนอนล้น*/
   white-space: nowrap; /*บังคับให้อยู่ในบรรทัดเดียว*/
-  margin-bottom: -1px;
 }
 
 /*code css สำหรับกำหนดการแสดงของ tag ul ของ navigation bar*/
 .allheadlistclass {
   list-style-type: none; /*ไม่ให้มี decoration ใดๆ เพราะโดย default ของ tag list จะมี จุด แต่ web จริง ไม่มี*/
   display: flex;
-  padding: 0;
-  margin: 0;
   align-self: center;
 }
 
@@ -263,8 +261,8 @@ img {
 
 /*code css สำหรับกำหนด style ของ home option ใน html */
 .homeoption {
-  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
   display: block;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
   color: #000000;
   cursor: pointer;
   padding: 12px 8px;
@@ -272,7 +270,6 @@ img {
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
-  text-transform: none;
   text-decoration: none;
   letter-spacing: 0px;
 }
@@ -328,12 +325,9 @@ web จริง จะมีช่องว่างระหว่าง navig
   margin-top: 30px;
 }
 
-.mainframe > div + section {
-  margin-top: 30px;
-}
 /*code css class ชื่อ headnewssection (section ชื่อ main section 1 ใน html) กำหนดขึ้นมาเพื่อวางโครงสร้างของ section นี้ทั้งหมด*/
 .headnewssection {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   margin-block: 30px; /*ใช้เพื่อระบุระยะห่างองค์ประกอบทั้งด้านบนและด้านล่าง*/
@@ -349,9 +343,10 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css responsive handle (in case of Laptop / Coumputer screen*/
 /*เพื่อ align ข่าวแต่ละส่วนอยู่ตรงกลาง*/
-@media screen and (max-width: 2560px) {
+@media screen and (max-width: 1440px) {
   .classframe {
     margin: 0 auto; /*shorthand ที่กำหนด margin บนล่างเป็น 0 และ ซ้ายขวาเป็น auto จะทำให้อยู่ตรงกลาง*/
+    max-width: 1280px;
   }
 }
 
@@ -376,7 +371,6 @@ web จริง จะมีช่องว่างระหว่าง navig
 .class1leftcenteralign {
   display: grid;
   align-items: start;
-  box-sizing: border-box;
 }
 /*responsive handle สำหรับ screen size เล็ก*/
 /*code นี้เกิดขึ้นมาจากการได้ลองลด window size ขนาเล็ก ซึ่งทำให้เห็นว่า element ถูกบีบลง ซึ่งเมื่อบีบลงแล้ว element ยังต้องเต็มจอ ซึ่งก่อนไม่กำหนด web ที่แสดง -> element ที่อยู่ภายใต้ tag นี้ จะ groupping รวมกันอยู่ที่ grid 1fr อันเดียว ซึ่งขนาดของ element เล็กมาก และไม่เป็นไปตาม web จริง */
@@ -423,19 +417,20 @@ web จริง จะมีช่องว่างระหว่าง navig
 @media screeen and (max-width: 375px) {
   .class1config {
     display: grid;
-    order: 2;
+    order: 2; /*การกำหนด order ในการแสดงของ grid -> จากการทำแล้วเทียบกับ web จริง จะมี 1 ส่วนที่เมื่อทำ responsive แล้ว ลำดับจะสลับกัน ซึ่งทำให้ต้องกำหนด order ขึ้นมา เพื่อที่ทำให้การ display ใน case ของ responsive*/
   }
 }
 
 /*code css สำหรับโครงสร้างของข่าวแรกที่มีรูปประกอบ*/
 .newsarticleconfig {
-  border-bottom: 1px solid #e6e8ea;
   display: grid;
+  border-bottom: 1px solid #e6e8ea;
   grid-template-columns: 1fr;
-  grid-gap: 12px;
+  grid-gap: 16px;
   align-items: start;
   padding-bottom: 4px;
 }
+
 /*เงื่อนไขเพิ่มเติม เกิดขึ้นเพราะตอนเขียน เมื่อเทียบกับ web จริง เห็นว่า ตอนเอา mouse ชี้ ตัว head ของข่าวจะมี เส้นใต้  กับรูป จะมีความจางลง*/
 .newsarticleconfig:hover img {
   opacity: 0.8; /*code css ที่กำหนดเมื่อชี้ไป แล้วทำให้รูปมี opacity*/
@@ -454,11 +449,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
-/*code css สำหรับการวางตำแหน่งของรูปข่าว*/
-.Newsphotswrapconfig {
-  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-}
-
 /*code css สำหรับการวางตำแหน่ง และกำหนดขนาดของรูปข่าว*/
 .cardmd {
   position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
@@ -470,12 +460,6 @@ web จริง จะมีช่องว่างระหว่าง navig
 .cardmd img {
   aspect-ratio: 16 / 9;
   object-fit: cover;
-}
-
-/*code css ทำขึ้นมาเพื่อกำหนด position ของรูปทั้งหมด*/
-.grayplaceholder {
-  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-  line-height: 0;
 }
 
 /*code css ทำขึ้นมาเพื่อกำหนด tag img ที่เป็นรูปภาพ "ทั้งหมด" ภายใน web นี้*/
@@ -503,20 +487,16 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
-/*code css สำหรับการวางโครงสร้างหัวข่าว*/
-.textheadnews {
-  width: 100%;
-}
-
+/*code css สำหรับการทำ display ของหัวข่าว*/
 @media screen and (max-width: 425px) {
   .textheadnews {
-    min-height: 32px;
+    min-height: 32px; /*กำหนดความสูงขั้นต่ำของ element ให้ไม่ต่ำกว่า 32px*/
     display: flex;
-    align-items: center;
+    align-items: center; /*text จะอยู่แนวดิ่งตรงกลาง*/
   }
 }
 
-/*code css สำหรับการกำหนดความกว้างของ text ข่าว ต้องทำแยกขึ้นมาเพราะตอนทำ responsive เมื่อจอขนาดเล็กลง จะต้องกำหนด margin เพื่อไม่ให้ text ชิดด้านขวามากเกินไป (ref. จาก web จริง)*/
+/*code css สำหรับการกำหนดความกว้างของ text ข่าว ต้องทำแยกขึ้นมาเพราะตอนทำ responsive เมื่อจอขนาดเล็กลง จะต้องกำหนด margin เพื่อไม่ให้ text ชิดด้านขวามากเกินไป*/
 .textheadnewscontent {
   width: 100%;
   margin-right: 0;
@@ -532,7 +512,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 .textheadnewscontain {
   color: #202224;
   font: serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 18px;
   line-height: 22px;
   text-transform: none;
@@ -544,6 +524,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   .textheadnewscontain {
     font: serif;
     font-weight: 500;
+    font-weight: bold;
     font-size: 18px;
     line-height: 22px;
     text-transform: none;
@@ -552,9 +533,9 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
-/*code css สำหรับการกำหนด style ของคำอธิบายข่าว*/
+/*code css สำหรับการกำหนด style ของคำอธิบายข่าว สำหรับบางส่วนที่ responsive แล้วจะหายไป และจะอยู่กับ text ที่ใช้ layout ภายใน เป็น */
 .textsubhd {
-  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font: serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -573,10 +554,10 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css สำหรับการกำหนดโครงสร้างของ เวลาและประเภท*/
 .continentandtime {
+  display: flex;
   margin-top: 0px;
   height: 32px;
   align-items: center;
-  display: flex;
   gap: 8px;
 }
 
@@ -616,10 +597,10 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css สำหรับโครงสร้างของข่าวที่สองที่มีรูปประกอบ ต่างจาก class "newsarticleconfig* เพราะไม่มีเส้นคั่นด้านล่าง (ref. จาก web จริง) แต่ code responsive ยังคงเดิม*/
 .framenews2 {
   border-bottom: 0;
+  display: grid;
   grid-template-columns: 1fr;
   align-items: start;
   grid-gap: 12px;
-  display: grid;
   padding-bottom: 4px;
 }
 
@@ -820,7 +801,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 .Gazatext {
   color: #202224;
   font: serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 28px;
   line-height: 32px;
   text-transform: none;
@@ -833,21 +814,9 @@ web จริง จะมีช่องว่างระหว่าง navig
   .Gazatext {
     font: serif;
     font-weight: 500;
+    font-weight: bold;
     font-size: 24px;
     line-height: 28px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.48px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .Gazatext {
-    font: serif;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-    text-transform: none;
     text-decoration: none;
     letter-spacing: -0.48px;
   }
@@ -941,15 +910,8 @@ web จริง จะมีช่องว่างระหว่าง navig
   display: grid;
 }
 
-/*code css สำหรับการกำหนด position ของ icon play*/
-.playiconconfig {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
 /*code css สำหรับการกำหนด style ของ icon play*/
-.playiconconfig2 {
+.playiconconfig {
   color: #202224;
   grid-template-columns: auto auto;
   align-items: center;
@@ -961,23 +923,26 @@ web จริง จะมีช่องว่างระหว่าง navig
   width: auto;
   float: left;
   grid-gap: 1.8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
-.playiconconfig2 > svg {
+.playiconconfig > svg {
   height: 18.3px;
   width: 18.3px;
 }
 
 @media screen and (max-width: 425px) {
-  .playiconconfig2 {
+  .playiconconfig {
     grid-gap: 1.8px;
   }
-  .playiconconfig2 > svg {
+  .playiconconfig > svg {
     height: 18px;
   }
 }
 
-/*code css สำหรับการกำหนด style ของ description ข่าว*/
+/*code css สำหรับการกำหนด style ของ description ข่าว บางส่วนที่ ทำ responsive แล้ว ยังคงอยู่*/
 .cardgriddesc {
   font: serif;
   font-weight: 400;
@@ -1002,7 +967,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css สำหรับช่วงข่าวที่ 2 (หัวเรื่อง "WeekEnd reads")*/
 /*code css สำหรับการวางโครงสร้างพื้นฐานของช่วงข่าวที่ 2*/
 .weekendreadsectionclass {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   margin-block: 48px; /*กำหนดระยะห่างด้านบนและด้านล่างขององค์ประกอบ*/
@@ -1093,15 +1058,17 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css สำหรับการวางโครงสร้างเพื่อใช้ลงข่าว โดยใน section นี้ web จริง จะมีการแบ่ง 2 ส่วนเป็น ซ้าย ขวา แต่หากขนาดหน้าจอเล็กลงจะเป็นตำแหน่งเดียว ไม่มีแบ่งซ้ายขวา*/
 .indgrid2config {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0 16px;
   grid-gap: 16px;
-  display: grid;
 }
-/*responsive handle*/
+/*responsive handle เพือ่รองรับการบีบ โดย web จริง จะกำหนด grid เป็น 1fr แต่ตัว cloning นี้ ใช้ flex แทน*/
 @media screen and (max-width: 425px) {
   .indgrid2config {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -1119,10 +1086,9 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css ที่ใช้เพื่อกำหนดโครงสร้างข่าวแต่ละข่าวที่อยู่ภายใต้หัวข้อ weekend reads*/
 .layoutnewssec2 {
-  transition: opacity 0.2s ease-in-out; /*เอฟเฟกต์เปลี่ยนค่าแบบนุ่มนวล (smooth animation) ให้กับ ความโปร่งใส (opacity) ของ element*/
-  grid-auto-rows: auto auto 1fr auto;
-  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
   display: grid;
+  transition: opacity 0.2s ease-in-out; /*เอฟเฟกต์เปลี่ยนค่าแบบนุ่มนวล (smooth animation) ให้กับ ความโปร่งใส (opacity) ของ element*/
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
   opacity: 1;
 }
 
@@ -1150,12 +1116,13 @@ web จริง จะมีช่องว่างระหว่าง navig
 }
 
 /*code สำหรับการวางโครง text ของข่าวในหมวดหมู่ Weekend Reads*/
+/*web จริงเป็น grid แต่ cloning version ใช้เป็น flex แทน*/
 .textweekend1 {
+  display: flex;
   background-color: #ffffff;
   color: #ffffff;
-  grid-gap: 12px;
-  display: grid;
-  padding-top: 8px;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /*code สำหรับการวางโครง text description ของข่าวในหมวดหมู่ Weekend Reads*/
@@ -1196,7 +1163,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css สำหรับกำหนดโครงสร้างพื้นฐานของ section ที่ 3 (หมวดหมู่ Premier League)*/
 .premierleaguesectionclass {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   margin-block: 48px;
@@ -1245,7 +1212,12 @@ web จริง จะมีช่องว่างระหว่าง navig
 }
 
 /*code css responsive handle*/
-@media screen and (max-width: 1007px) {
+@media screen and (max-width: 425px) {
+  .photoLtextRgrid2config {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 375px) {
   .photoLtextRgrid2config {
     grid-template-columns: 1fr;
   }
@@ -1300,16 +1272,9 @@ web จริง จะมีช่องว่างระหว่าง navig
   display: grid;
 }
 
-@media screen and (max-width: 8192px) {
+@media screen and (max-width: 2560px) {
   .textudconfig {
     grid-template-columns: subgrid; /*new css parameter : เป็นการกำหนดคอลัมน์ของกริดย่อย (subgrid) โดยการสืบทอดการตั้งค่าคอลัมน์จากกริดหลัก (parent grid) ไปยังกริดย่อย*/
-  }
-}
-
-@media screen and (max-width: 1007px) {
-  .textudconfig {
-    padding: 12px 0 0 0;
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1405,7 +1370,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 .hlconfig {
   color: #202224;
   font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 28px;
   line-height: 32px;
   text-transform: none;
@@ -1417,7 +1382,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 @media screen and (max-width: 425px) {
   .hlconfig {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 24px;
     line-height: 28px;
     text-transform: none;
@@ -1426,7 +1391,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
-/*code css ใช้กำหนด style ของ text description*/
+/*code css ใช้กำหนด style ของ text description ของข่าวส่วน premier league, watch, watch list*/
 .cdesc {
   color: #202224;
   font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
@@ -1506,7 +1471,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css ใช้กำหนดระยะห่างพื้นฐานเมื่อ button "See More" ถูกปิดใช้งาน*/
 .thisweekaudsectionclass {
-  margin-top: 1;
+  display: block;
 }
 
 /*code css (responsive handle) ใช้กำหนด style เมื่อ button "See More" ถูกปิดใช้งาน*/
@@ -1578,7 +1543,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css ใช้กำหนด layout audio ทั้งหมด*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .audiotypegridconfig {
-  display: grid;
+  display: grid; /*ตอนแรกลองกำหนดเป็น block แต่ผลปรากฏว่า ล้นออกมา จึงทำให้มีการกกำหนดเป็น grid แทน แล้วผลที่ได้มาคือไม่ล้น*/
   padding: 0 16px;
 }
 
@@ -1609,6 +1574,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   height: 100%;
 }
 
+/*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
 .audcardconfig img {
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -1778,18 +1744,16 @@ web จริง จะมีช่องว่างระหว่าง navig
 }
 
 .savebuttconfig2:disabled {
-  /**/
+  /*pseudo-class ที่ใช้กับปุ่มที่ถูกปิดใช้งาน*/
   pointer-events: none; /*ปุ่มจะไม่สามารถถูกคลิกหรือ interact ได้*/
   cursor: not-allowed; /*เมื่อเอาเมาส์ไปชี้จะเห็นเป็นรูป "ห้าม" บอกว่าปุ่มใช้งานไม่ได้*/
 }
 
 .savebuttconfig2:focus {
-  /**/
   border-width: 2px; /*เมื่อปุ่มถูก focus (เช่นใช้คีย์บอร์ด Tab มาเลือก) จะมีเส้นขอบหนา 2px แสดงขึ้น (ถ้า border-style ไม่ได้ตั้งไว้ อาจไม่มีผลเท่าไหร่)*/
 }
 
 .savebuttconfig2:hover {
-  /**/
   background-color: #dcdee0; /*เมื่อเอาเมาส์ไปชี้ (hover) จะเปลี่ยนพื้นหลังเป็นสีเทาอ่อน*/
 }
 
@@ -1798,7 +1762,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 50%; /*การทำขอบของ ปุ่ม save ให้เป็นวงกลม*/
   box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
@@ -1833,7 +1797,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  text-transform: none;
   text-decoration: none;
   letter-spacing: -0.12px;
   color: rgb(84, 86, 88);
@@ -1842,7 +1805,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css สำหรับการวางโครงสร้าง พื้นฐานของ section More news*/
 .morenewsconfig {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   margin-block: 48px;
@@ -1880,8 +1843,9 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
+/*เส้นคั่นบางๆ เมื่อแบ่ง responsive*/
 @media screen and (max-width: 425px) {
-  .morenewsctconfig > div:nth-of-type(-n + 4) > div > a > div {
+  .morenewsctconfig {
     border-bottom: 1px solid #e6e8ea;
   }
 }
@@ -1900,7 +1864,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css สำหรับการวางโครงสร้าง พื้นฐานของ section Editor's Picks*/
 /*co class นี้กับ section Discover more from BBC*/
 .edpsectioncalss {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #141618;
   padding-block: 24px;
@@ -2013,19 +1977,18 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css ใช้กำหนดขนาดของ flex โดยที่มีการ declare ให้ scroll ไปทางขวา*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .flexsizehardcolorbgconfig {
-  width: 270px;
-  flex-shrink: 0;
-  scroll-snap-align: start;
+  width: 270px; /*กำหนดความกว้างของ element นี้ให้คงที่ๆ 270px*/
+  flex-shrink: 0; /*บังคับไม่ให้ flex ย่อขนาดโดยเด็ดขาด*/
+  scroll-snap-align: start; /*ใช้ร่วมกับ scorll container โดยที่ให้จัดตำแหน่งชิดขอบเริ่มต้น (ในบริบทนี้ ให้เริ่มจาก ด้านซ้ายในแนวนอน (จากการกำหนด scroll-snap-type เป็นแกน x*/
 }
 
 /*code css ที่ config โครงสร้างไว้สำหรับการใส่ข่าวแต่ละข่าว*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cardvdoconfig {
-  border-bottom: 0;
-  transition: opacity 0.2s ease-in-out;
-  grid-auto-rows: auto auto 1fr auto;
-  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
   display: grid;
+  border-bottom: 0;
+  transition: opacity 0.2s ease-in-out; /*element มีการเปลี่ยนแปลงความโปร่งใส จะเกิด animation 2 วินาที*/
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
   opacity: 1;
 }
 
@@ -2101,7 +2064,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 .cardheadlineconfig {
   color: rgb(230, 232, 234);
   font-family: "BBC Reith Serif", BBCReithSerif-fallback, serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 18px;
   line-height: 22px;
   text-transform: none;
@@ -2180,7 +2143,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css ที่ config structure พื้นฐานของ watch list section*/
 .watchlistsectionclass {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   margin-block: 48px;
@@ -2201,7 +2164,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css ที่ทำ config โครงสร้างพื้นฐาน ของ section Sustainable Travel*/
 .sustainabletralvelsectionclass {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   margin-block: 48px;
@@ -2213,7 +2176,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   box-sizing: border-box;
 }
 /*responsive handle*/
-@media screen and (max-width: 8192px) {
+@media screen and (max-width: 2560px) {
   .sustaintravelgridconfig {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -2222,16 +2185,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
-@media screen and (max-width: 1279px) {
-  .sustaintravelgridconfig {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 16px;
-    margin: 0 16px;
-  }
-}
-
-@media screen and (max-width: 1007px) {
+@media screen and (max-width: 1440px) {
   .sustaintravelgridconfig {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -2281,7 +2235,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css สำหรับการวางโครงสร้างสำหรับลงข่าวที่เป็น ประเภทย่อย โดยมีการ declare ไว้ใน html*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .subcatesectionclass {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   margin-block: 48px;
@@ -2340,28 +2294,15 @@ web จริง จะมีช่องว่างระหว่าง navig
 }
 /*responsive handle เกิดขึ้นมาเพราะเมื่อขนาดหน้าจอเล็กลง การกำหนด column จะถูกแบ่ง โดยเริ่มต้น จะเป็น การสร้างคอลัมน์ 2 คอลัมน์ โดยแต่ละคอลัมน์มีขนาดเท่ากันคือ 1fr แต่เมื่อ screen size ถูกบีบลง การแสดงผลจะต้องเป็น การสร้างเพียง column เดียว และมีขนาดเท่ากันคือ 1fr*/
 /*ต้องทำเสริมจาก class subcategridconfig เพราะ class subcategridconfig ทำ responsive ที่ละ 2 แต่ class นี้ จะทำทีละ 1 เพราะเป็นการแบ่งย่อย */
-@media screen and (max-width: 8192px) {
+
+@media screen and (max-width: 2560px) {
   .groupgridconfig {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 24px;
   }
 }
 
-@media screen and (max-width: 1279px) {
-  .groupgridconfig {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 24px;
-  }
-}
-
-@media screen and (max-width: 1007px) {
-  .groupgridconfig {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 24px;
-  }
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1440px) {
   .groupgridconfig {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 24px;
@@ -2448,7 +2389,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css set color background, size, display ของ part latest audio*/
 .watchsecionconfig {
-  display: grid;
+  display: block;
   width: 100%;
   background-color: #141618;
   padding-block: 24px;
@@ -2535,7 +2476,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 .watchHLconfig {
   color: #e6e8ea;
   font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 28px;
   line-height: 32px;
   text-transform: none;
@@ -2577,12 +2518,6 @@ web จริง จะมีช่องว่างระหว่าง navig
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
-  }
-}
-
-@media screen and (max-width: 1007px) {
-  .watchdescconfig {
-    grid-column: 1 / span 2;
   }
 }
 
@@ -2806,7 +2741,6 @@ ul {
     height: 28px;
   }
 }
-j
 
 /*css class สำหรับ config position ของ button ที่เป็น icon social media แต่ละตัว*/
 .persocbuttstyle {
@@ -3058,6 +2992,23 @@ j
   text-align: right;
 }
 
+@media screen and (max-width: 2560px) {
+  .adtext {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 500px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
 @media screen and (max-width: 1440px) {
   .adtext {
     position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
@@ -3102,7 +3053,6 @@ j
     color: #505050;
     letter-spacing: 0;
     margin-left: auto;
-    margin-right: 3px; /*จุดที่ต่างกัน*/
     margin-bottom: 5px;
     text-transform: uppercase;
     text-align: right;
@@ -3110,7 +3060,24 @@ j
 }
 
 /*responsive handle ที่ config style ของ text ที่อยู่กับ ad ที่เป็นรูปสี่เหลี่ยมจตุรัส*/
-/*ที่ทำแยกกัน 2 ส่วนเพราะปัญหาที่เจอ คือการเคลื่อนตัวของ text advertisement ไป เมื่อทำ responsive จึงกำหนดเป็นระยะๆ เพื่อให้อยู่ตำแหน่งที่ใกล้เคียงกันมากที่สุด*/
+/*ที่ทำแยกกัน 2 ส่วนเพราะปัญหาที่เจอ คือการเคลื่อนตัวของ text advertisement ที่ไม่เท่ากัน จึงไป เมื่อทำ responsive จึงกำหนดเป็นระยะๆ เพื่อให้อยู่ตำแหน่งที่ใกล้เคียงกันมากที่สุด*/
+
+@media screen and (max-width: 2560px) {
+  .adtext2 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 695px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
 @media screen and (max-width: 1440px) {
   .adtext2 {
     position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
@@ -3156,6 +3123,57 @@ j
     letter-spacing: 0;
     margin-left: auto;
     margin-right: 25px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 2560px) {
+  .adtext3 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 0px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .adtext3 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 295px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .adtext3 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 4px; /*จุดที่ต่างกัน*/
     margin-bottom: 5px;
     text-transform: uppercase;
     text-align: right;
