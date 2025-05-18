@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- code title for adding title at above tab-->
     <title>
-      BBC Home - Breaking News, World News, US News, Sports, BusinessInnovation, Climate, Culture, Travel, Video &amp; Audio
+      BBC Home - Breaking News, World News, US News, Sports, BusinessInnovation, Climate, Culture, Travel, Video & Audio
     </title>
-    <link rel="icon" type="image/png" sizes="32x32" href="https://static.files.bbci.co.uk/bbcdotcom/web/20250409-091508-0ef9b7676-web-2.19.1-12/favicon-32x32.png" />
+    <link rel="icon" sizes="32x32" href="./images/bbcicon" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div data-testid="allelementsinweb" style = "allelement">
+    <div data-testid="allelementsinweb">
       <!-- code สำหรับส่วน header ด้านบนทั้งหมด-->
       <header class="headerall">
         <!-- การแยก div class เพื่อระบุองค์ประกอบทั้งหมด 3 องค์ประกอบ นั้นคือ แถบที่ใช้สำหรับค้นหา logo ที่อยู่ตรงกลาง และส่วนปุ่มที่อยู่ด้านขวา โดย import style ชื่อ "allcontentinheader"-->
@@ -133,8 +133,8 @@
       </nav>
 
       <!-- code สำหรับส่วนข่าวสารต่างๆ -->
-      <main id="main-content">
-        <article class="mainframe">
+      <main id="main">
+        <article class = "mainframe">
           <section data-testid="main section 1" class="headnewssection">
             <div data-testid="main div 1" class="classframe">
               <div data-testid="main div 1 layout (grid-configuration)" class="contentgrid">
@@ -143,13 +143,9 @@
                     <div data-testid = "Rosenburg">
                         <a class="link" href="https://www.bbc.com/news/articles/cy70vj2eejzo" target = "_blank">
                           <div class="newsarticleconfig">
-                            <div class="Newsphotswrapconfig">
                               <div class="cardmd">
-                                <div class="grayplaceholder">
                                   <img src="./images/img1.png" alt="A policewoman helps an injured woman" class="phosconfig"/>
-                                </div>
                               </div>
-                            </div>
                             <div class="justify">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
@@ -169,13 +165,9 @@
                     <div data-testid = "Zelensky Live">
                         <a href="https://www.bbc.com/news/live/c934nprkqz3t" class="link" target = "_blank">
                           <div class="framenews2">
-                            <div class="Newsphotswrapconfig">
                               <div class="cardmd">
-                                <div class="grayplaceholder">
                                   <img src="./images/img2.png" alt="pre broken building in Russia" class="phosconfig"/>
-                                </div>
                               </div>
-                            </div>
                             <div class="justify">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
@@ -200,7 +192,6 @@
                                 </div>
                               </div>
                               <p class="textsubhd"> Kyiv says Russian shelling and drone activity have increased today while Moscow accused Ukraine of launching hundreds of drone attacks.</p>
-                              <div class="continentandtime"></div>
                             </div>
                           </div>
                         </a>
@@ -212,14 +203,7 @@
                         <div class="gazasplit">
                           <div class="gazaimgposition">
                             <div class="gazaphotosize">
-                              <div class="grayplaceholder">
-                                <img class="grayplaceholderinside="/><img
-                                  sizes="(min-width: 1008px) 33vw, (min-width: 600px) 66vw, 100vw"
-                                  src="./images/img3.png"
-                                  alt="an ambulance in Gaza"
-                                  class="phosconfig"
-                                />
-                              </div>
+                                <img sizes="(min-width: 1008px) 33vw, (min-width: 600px) 66vw, 100vw" src="./images/img3.png" alt="an ambulance in Gaza" class="phosconfig"/>
                             </div>
                           </div>
                           <div class="gazacardtxtwrap">
@@ -266,7 +250,7 @@
                           <div class="gridtxtwrap">
                             <div class="textheadnews">
                               <div class="textheadnewscontent">
-                                <div class="playiconconfig playiconconfig2">
+                                <div class="playiconconfig">
                                   <svg
                                     viewBox="0 0 32 32"
                                     width="3em"
@@ -336,7 +320,7 @@
           </section>
 
           <div class="advertisement">
-            <div class="ad active">
+            <div class= "ad">
                 <div class="adinner">
                     <div class="adtext-wrapper">
                         <span class="adtext">Advertisement</span>
@@ -365,10 +349,7 @@
                       <div class="layoutnewssec2">
                         <div class="imgposition">
                           <div class="imgsizeratio">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"/>
                               <img src="./images/img4.png" alt="many people stand in various colors" class="phosconfig"/>
-                            </div>
                           </div>
                         </div>
                         <div class="textweekend1">
@@ -377,7 +358,7 @@
                               <h2 class="textheadnewscontain"> What genetics has taught us about race </h2>
                             </div>
                           </div>
-                          <p class="carddesc2"> As US President Donald Trump takes aim at the Smithsonian Institution for &quot;anti-American ideology&quot;, Adam Rutherford examines what the science of genetics has taught us about race.</p>
+                          <p class="carddesc2"> As US President Donald Trump takes aim at the Smithsonian Institution for 'anti-American ideology', Adam Rutherford examines what the science of genetics has taught us about race.</p>
                           <div class="mdlastup">
                             <span class="timeconfig">7 hrs ago</span>
                             <div class="mdsep"></div>
@@ -392,25 +373,16 @@
                       <div class="layoutnewssec2">
                         <div class="imgposition">
                           <div class="imgsizeratio">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"/>
-                              <img
-                                sizes="(min-width: 600px) 50vw, 100vw"
-                                src="./images/img5.png"
-                                alt="older paintings"
-                                class="phosconfig"
-                              />
-                            </div>
+                              <img sizes="(min-width: 600px) 50vw, 100vw" src="./images/img5.png" alt="older paintings" class="phosconfig"/>
                           </div>
                         </div>
                         <div class="textweekend1">
                           <div class="textheadnews">
                             <div class="textheadnewscontent">
-                              <h2 class="textheadnewscontain"> Why this iconic 1839 painting is not what it seems
-                              </h2>
+                              <h2 class="textheadnewscontain"> Why this iconic 1839 painting is not what it seems</h2>
                             </div>
                           </div>
-                          <p class="carddesc2"> As museums around the world celebrate the 250th birthday of JMW Turner, it&#x27;s time to reappraise his beloved and celebrated painting, The Fighting Temeraire. </p>
+                          <p class="carddesc2"> As museums around the world celebrate the 250th birthday of JMW Turner, it's time to reappraise his beloved and celebrated painting, The Fighting Temeraire. </p>
                           <div class="mdlastup">
                             <span class="timeconfig">3 days ago</span>
                             <div class="mdsep"></div>
@@ -454,15 +426,7 @@
                       <div class="photoLtextRgrid2config">
                         <div class="mdwrap">
                           <div class="Lphotoconfigingrid2">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"
-                              /><img
-                                sizes="(min-width: 1008px) 75vw, 100vw"
-                                src="./images/img6.png"
-                                alt="Leicester v Liverpool"
-                                class="phosconfig"
-                              />
-                            </div>
+                              <img sizes="(min-width: 1008px) 75vw, 100vw" src="./images/img6.png" alt="Leicester vs Liverpool" class="phosconfig"/>
                           </div>
                         </div>
                         <div class="textudconfig">
@@ -503,7 +467,7 @@
           </section>
 
           <div class="advertisement">
-            <div class="ad active">
+            <div class="ad">
                 <div class="adinner">
                     <div class="adtext-wrapper">
                         <span class="adtext2">Advertisement</span>
@@ -569,14 +533,7 @@
                       <div data-testid="Audioimage">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img7.png"
-                                alt="The Climate Questions"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img7.png" alt="The Climate Questions" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -630,9 +587,7 @@
                       </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -665,14 +620,7 @@
                       <div data-testid="Audioimage">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img8.png"
-                                alt="The Climate Questions"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img8.png" alt="The Climate Questions" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -726,9 +674,7 @@
                       </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -761,14 +707,7 @@
                       <div data-testid="Audioimage">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img9.png"
-                                alt="History Heroes"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img9.png" alt="History Heroes" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -822,9 +761,7 @@
                       </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -857,14 +794,7 @@
                       <div data-testid="Audioimage">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img10.png"
-                                alt="Live less ordinary"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img10.png" alt="Live less ordinary" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -918,9 +848,7 @@
                       </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -953,14 +881,7 @@
                       <div data-testid="Audioimage">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img11.png"
-                                alt="The Documentary Podcast"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img11.png" alt="The Documentary Podcast" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -1014,9 +935,7 @@
                       </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -1048,14 +967,7 @@
                     <div class="audcardconfig">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img12.png"
-                                alt="CrowdScience"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img12.png" alt="CrowdScience" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -1108,9 +1020,7 @@
                         </a>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -1143,14 +1053,7 @@
                       <div data-testid="Audioimage">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img10.png"
-                                alt="Live Less Ordinary2"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img10.png" alt="Live Less Ordinary2" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -1204,9 +1107,7 @@
                       </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -1239,14 +1140,7 @@
                       <div data-testid="Audioimage">
                         <a href="www.bbc.com/audio/play/w3ct7q8z" class="link" target="_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img
-                                class="grayplaceholderinside"/><img
-                                sizes="(min-width: 900px) 50vw"
-                                src="./images/img13.png"
-                                alt="Witness History"
-                                class="phosconfig"/>
-                            </div>
+                              <img sizes="(min-width: 900px) 50vw" src="./images/img13.png" alt="Witness History" class="phosconfig"/>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -1300,9 +1194,7 @@
                       </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
-                          <div
-                            data-testid="popoverTrigger"
-                            id="popover-trigger">
+                          <div data-testid="Save">
                             <button
                               type="button"
                               data-testid="ipswich-follow-button"
@@ -1499,14 +1391,7 @@
                           <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
-                                    sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
-                                    src="./images/img14.png"
-                                    alt="young woman for Are you a morning lark part"
-                                    class="phosconfig"
-                                  />
-                                </div>
+                                  <img sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw" src="./images/img14.png" alt="young woman for Are you a morning lark part" class="phosconfig"/>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1545,14 +1430,7 @@
                         <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
-                                    sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
-                                    src="./images/img15.png"
-                                    alt="dried place"
-                                    class="phosconfig"
-                                  />
-                                </div>
+                                  <img sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw" src="./images/img15.png" alt="dried place" class="phosconfig"/>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1590,14 +1468,7 @@
                         <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
-                                    sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
-                                    src="./images/img16.png"
-                                    alt="deadly street"
-                                    class="phosconfig"
-                                  />
-                                </div>
+                                  <img sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw" src="./images/img16.png" alt="deadly street" class="phosconfig"/>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1635,14 +1506,7 @@
                         <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
-                                    sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
-                                    src="./images/img17.png"
-                                    alt="deadly street"
-                                    class="phosconfig"
-                                  />
-                                </div>
+                                  <img sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw" src="./images/img17.png" alt="deadly street" class="phosconfig"/>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1680,14 +1544,7 @@
                         <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
-                                    sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
-                                    src="./images/img18.png"
-                                    alt="deadly street"
-                                    class="phosconfig"
-                                  />
-                                </div>
+                                  <img sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw" src="./images/img18.png" alt="deadly street" class="phosconfig"/>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1725,14 +1582,7 @@
                         <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
-                                    sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
-                                    src="./images/img19.png"
-                                    alt="snow bear"
-                                    class="phosconfig"
-                                  />
-                                </div>
+                                  <img sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw" src="./images/img19.png" alt="snow bear" class="phosconfig"/>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1770,14 +1620,7 @@
                         <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
-                                    sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
-                                    src="./images/img20.png"
-                                    alt="rice"
-                                    class="phosconfig"
-                                  />
-                                </div>
+                                  <img sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw" src="./images/img20.png" alt="rice" class="phosconfig"/>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1815,14 +1658,12 @@
                         <div data-testid="Editor Picks Cardvdo" class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
-                                  <img class="grayplaceholderinside"/><img
+                                  <img
                                     sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
                                     src="./images/img21.png"
                                     alt="shark eat small fish"
                                     class="phosconfig"
                                   />
-                                </div>
                               </div>
                               <div class="cttypelbstyle">
                                 <div class="cttypeicwrap">
@@ -1861,7 +1702,7 @@ save its life.</p>
           </section>
           
           <div class="advertisement">
-            <div class="ad active">
+            <div class="ad">
                 <div class="adinner">
                     <div class="adtext-wrapper">
                         <span class="adtext2">Advertisement</span>
@@ -1903,14 +1744,12 @@ save its life.</p>
                       <div class="photoLtextRgrid2config">
                         <div class="mdwrap">
                           <div class="Lphotoconfigingrid2">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"/><img
+                              <img
                                 sizes="(min-width: 1008px) 75vw, 100vw"
                                 src="./images/img22.png"
                                 alt="Close up of human eye with green iris and black eye lashes "
                                 class="phosconfig"
                               />
-                            </div>
                           </div>
                         </div>
                         <div class="textudconfig">
@@ -1950,17 +1789,14 @@ save its life.</p>
                   <div data-testid="How spanish">
                     <a href="www.bbc.com/travel/article/20240822-el-hierro-how-the-youngest-canary-island-escaped-mass-tourism" target = "_blank" class="link">
                       <div class="newsarticleconfig">
-                        <div class="Newsphotswrapconfig">
+                        <div data-testid ="Newsphoto">
                           <div class="cardmd">
-                            <div class="grayplaceholder">
                               <img
-                                class="grayplaceholderinside"/><img
                                 sizes="25vw"
                                 src="./images/img23.png"
                                 alt="Bell Tower of Church"
                                 class="phosconfig"
                               />
-                            </div>
                           </div>
                         </div>
                         <div class="justify">
@@ -1983,17 +1819,14 @@ save its life.</p>
                   <div data-testid="Copenhagen">
                     <a href="/travel/article/20240730-copenhagens-new-copenpay-scheme-rewards-tourists-but-does-it-actually-work" target ="_blank" class="link">
                       <div class="newsarticleconfig">
-                        <div class="Newsphotswrapconfig">
+                        <div data-testid ="Newsphoto">
                           <div class="cardmd">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside">
                                 <img
                                 sizes="25vw"
                                 src="./images/img24.png"
                                 alt="qr in city"
                                 class="phosconfig"
                               />
-                            </div>
                           </div>
                         </div>
                         <div class="justify">
@@ -2015,16 +1848,14 @@ save its life.</p>
                   <div data-testid="Is there such a thing">
                     <a href="www.bbc.com/travel/article/20250306-why-travellers-are-seeking-out-guilt-free-safaris" target = "_blank" class="link">
                       <div class="newsarticleconfig">
-                        <div class="Newsphotswrapconfig">
+                        <div data-testid="Newsphoto">
                           <div class="cardmd">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"/><img
+                              <img
                                 sizes="25vw"
                                 src="./images/img25.png"
                                 alt="Cheetah"
                                 class="phosconfig"
                               />
-                            </div>
                           </div>
                         </div>
                         <div class="justify">
@@ -2049,7 +1880,7 @@ save its life.</p>
           </section>
           
           <div class="advertisement">
-            <div class="ad active">
+            <div class="ad">
                 <div class="adinner">
                     <div class="adtext-wrapper">
                         <span class="adtext">Advertisement</span>
@@ -2091,16 +1922,14 @@ save its life.</p>
                         <div data-testid="us supreme court phos">
                           <a href="www.bbc.com/news/articles/cjdx0gp0kd0o" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
-                                    <img class="grayplaceholderinside"/><img
+                                    <img
                                       sizes="25vw"
                                       src="./images/img26.png"
                                       alt="2 people talking"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -2113,7 +1942,7 @@ save its life.</p>
                                 <div class="continentandtime">
                                   <span class="timeconfig">12 mins ago</span>
                                   <div class="mdsep"></div>
-                                  <span class="mdtag" >US &amp; Canada</span>
+                                  <span class="mdtag" >US & Canada</span>
                                 </div>
                               </div>
                             </div>
@@ -2195,16 +2024,14 @@ save its life.</p>
                         <div data-testid="Pope Francis">
                           <a href="www.bbc.com/news/articles/ckg291ngq7qo" class="link" target = "_blank">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
-                                    <img class="grayplaceholderinside"/><img
+                                    <img
                                       sizes="25vw"
                                       src="./images/img27.png"
                                       alt="Pope Francis"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -2225,44 +2052,36 @@ save its life.</p>
                         </div>
                         <div data-testid="DR Congo">
                           <a href="www.bbc.com/news/articles/c2kv49wyw23o" target="_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> DR Congo bans ex-president's party over alleged rebel links</h2>
                                 </div>
-                              </div>
-                              <div class="continentandtime">
-                                <span class="timeconfig">4 hrs ago</span>
-                                <div class="mdsep"></div>
-                                <span class="mdtag">Africa</span>
-                              </div>
+                                <div class="continentandtime">
+                                  <span class="timeconfig">4 hrs ago</span>
+                                  <div class="mdsep"></div>
+                                  <span class="mdtag">Africa</span>
+                                </div>
                             </div>
                           </a>
                         </div>
                         <div data-testid="Attacks continue">
                           <a href="www.bbc.comnews/articles/c787v5gxny7o" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
-                              <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Attacks continue despite Putin's 'Easter truce' pledge, Zelensky says</h2>
                                 </div>
-                              </div>
                               <div class="continentandtime">
                                 <span class="timeconfig">6 hrs ago</span>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Europe</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Gunmen shoot 12 dead">
                           <a href="www.bbc.com/news/articles/cm241v1w2vro" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Gunmen shoot 12 dead at Ecuador cockfight</h2>
                                 </div>
-                              </div>
                               <div class="continentandtime">
                                 <span class="timeconfig">14 hrs ago</span>
                                 <div class="mdsep"></div>
@@ -2301,18 +2120,14 @@ save its life.</p>
                         <div data-testid="Arsenal beat">
                           <a href="https://www.bbc.com/sport/football/live/c9w8dr54y40t" target="_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                         sizes="25vw"
                                         src="./images/img28.png"
                                         alt="football player"
                                         class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -2330,7 +2145,6 @@ save its life.</p>
                         </div>
                         <div data-testid="Women's Champions League">
                           <a href="https://www.bbc.com/sport/football/live/c4grvm97kywt" target="_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <div class="playiconconfig livelogoconfig">
@@ -2356,12 +2170,10 @@ save its life.</p>
                                 </div>
                               </div>
                               <div class="continentandtime"></div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Live Scottish Cup">
                           <a href="https://www.bbc.com/sport/football/live/cddem09vmlgt" target="_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <div class="gridalign livelogoconfig">
@@ -2387,18 +2199,15 @@ save its life.</p>
                                 </div>
                               </div>
                               <div class="continentandtime"></div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Chelsea">
                           <a href="https://www.bbc.com/sport/football/live/cgjl172qye1t" target="_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Chelsea come from behind as late show stuns Fulham</h2>
                                 </div>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -2429,18 +2238,14 @@ save its life.</p>
                         <div data-testid="Designed in US, made in China">
                           <a href="www.bbc.com/news/articles/czx17361pw1o" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                       sizes="25vw"
                                       src="./images/img29.png"
                                       alt="child hold iPhone 15"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -2461,12 +2266,10 @@ save its life.</p>
                         </div>
                         <div data-testid="Starmer and Trump">
                           <a href="www.bbc.com/news/articles/c8073jzr1xko" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Starmer and Trump discuss 'productive' trade talks </h2>
                                 </div>
-                              </div>
                               <div class="continentandtime">
                                 <span class="timeconfig">2 days ago</span>
                                 <div class="mdsep"></div>
@@ -2477,7 +2280,6 @@ save its life.</p>
                         </div>
                         <div data-testid="What we know about US-Ukraine">
                           <a href="www.bbc.com/news/articles/cn527pz54neo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> What we know about US-Ukraine minerals deal </h2>
@@ -2488,12 +2290,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">World</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="US lays out">
                           <a href="www.bbc.com/news/articles/cly517p1zgqo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> US lays out plans to hit Chinese ships with port fees
@@ -2505,7 +2305,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Business</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -2516,7 +2315,7 @@ save its life.</p>
           </section>
           
           <div class="advertisement">
-            <div class="ad active">
+            <div class="ad">
                 <div class="adinner">
                     <div class="adtext-wrapper">
                         <span class="adtext2">Advertisement</span>
@@ -2558,16 +2357,12 @@ save its life.</p>
                     <div class="audcardconfig">
                         <a href="www.bbc.com/audio/play/p0l5ddfb" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
                               <img
-                                class="grayplaceholderinside"
-                              /><img
                                 sizes="(min-width: 900px) 50vw"
                                 src="./images/globalnewpodcast.png"
                                 alt="Global News Podcast"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -2640,21 +2435,16 @@ save its life.</p>
                       </div>
                     </div>
                   </div>
-                  <div data-testid="The Global Story -> The President Path">
+                  <div data-testid = "The global story -> President">
                     <div class="audcardconfig">
-                      <div data-testid="Photo and Main txt">
-                        <a href="/audio/play/p0l59sd8" class="link" target = "_blank">
+                        <a href="www.bbc.com/audio/play/p0l5ddfb" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
                               <img
-                                class="grayplaceholderinside"
-                              /><img
                                 sizes="(min-width: 900px) 50vw"
-                                src="/images/theglobalstorybbc.png"
-                                alt="The Global Story"
+                                src="./images/theglobalstorybbc.png"
+                                alt="Global story"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -2662,8 +2452,7 @@ save its life.</p>
                                   width="30"
                                   height="30"
                                   icon="audio-new"
-                                  class="icondisplayconfig"
-                                >
+                                  class="icondisplayconfig">
                                   <path
                                     fill-rule="evenodd"
                                     clip-rule="evenodd"
@@ -2704,9 +2493,8 @@ save its life.</p>
                             </div>
                           </div>
                           <h2 class="audtitle"> The Global Story</h2>
-                          <p class="auddesc"> The President's Path: Doubling Down on Deportations</p>
+                          <p class="auddesc"> The Presidnet's Path: Doubling Down on Deportations </p>
                         </a>
-                      </div>
                       <div class="savebuttsec">
                         <div class="savebuttinspect">
                             <button class="savebuttconfig1 savebuttconfig2">
@@ -2717,14 +2505,14 @@ save its life.</p>
                                   viewBox="0 0 12 14"
                                   icon="saved-items-outlined"
                                   class="svgsideselectorbutt">
-                                  <path d="M5.99996 9.43351L9.46496 11.0741L9.46496 2.0125L2.53496 2.0125L2.53496 11.0741L5.99996 9.43351ZM0.959961 13.5625L0.959961 0.4375L11.04 0.4375L11.04 13.5625L5.99996 11.1761L0.959961 13.5625Z" fill="currentColor" ></path>
+                                  <path d="M5.99996 9.43351L9.46496 11.0741L9.46496 2.0125L2.53496 2.0125L2.53496 11.0741L5.99996 9.43351ZM0.959961 13.5625L0.959961 0.4375L11.04 0.4375L11.04 13.5625L5.99996 11.1761L0.959961 13.5625Z" fill="currentColor"></path>
                                 </svg>
                               </span>
                               <span class="buttontxt">Save</span>
                             </button>
                         </div>
                         <div class="timeaudframe">
-                          <p class="timeaudstyle"> 24 mins</p>
+                          <p class="timeaudstyle"> 24 mins </p>
                         </div>
                       </div>
                     </div>
@@ -2734,15 +2522,12 @@ save its life.</p>
                       <div data-testid="Photo and Main txt">
                         <a href="www.bbc.com/audio/play/p0l5b8p6" target = "_blank" class="link">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"
-                              /><img
+                              <img
                                 sizes="(min-width: 900px) 50vw"
                                 src="./images/globalnewpodcast.png"
                                 alt="Global News Podcast"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -2826,16 +2611,12 @@ save its life.</p>
                       <div data-testid="Photo and Main text">
                         <a href="www.bbc.com/audio/play/p0l582fz" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
                               <img
-                                class="grayplaceholderinside"
-                              /><img
                                 sizes="(min-width: 900px) 50vw"
                                 src="./images/globalnewpodcast.png"
                                 alt="Global News Podcast"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -2916,16 +2697,12 @@ save its life.</p>
                       <div data-testid="Photo and Manin txt">
                         <a href="www.bbc.com/audio/play/p0l5ct43" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
                               <img
-                                class="grayplaceholderinside"
-                              /><img
                                 sizes="(min-width: 900px) 50vw"
                                 src="./images/f1bbc.png""
                                 alt="F1: Chequered Flag,"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -3009,15 +2786,12 @@ save its life.</p>
                       <div data-testid="Photo and Main txt">
                         <a href="www.bbc.com/audio/play/p0l531n7" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"
-                              /><img
+                              <img
                                 sizes="(min-width: 900px) 50vw"
                                 src = "./images/thedebrif.png"
                                 alt="Football Daily, The Debrief"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -3101,16 +2875,12 @@ save its life.</p>
                       <div data-testid="Photo and main txt">
                         <a href="www.bbc.com/audio/play/p0l57mbk" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
                               <img
-                                class="grayplaceholderinside"
-                              /><img
                                 sizes="(min-width: 900px) 50vw"
                                 src="./images/f1bbc.png"
                                 alt="F1: Chequered Flag"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -3194,15 +2964,12 @@ save its life.</p>
                       <div data-testid="Photo and Main text">
                         <a href="www.bbc.com/audio/play/p0l55z86" class="link" target = "_blank">
                           <div class="audmarginbconfig">
-                            <div class="grayplaceholder">
-                              <img class="grayplaceholderinside"
-                              /><img
+                              <img
                                 sizes="(min-width: 900px) 50vw"
                                 src = "./images/globalnewpodcast.png"
                                 alt="Global News Podcast"
                                 class="phosconfig"
                               />
-                            </div>
                             <div class="ctlabel">
                               <div class="cttypeiconwrap">
                                 <svg
@@ -3276,7 +3043,7 @@ save its life.</p>
                         </div>
                       </div>
                     </div>
-                </div>
+                  </div>
               </div>
             </div>
           </section>
@@ -3312,19 +3079,14 @@ save its life.</p>
                         <div data-testid="Dad shells out on expensive Easter eggs">
                           <a href="www.bbc.com/news/articles/cg5qmg4y6j5o" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                       sizes="25vw"
                                       src="./images/img30.png"
-                                      loading="lazy"
                                       alt="fantastic tech daaddieee"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -3345,7 +3107,6 @@ save its life.</p>
                         </div>
                         <div data-testid="Influencers fuelling">
                           <a href="www.bbc.com/news/articles/crm3x92mpdxo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Influencers fuelling misogyny in schools, UK teachers say </h2>
@@ -3356,15 +3117,13 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Family & Education</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Minecraft players">
                           <a href="www.bbc.com/news/videos/clyq10vyvnqo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
-                                  <div class="playiconconfig playiconconfig2">
+                                  <div class="playiconconfig">
                                     <svg
                                       viewBox="0 0 32 32"
                                       width="3em"
@@ -3384,12 +3143,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">London</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Bafta winner">
                           <a href="www.bbc.com/news/articles/cx260n6557jo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Bafta winner keeps award hidden from young daughter </h2>
@@ -3400,7 +3157,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Beds, Herts & Bucks</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -3431,19 +3187,14 @@ save its life.</p>
                         <div data-testid ="Why I want an IVF">
                           <a href="www.bbc.com/news/articles/c5y4v7vj039o" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                       sizes="25vw"
                                       src ="images/img31.png"
-                                      loading="lazy"
                                       alt="Woman with golden retriever"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -3464,7 +3215,6 @@ save its life.</p>
                         </div>
                         <div data-testid="Cancer">
                           <a href="www.bbc.com/news/articles/cj9ew4dymndo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> 'Cancer gave me courage to admit I am transgender'</h2>
@@ -3475,12 +3225,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">London</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Why arsenic levels">
                           <a href="www.bbc.com/future/article/20250417-how-climate-change-could-affect-arsenic-in-rice" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Why arsenic levels in rice are rising</h2>
@@ -3491,12 +3239,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Future</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Scientists find & strongest">
                           <a href="www.bbc.com/news/articles/c39jj9vkr34o" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Scientists find & strongest evidence yet & of life on distant planet</h2>
@@ -3507,7 +3253,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Science & Environment</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -3542,18 +3287,14 @@ save its life.</p>
                         <div data-testid="How the young Stalin">
                           <a href="www.bbc.com/culture/article/20250417-how-a-young-joseph-stalin-inspired-star-wars-series-andor" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
-                                    <img class="grayplaceholderinside"
-                                    /><img
+                                    <img
                                       sizes="25vw"
                                       src="/images/img32.png"
-                                      loading="lazy"
                                       alt="star wars"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -3574,7 +3315,6 @@ save its life.</p>
                         </div>
                         <div data-testid="King and Queen attend Easter">
                           <a href="www.bbc.com/news/articles/ceqr1v51l9vo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> King and Queen attend Easter Sunday church service</h2>
@@ -3585,12 +3325,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">UK</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Albino hypnotist">
                           <a href="www.bbc.com/news/articles/ce824r8070po" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Albino hypnotist: I hypnotised myself to become a headline act</h2>
@@ -3601,12 +3339,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Glasgow & West Scotland</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="'I'm a viral author">
                           <a href="www.bbc.com/news/articles/c9djxjgezpjo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> 'I'm a viral author but I can't quit my job'</h2>
@@ -3617,7 +3353,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">England</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -3649,19 +3384,14 @@ save its life.</p>
                         <div data-testid="Waking up with a Banksy">
                           <a href="www.bbc.com/news/articles/cwy73nx46y3o" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                       sizes="25vw"
                                       src="/images/img33.png"
-                                      loading="lazy"
                                       alt="matepainting"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -3683,7 +3413,6 @@ save its life.</p>
                         </div>
                         <div data-testid="The forgotten Monet">
                           <a href="www.bbc.com/culture/article/20250401-the-forgotten-monet-how-masterful-paintings-by-the-artists-stepdaughter-are-finally-getting-recognition" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain">The 'forgotten Monet' finally getting her moment</h2>
@@ -3694,12 +3423,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Culture</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Why the quaint paintings">
                           <a href="www.bbc.com/culture/article/20250326-why-the-quaint-paintings-of-thomas-kinkade-divided-the-us" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Why the quaint paintings of Thomas Kinkade divided the US </h2>
@@ -3710,12 +3437,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Culture</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="The surprising story">
                           <a href="www.bbc.com/culture/article/20250317-the-surprising-story-of-van-goghs-guardian-angel" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> The surprising story of Van Gogh's guardian angel</h2>
@@ -3726,7 +3451,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Culture</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -3737,7 +3461,7 @@ save its life.</p>
           </section>
          
           <div class="advertisement">
-            <div class="ad active">
+            <div class="ad">
                 <div class="adinner">
                     <div class="adtext-wrapper">
                         <span class="adtext">Advertisement</span>
@@ -3780,17 +3504,12 @@ save its life.</p>
                       <div class="photoLtextRgrid2config">
                         <div class="mdwrap">
                           <div class="Lphotoconfigingrid2">
-                            <div class="grayplaceholder">
                               <img
-                                class="grayplaceholderinside"
-                              /><img
                                 sizes="(min-width: 1008px) 75vw, 100vw"
                                 src="./images/img20.png"
-                                loading="lazy"
                                 alt="rice"
                                 class="phosconfig"
                               />
-                            </div>
                           </div>
                           <div class="cttypelbstyle">
                             <div class="logoconfig1">
@@ -3857,18 +3576,14 @@ save its life.</p>
                         <div data-testid="The recipe for a centuries-old Easter">
                           <a href="www.bbc.com/travel/article/20240327-the-centuries-old-baba-recipe-made-with-96-egg-yolks" target="_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                       sizes="25vw"
                                       src="./images/img34.png"
                                       alt="Bundt cake with lemon glaze"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -3889,7 +3604,6 @@ save its life.</p>
                         </div>
                         <div data-testid="The baffling purple">
                           <a href="www.bbc.com/travel/article/20250417-the-baffling-purple-honey-found-only-in-north-carolina" target="_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> The baffling purple honey only found in the US South</h2>
@@ -3900,12 +3614,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Travel</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="What it's like to live">
                           <a href="www.bbc.com/travel/article/20250416-what-its-like-to-live-in-the-happiest-country-on-earth" class="link" target = "_blank">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> What it's like to live in the world's happiest country</h2>
@@ -3916,12 +3628,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Travel</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="How to have a self-care">
                           <a href="www.bbc.com/travel/article/20250415-chriselle-lims-self-care-guide-to-seoul" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> How to have a self-care holiday in Seoul </h2>
@@ -3932,7 +3642,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Travel</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -3964,19 +3673,14 @@ save its life.</p>
                           <a
                             href="www.bbc.com/travel/article/20240412-thailands-cooling-rice-dish-to-beat-the-heat" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div data-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                       sizes="25vw"
                                       src="./images/img35.png"
-                                      loading="lazy"
                                       alt="Khao chae Thai food"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -3997,7 +3701,6 @@ save its life.</p>
                         </div>
                         <div data-testid="Britain's new foodie">
                           <a href="www.bbc.com/travel/article/20250410-britains-tastiest-town-where-michelin-chefs-and-gingerbread-queens-reign" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Britain's new foodie town with six Michelin stars</h2>
@@ -4008,12 +3711,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Travel</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="The return of Sicily's">
                           <a href="www.bbc.com/travel/article/20250328-the-return-of-sicilys-ancient-white-gold" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> The return of Sicily's ancient 'white gold'</h2>
@@ -4024,12 +3725,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Travel</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Ottolenghi">
                           <a href="www.bbc.com/travel/article/20250327-yotam-ottolenghi-interview-influential-katty-kay" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Ottolenghi: Food is how we connect</h2>
@@ -4040,7 +3739,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Travel</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -4075,18 +3773,14 @@ save its life.</p>
                         <div data-testid="alligators">
                           <a href="www.bbc.com/future/article/20250417-how-alligators-keep-floridas-everglades-healthy" target = "_blank" class="link">
                             <div class="newsarticleconfig">
-                              <div class="Newsphotswrapconfig">
+                              <div dats-testid ="Newsphoto">
                                 <div class="cardmd">
-                                  <div class="grayplaceholder">
                                     <img
-                                      class="grayplaceholderinside"
-                                    /><img
                                       sizes="25vw"
                                       src="./images/img36.png"
                                       alt="alligator"
                                       class="phosconfig"
                                     />
-                                  </div>
                                 </div>
                               </div>
                               <div class="justify">
@@ -4107,7 +3801,6 @@ save its life.</p>
                         </div>
                         <div data-testid="Myanmar's capital">
                           <a href="www.bbc.com/news/articles/clyq0v25dm6o" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Myanmar's capital Nay Pyi Taw to be redrawn following earthquake </h2>
@@ -4118,12 +3811,10 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Asia</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Five dead as huge waves hit Australia coast">
                           <a href="www.bbc.com/news/articles/c1jx9dknd6go" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Five dead as huge waves hit Australia coast</h2>
@@ -4134,12 +3825,9 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Australia</span>
                               </div>
-                            </div>
                           </a>
-                        </div>
                         <div data-testid="Bottlenose dolphins">
                           <a href="www.bbc.com/news/articles/cpdz2ny9dqzo" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
                                   <h2 class="textheadnewscontain"> Bottlenose dolphins spotted killing dolphin juvenile</h2>
@@ -4150,8 +3838,8 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Wales</span>
                               </div>
-                            </div>
                           </a>
+                        </div>
                         </div>
                     </div>
                   </div>
@@ -4201,7 +3889,6 @@ save its life.</p>
                                         viewBox="0 0 32 32"
                                         width="30"
                                         height="30"
-                                        category="playback"
                                         icon="play"
                                         class="icondisplayconfig"
                                       >
@@ -4229,15 +3916,13 @@ save its life.</p>
                         </div>
                         <div data-testid="Up close with giant river otters as they learn to fish">
                           <a href="www.bbc.com/reel/video/p0l4cpd6/up-close-with-giant-river-otters-as-they-learn-how-to-fish" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
-                                  <div class="playiconconfig playiconconfig2">
+                                  <div class="playiconconfig">
                                     <svg
                                       viewBox="0 0 32 32"
                                       width="3em"
                                       height="3em"
-                                      category="playback"
                                       icon="play"
                                       class="icondisplayconfig">
                                       <path d="M29 16 5.8 1v30L29 16z"></path>
@@ -4251,20 +3936,17 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">World of wonder</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="A historic look at the iconic VW campervan">
                           <a href="www.bbc.com/reel/video/p0l3kw6w/a-historic-look-at-the-iconic-vw-campervan" target = "_blank" class="link">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
-                                  <div class="playiconconfig playiconconfig2">
+                                  <div class="playiconconfig">
                                     <svg
                                       viewBox="0 0 32 32"
                                       width="3em"
                                       height="3em"
-                                      category="playback"
                                       icon="play"
                                       class="icondisplayconfig"
                                     >
@@ -4279,15 +3961,13 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">Adventures</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                         <div data-testid="Inside one of the most...">
                           <a href="www.bb.com/reel/video/p0l3vw35/inside-one-of-the-world-s-most-remote-restaurants" class="link" target = "_blank">
-                            <div class="chesterarticleconfig">
                               <div class="textheadnews">
                                 <div class="textheadnewscontent">
-                                  <div class="playiconconfig playiconconfig2">
+                                  <div class="playiconconfig">
                                     <svg
                                       viewBox="0 0 32 32"
                                       width="3em"
@@ -4305,7 +3985,6 @@ save its life.</p>
                                 <div class="mdsep"></div>
                                 <span class="mdtag">World's Table</span>
                               </div>
-                            </div>
                           </a>
                         </div>
                     </div>
@@ -4318,19 +3997,20 @@ save its life.</p>
           <section data-testid = "Discover more from BBC" class="edpsectioncalss">
             <div data-testid="main div" class="classframe">
               <div class="margincontentconfig">
-                <hr class="whitesplitterlinestyle"/>
+                <div class="linesplitterpositionconfig">
+                  <hr class="whitesplitterlinestyle"/>
+                </div>
                 <div class="h2sizeconfig">
                   <div>
-                    <h2 class="h2whitetextstyle"> Discover more from the BBC </h2>
+                    <h2 class="h2whitetextstyle"> Discover more from BBC </h2>
                   </div>
                   <div class="LRselectorsection">
-                    <div class="lrwhitesel">
-                      <button data-testid="left-arrow" class="leftbutt">
+                    <div class= "lrwhitesel">
+                      <button data-testid="left-arrow" disabled="" class="leftbutt">
                         <svg
                           viewBox="0 0 32 32"
                           width="1em"
                           height="1em"
-                          category="arrows"
                           icon="left"
                           class="lrconfig"
                         >
@@ -4344,7 +4024,6 @@ save its life.</p>
                           viewBox="0 0 32 32"
                           width="1em"
                           height="1em"
-                          category="arrows"
                           icon="right"
                           class="lrconfig"
                         >
@@ -4369,16 +4048,12 @@ save its life.</p>
                           <div class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
                                   <img
-                                    class="grayplaceholderinside"
-                                  /><img
                                     sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
                                     src="./images/purplecrown.png"
                                     alt="Royal Watch"
                                     class="phosconfig"
                                   />
-                                </div>
                               </div>
                             </div>
                             <div class="cardtxtwrapper">
@@ -4399,16 +4074,12 @@ save its life.</p>
                           <div class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
                                   <img
-                                    class="grayplaceholderinside"
-                                  /><img
                                     sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
                                     src="./images/dwbbcad.png"
                                     alt="Download the BBC app"
                                     class="phosconfig"
                                   />
-                                </div>
                               </div>
                             </div>
                             <div class="cardtxtwrapper">
@@ -4433,16 +4104,11 @@ save its life.</p>
                           <div class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
                                   <img
-                                    class="grayplaceholderinside"
-                                  /><img
                                     sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"      src="./images/footballvintage.png"
-                                    loading="lazy"
                                     alt="Football Extra"
                                     class="phosconfig"
                                   />
-                                </div>
                               </div>
                             </div>
                             <div class="cardtxtwrapper">
@@ -4467,16 +4133,12 @@ save its life.</p>
                           <div class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
                                   <img
-                                    class="grayplaceholderinside"
-                                  /><img
                                     sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
                                     src="./images/mixsocial.png"
                                     alt="mixsocial"
                                     class="phosconfig"
                                   />
-                                </div>
                               </div>
                             </div>
                             <div class="cardtxtwrapper">
@@ -4501,16 +4163,12 @@ save its life.</p>
                           <div class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
                                   <img
-                                    class="grayplaceholderinside"
-                                  /><img
                                     sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
                                     src="./images/readgraphic.png"
                                     alt="Subscribe to the Essential List"
                                     class="phosconfig"
                                   />
-                                </div>
                               </div>
                             </div>
                             <div class="cardtxtwrapper">
@@ -4534,16 +4192,12 @@ save its life.</p>
                           <div class="cardvdoconfig">
                             <div class="imgposition">
                               <div class="imgsizeratio">
-                                <div class="grayplaceholder">
                                   <img
-                                    class="grayplaceholderinside"
-                                  /><img
                                     sizes="(min-width: 1280px) 20vw, (min-width: 1008px) 25vw, (min-width: 800px) 33vw, 50vw"
                                     src="./images/Englandconduct.png"
                                     alt="Sign up to News Briefing"
                                     class="phosconfig"
                                   />
-                                </div>
                               </div>
                             </div>
                             <div class="cardtxtwrapper">
@@ -4562,11 +4216,12 @@ save its life.</p>
               </div>
             </div>
           </section>
+
           <div class="advertisement">
-            <div class="ad active">
+            <div class="ad">
                 <div class="adinner">
                     <div class="adtext-wrapper">
-                        <span class="adtext">Advertisement</span>
+                        <span class="adtext3">Advertisement</span>
                     </div>
                     <div data-testid="imgad" class="imgadborder">
                         <img src="images/ad7.png" class="imgadalign" alt="Advertisement">
@@ -4697,10 +4352,7 @@ save its life.</p>
         <div data-testid="social-follow-us-container" class="mainflulay">
           <h2 class="followbbctextstyle">Follow BBC on:</h2>
           <div class="socbuttonstyle">
-            <button
-              aria-label="Follow BBC on x"
-              class="persocbuttstyle"
-            >
+            <button aria-label="Follow BBC on x" class="persocbuttstyle">
               <svg
                 width="14"
                 height="14"
@@ -4709,7 +4361,6 @@ save its life.</p>
                 xmlns="http://www.w3.org/2000/svg"
                 category="social"
                 icon="x"
-                data-testid="social-button-x"
                 class="icondisplayconfig"
               >
                 <path
@@ -4725,18 +4376,14 @@ save its life.</p>
                 xmlns="http://www.w3.org/2000/svg"
                 category="social"
                 icon="facebook"
-                data-testid="social-button-facebook"
-                class="iveiconconfig2"
+                class="icondisplayconfig"
               >
                 <path
                   d="M6.80799 2.65602H8.31199V0.112024C7.58379 0.0363015 6.85211 -0.00108342 6.11999 2.38913e-05C3.94399 2.38913e-05 2.456 1.32802 2.456 3.76002V5.85601H0V8.70401H2.456V16H5.39999V8.70401H7.84799L8.21599 5.85601H5.39999V4.04002C5.39999 3.20002 5.62399 2.65602 6.80799 2.65602Z"
                 ></path>
               </svg>
             </button>
-            <button
-              aria-label="Follow BBC on instagram"
-              class="persocbuttstyle"
-            >
+            <button aria-label="Follow BBC on instagram" class="persocbuttstyle">
               <svg
                 width="18"
                 height="17"
@@ -4745,7 +4392,6 @@ save its life.</p>
                 xmlns="http://www.w3.org/2000/svg"
                 category="social"
                 icon="instagram"
-                data-testid="social-button-instagram"
                 class="icondisplayconfig"
               >
                 <path
@@ -4754,10 +4400,7 @@ save its life.</p>
                 ></path>
               </svg>
             </button>
-            <button
-              aria-label="Follow BBC on tiktok"
-              class="persocbuttstyle"
-            >
+            <button aria-label="Follow BBC on tiktok" class="persocbuttstyle">
               <svg
                 width="16"
                 height="19"
@@ -4766,7 +4409,6 @@ save its life.</p>
                 xmlns="http://www.w3.org/2000/svg"
                 category="social"
                 icon="tiktok"
-                data-testid="social-button-tiktok"
                 class="icondisplayconfig"
               >
                 <path
@@ -4775,10 +4417,7 @@ save its life.</p>
                 ></path>
               </svg>
             </button>
-            <button
-              aria-label="Follow BBC on linkedin"
-              class="persocbuttstyle"
-            >
+            <button aria-label="Follow BBC on linkedin" class="persocbuttstyle">
               <svg
                 width="15"
                 height="15"
@@ -4786,7 +4425,6 @@ save its life.</p>
                 xmlns="http://www.w3.org/2000/svg"
                 category="social"
                 icon="linkedin"
-                data-testid="social-button-linkedin"
                 class="icondisplayconfig"
               >
                 <path
@@ -4794,10 +4432,7 @@ save its life.</p>
                 ></path>
               </svg>
             </button>
-            <button
-              aria-label="Follow BBC on youtube"
-              class="persocbuttstyle"
-            >
+            <button aria-label="Follow BBC on youtube" class="persocbuttstyle">
               <svg
                 width="19"
                 height="15"
@@ -4806,7 +4441,6 @@ save its life.</p>
                 xmlns="http://www.w3.org/2000/svg"
                 category="social"
                 icon="youtube"
-                data-testid="social-button-youtube"
                 class="icondisplayconfig"
               >
                 <path
@@ -4822,92 +4456,47 @@ save its life.</p>
             <ul class="othlistconfig">
               <li class="othflexconfig">
                 <div data-testid="Term of Use">
-                  <a
-                    href="https://www.bbc.co.uk/usingthebbc/terms"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Terms of Use</a
-                  >
+                  <a href="https://www.bbc.co.uk/usingthebbc/terms" target="_blank" class="othoptionstyle">Terms of Use</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="About the BBC">
-                  <a
-                    href="https://www.bbc.co.uk/aboutthebbc"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >About the BBC</a
-                  >
+                  <a href="https://www.bbc.co.uk/aboutthebbc" target="_blank" class="othoptionstyle">About the BBC</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="Privacy Policy">
-                  <a
-                    href="https://www.bbc.com/usingthebbc/privacy/"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Privacy Policy</a
-                  >
+                  <a href="https://www.bbc.com/usingthebbc/privacy/" target="_blank" class="othoptionstyle">Privacy Policy</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="Cookies">
-                  <a
-                    href="https://www.bbc.com/usingthebbc/cookies/"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Cookies</a
-                  >
+                  <a href="https://www.bbc.com/usingthebbc/cookies/" target="_blank" class="othoptionstyle">Cookies</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="Accesibility Help">
-                  <a
-                    href="https://www.bbc.co.uk/accessibility/"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Accessibility Help</a
-                  >
+                  <a href="https://www.bbc.co.uk/accessibility/" target="_blank" class="othoptionstyle">Accessibility Help</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="Contact the BBC">
-                  <a
-                    href="https://www.bbc.co.uk/contact"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Contact the BBC</a
-                  >
+                  <a href="https://www.bbc.co.uk/contact" target="_blank" class="othoptionstyle">Contact the BBC</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="Advertise with us">
-                  <a
-                    href="https://www.bbc.com/advertisingcontact"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Advertise with us</a
-                  >
+                  <a href="https://www.bbc.com/advertisingcontact" target="_blank" class="othoptionstyle">Advertise with us</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="Do not share">
-                  <a
-                    href="https://www.bbc.com/usingthebbc/cookies/how-can-i-change-my-bbc-cookie-settings/"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Do not share or sell my info</a
-                  >
+                  <a href="https://www.bbc.com/usingthebbc/cookies/how-can-i-change-my-bbc-cookie-settings/" target="_blank" class="othoptionstyle">Do not share or sell my info</a>
                 </div>
               </li>
               <li class="othflexconfig">
                 <div data-testid="Contact technical">
-                  <a
-                    href="https://www.bbc.com/contact-bbc-com-help"
-                    target="_blank"
-                    class="othoptionstyle"
-                    >Contact technical support</a
-                  >
+                  <a href="https://www.bbc.com/contact-bbc-com-help" target="_blank" class="othoptionstyle">Contact technical support</a>
                 </div>
               </li>
             </ul>
@@ -4917,14 +4506,8 @@ save its life.</p>
           <p class="pfooterconfig"> Copyright 2025 BBC. All rights reserved. 
             <i class="ifooterconfig"> </i>The<i class="ifooterconfig"> BBC </i>is
             <i class="ifooterconfig"> not responsible for the content of external sites.</i>
-            <a
-              target="_blank"
-              href="https://www.bbc.co.uk/editorialguidelines/guidance/feeds-and-links"
-              ><b
-                class="readfooterconfig"
-                >Read about our approach to external linking.</b
-              ></a
-            >
+            <a target="_blank" href="https://www.bbc.co.uk/editorialguidelines/guidance/feeds-and-links">
+              <b class="readfooterconfig">Read about our approach to external linking.</b></a>
           </p>
         </div>
       </footer>

@@ -1,679 +1,702 @@
 /*CSS Section 1 : Base Configurations*/
-button {
-    appearance: none;
-    margin: 0;
-    padding: 0;
-    background: none;
-    border-radius: 0;
-    border: 0;
-    font-family: inherit;
-    color: inherit;
+
+/*code ที่กำหนดไว้สำหรับทุก element*/
+* {
+  vertical-align: baseline; /*จัดแนวข้อความให้ตรงกับ baseline ของ parent (มักใช้ใน layout ที่มี inline elements)*/
+  margin: 0px; /*ลบระยะเริ่มต้น*/
+  padding: 0px; /*ลบระยะเริ่มต้น*/
+  border: 0px; /*ลบระยะเริ่มต้น*/
 }
 
-* {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    font: inherit;
-    vertical-align: baseline;
+button {
+  appearance: none; /*ลบ style ของ button ที่ browsers กำหนดไว้ เช่น ขอบมน เงา*/
+  margin: 0; /*ลบระยะห่างรอบนอกและในของปุ่ม*/
+  padding: 0; /*ลบช่องว่างภายในปุ่ม*/
+  background: none; /*ลบพื้นหลังของปุ่ม*/
+  border-radius: 0; /*ลบมุมโค้งของปุ่ม*/
+  border: 0; /*ลบเส้นขอบ*/
+  font-family: inherit; /*ใช้ฟอนต์และสีจากแม่ (parent) เพื่อให้สอดคล้องกับ style โดยรวม*/
+  color: inherit;
 }
-        
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
-    display: block;
+
+article,
+footer,
+header,
+main,
+nav,
+section {
+  /*การประกาศนี้เป็นการประกาศ tag ใหญ่ๆ*/
+  display: block; /*กำหนดให้การ display เป็น block element โดยขึ้นบรรทัดใหม่ แต่ยังยึดความกว้างเต็ม container อยู่*/
 }
 
 img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
+  overflow-clip-margin: content-box; /* เป็น css rule ใหม่ ที่เรียกมาใช้ ตั้งค่าขอบสำหรับการตัดภาพ ไม่ให้เกิน content*/
+  overflow: clip; /*ป้องกันไม่ให้ภาพล้นออกจากกรอบ โดยไม่แสดง scroll bar ด้วย*/
 }
-/*End of CSS Section 1*/
 
+/*End of CSS Section 1*/
 
 /* CSS Section 2 : code css ที่ใช้เพื่อกำหนดโครงสร้างพื้นฐานของส่วน header ทั้งหมด*/
 .headerall {
-    position: sticky; /*การกำหนด position ที่ใช้เพื่อกำหนดวิธีการวางตำแหน่งของหน้า web โดยกำหนดให้เป็น sticky ซึ่งหมายความว่า องค์ประกอบจะถูกวางตามตำแหน่งปกติจนกว่าจะถึงตำแหน่งที่กำหนดด้วย top, right, bottom, หรือ left จากนั้นจะติดอยู่ที่ตำแหน่งนั้นเมื่อเลื่อนหน้าเว็บ*/
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    height: 65px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e6e8ea;
-    z-index: 4000;
+  position: sticky; /*การกำหนด position ที่ใช้เพื่อกำหนดวิธีการวางตำแหน่งของหน้า web โดยกำหนดให้เป็น sticky ซึ่งหมายความว่า องค์ประกอบจะถูกวางตามตำแหน่งปกติจนกว่าจะถึงตำแหน่งที่กำหนดด้วย top, right, bottom, หรือ left จากนั้นจะติดอยู่ที่ตำแหน่งนั้นเมื่อเลื่อนหน้าเว็บ ซึ่งจะทำให้มันลอยอยู่ด้านบนเสมอ โดยที่การทำงาน ถึงแม้ว่าจะ scroll forward ขึ้นไป แต่เมื่อถึง top ก็ยังติดอยู่ตรงนั้น*/
+  top: 0px; /*ติดไว้ที่ด้านบนเลย*/
+  left: 0px; /*เป็นการกำหนดให้ชิดซ้ายสุดของหน้า*/
+  right: 0px; /*เป็นการกำหนดให้ชิดขวาสุดของหน้า*/
+  /*จาก top, left และ right ด้านบน คือการกำหนดให้ header ครอบคลุมเต็มความกว้างด้านบน*/
+  height: 65px; /*กำหนดความสูงของ header*/
+  background-color: #ffffff; /*กำหนด สี background ของ header ซึ่งทำขึ้นมาไว้รองรับกรณีที่อาจเกิด transparent เมื่อเลื่อนขึ้นไป*/
+  border-bottom: 1px solid #e6e8ea; /*กำหนดเส้นใต้ เพื่อแยกระหว่าง header กับ main navigation bar*/
+  z-index: 4000; /*กำหนดขึ้นมาเพื่อให้ element ทุกอย่างที่อยู่ภายใต้ tag นี้ มาอยู่ลำดับที่นำหน้าตัวอื่นๆ เพราะถ้าหากไม่กำหนด ตอนเลื่อน element ของ tag อื่นๆ ยังแสดงให้เห็น (เหมือน tag นี้ไม่มีพื้นหลังสีขาว เป็น transparent ซึ่งการทำงานไม่เหมือน web จริง จึงต้องกำหนดขึ้นมา*/
 }
-
 /*code css ที่ใช้เพื่อกำหนดตำแหน่งของ element ทั้งหมดที่อยู่ภายใต้ tag header*/
 .allcontentinheader {
-    position: relative; /*กำหนดตำแหน่งให้สัมพันธ์กันกับตำแหน่งเดิม*/
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
+  position: relative; /*กำหนดตำแหน่งให้สัมพันธ์กันกับตำแหน่งเดิม โดยเป็น anchor สำหรับ element child ที่ใช้ position: absolute*/
+  display: flex; /*config เพื่อให้ align เนื้อหาในแนวนอน*/
+  align-items: center; /*จัด child element ต่างๆ ที่อยู่ภายใต้ ให้อยู่ตรงกลาง*/
+  padding: 12px 16px; /*กำหนดพื้นที่ว่างรอบๆ*/
 }
 
 /*code css ที่ใช้เพื่อ config เครื่องหมาย search ที่อยู่ภายใต้ div ของ header ที่อยู่ด้านซ้ายสุด*/
 .searchclass {
-    flex: 1 1 0%;
-    display: flex;
-    justify-content: start;
+  display: flex; /*ประกาศให้ใช้ flex กับ child element*/
+  flex: 1 1 0%; /*flex-grow: 1; (ให้ขยายเมื่อมีที่ว่าง), flex-shrink: 1 (ให้ย่อขนาดเมื่อต้องปรับ), flex-basis: 0% (เริ่มต้นที่ขนาด 0% แล้วขยายตาม grow) ซึ่งทำให้กล่่อง search ยดได้ และ จะแย่งพื้นที่ซ้ายสุด*/
+  justify-content: start; /*จัดให้ชิดซ้าย*/
 }
 
 /*code css ที่ใช้เพื่อ config องค์ประกอบภายในส่วนของ button ที่ใช้ค้นหา*/
 .searchbuttonclass {
-    cursor: pointer; /*เป็น attributes ที่ใช้เพื่อระบุรูปแบบของ cursor เพื่อบอกว่า elements นี้สามารถ click ได้*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
+  display: flex;
+  cursor: pointer; /*เป็น attributes ที่ใช้เพื่อระบุรูปแบบของ cursor เพื่อบอกว่า elements นี้สามารถ click ได้*/
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
 }
 
 /*Note : searchclass ไว้กำหนดการ display ในรอบนอก ส่วน searchbuttonclass คือการ config button ที่อยู่ภายใน searchclass อีกที */
 
 /*code css ใช้สำหรับกำหนดส่วนของ logo BCC ที่อยู่ตรงกลางของ header ทั้งหมด*/
 .headerlogo {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    height: 32px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  height: 32px;
 }
 
 /*code css ที่ใช้เพื่อการกำหนด ตำแหน่งของ logo ที่จะอยู่ภายใต้ส่วนของ headerlogo อีกชั้น*/
 .headerlogoscope {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*code css ที่ใช้เพื่อการกำหนด ความสูง และความกว้าง ของ tag div ชื่อ headerlogoscope ที่มี svg เป็น child tag*/
 .headerlogoscope > svg {
-    height: 30px;
-    width: auto;
+  height: 30px;
+  width: auto;
 }
 
 /*code ใช้สำหรับกำหนดค่า tag a ที่เป็น internal link*/
 .link {
-    cursor: pointer;
-    text-decoration: none;
-    color: unset;
+  cursor: pointer;
+  text-decoration: none;
+  color: unset;
 }
 
 /*code css ที่ใช้เพื่อกำหนดสี การแสดงผล ความสูง ของ logo BBC*/
 .headerlogosvg {
-    display: block;
-    height: 28px;
-    fill: black;
-    max-width: initial; /*ไม่มีการจำกัดความกว้างสูงสุด*/
+  display: block;
+  height: 28px;
+  fill: black;
+  max-width: initial; /*ไม่มีการจำกัดความกว้างสูงสุด*/
 }
 
 /*code css สำหรับ tag div ที่ control ส่วนของ button ที่อยู่ด้านขวาทั้งหมด*/
 .headerbuttonside {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 20px;
-    height: 40px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+  height: 40px;
 }
 
 /*code css สำหรับ tag div ที่กำหนด element ที่อยู่ภายใต้ tag นี้ อีกที*/
 .headerbuttoninside {
-    align-items: center;
-    justify-content: end;
-    gap: 20px;
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
 }
- 
+
 /*code css สำหรับ tag ปุ่มทั้งหมด*/
 /*Note : Class นี้่อาจไม่ได้เรียนใช้งานใน section header อันเดียว เพราะ web จริง มี button ที่ config มากกว่า 1 button*/
 .buttonconfig {
-    cursor: pointer;
-    font-weight: 500;
-    border: 2px solid transparent;
-    outline: 2px solid transparent;
-    display: flex;
-    flex-direction: row;
-    column-gap: 9.3px;
-    row-gap: 9.3px;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 6px 12px 6px 12px;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0px;
+  display: flex;
+  cursor: pointer;
+  font-weight: 500;
+  border: 2px solid transparent;
+  outline: 2px solid transparent; /*การกำหนดขอบด้านนอกของ element*/
+  flex-direction: row;
+  column-gap: 9.5px;
+  row-gap: 9.5px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 6px 12px 6px 12px;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
 }
 
 /*code css สำหรับ config style ของตัวอักษรที่อยู่ภายในปุ่มทั้งหมด*/
 .buttontxt {
-    white-space: nowrap;
+  white-space: nowrap; /*เป้นการกำหนดเพื่อให้ช่องว่าง ไม่ให้ขึ้นบรรทัดใหม่โดยอัตโนมัติ ช่องว่าง (space /tab) จะไม่ถูกรวม และ text ที่อยู่ใน button ข้อความจะ แสดงต่อเนื่องในบรรทัดเดียว จนล้นกล่อง (overflow) */
 }
 
 /*code css สำหรับ config register button ที่อยู่ด้านขวาของ header*/
 .registerbutton {
-    position: relative;
-    background-color: #000000;
-    color: #ffffff;
-    border-color: #000000;
-    outline-color: #000000;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  outline-color: #000000;
 }
 
 /*code css สำหรับ config sign-in button ที่อยู่ด้านขวาของ header*/
 .signinbutton {
-    background-color: transparent;
-    color: #000000;
+  background-color: transparent; /*set backgrounf ของ sign in ให้โ*/
+  color: #000000;
 }
 
 /*code css สำหรับ config register และ sign-in button เพื่อรองรับ responsive*/
-/*เนื่องจาก web จริง หากขนาดความกว้าง screen น้อยกว่า 599px ปุ่มทั้งสองจะต้องหายไป ดังนั้นจึงมีการกำหนด code ตรงนี้ขึ้นมา*/
-@media screen and (max-width: 599px) {
-    .headerbuttoninside {
-        display: none;
-    }
+/*เนื่องจาก web จริง หากขนาดความกว้าง screen ที่เป็น mobile ปุ่มทั้งสองจะต้องหายไป ดังนั้นจึงมีการกำหนด code ตรงนี้ขึ้นมา*/
+@media screen and (max-width: 425px) {
+  .headerbuttoninside {
+    display: none;
+  }
+}
+@media screen and (max-width: 375px) {
+  .headerbuttoninside {
+    display: none;
+  }
 }
 
 /*End of CSS Section 2*/
-
 
 /*CSS Section 3 : Code for Navigation Bar*/
 
 /*code css สำหรับกำหนดโครงสร้าง navigation bar ทั้งหมด*/
 .allnav {
-    z-index: 3000;
-    position: -webkit-sticky;
-    position: sticky;
-    background-color: #ffffff;
-    top: 65px;
-    left: 0;
-    right: 0;
+  z-index: 3000; /*การกกำหนดค่า เพื่อทำให้่ลำดับในการแสดงนำหน้า element อื่นๆ (navigation bar จะมี sequence เดียวกันกับ haeder)*/
+  position: sticky; /*การกำหนด position ที่ใช้เพื่อกำหนดวิธีการวางตำแหน่งของหน้า web โดยกำหนดให้เป็น sticky ซึ่งหมายความว่า องค์ประกอบจะถูกวางตามตำแหน่งปกติจนกว่าจะถึงตำแหน่งที่กำหนดด้วย top, right, bottom, หรือ left จากนั้นจะติดอยู่ที่ตำแหน่งนั้นเมื่อเลื่อนหน้าเว็บ*/
+  background-color: #ffffff;
+  top: 65px;
+  left: 0;
+  right: 0;
 }
 
 /*code css สำหรับกำหนดการแสดงของ section ของ navigation bar ทั้งหมด*/
 .sectionav {
-    border-bottom: 1px solid #e6e8ea;
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-    line-height: 0;
-    max-width: 100vw;
-    z-index: 3000;
+  border-bottom: 1px solid #e6e8ea; /*เส้นบางๆ สีเท่าอ่อนด้านล่างของ navigation bar*/
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  text-align: center;
+  overflow: hidden; /*ซ่อนส่วนเกินถ้าล้น*/
+  line-height: 0;
+  max-width: 100vw; /*กำหนดความกว้างสูงสุดที่ไม่ให้กว้างเกิน viewport*/
+  z-index: 3000;
 }
 
 /*code css สำหรับกำหนดการแสดงของ section ของ navigation bar ทั้งหมด*/
-/*.sectionav * {
-    z-index: 3000;
-}*/
 
 /*code css สำหรับ config navigation bar เพื่อรองรับ responsive*/
-/*เนื่องจาก web จริง หากขนาดความกว้าง screen น้อยกว่า 1007px จะต้องหายไป ดังนั้นจึงมีการกำหนด code ตรงนี้ขึ้นมา*/
-@media screen and (max-width:1007px) {
-    .sectionav {
-        border-bottom: none;
-        display: none;
-    }
+/*เนื่องจาก web จริง หากขนาดความกว้าง screen ที่เป็น mobile จะต้องหายไป ดังนั้นจึงมีการกำหนด code ตรงนี้ขึ้นมา*/
+@media screen and (max-width: 425px) {
+  .sectionav {
+    border-bottom: none;
+    display: none;
+  }
 }
 
-/*code css สำหรับกำหนดการแสดงของ section ของ navigation bar*/
+@media screen and (max-width: 375px) {
+  .sectionav {
+    border-bottom: none;
+    display: none;
+  }
+}
+
+/*code css สำหรับกำหนดการแสดงของ section ของ navigation bar (กำหนดในระดับโครงสร้างภายใน)*/
 .navclassmain {
-    display: inline-block;
-    overflow-x: hidden;
-    white-space: nowrap;
-    margin-bottom: -1px;
+  display: inline-block; /*แสดงเป็น block แนวนอน*/
+  overflow-x: hidden; /*ซ่อนเมื่อเนื้อหาในแนวนอนล้น*/
+  white-space: nowrap; /*บังคับให้อยู่ในบรรทัดเดียว*/
 }
 
 /*code css สำหรับกำหนดการแสดงของ tag ul ของ navigation bar*/
 .allheadlistclass {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    align-self: center;
+  list-style-type: none; /*ไม่ให้มี decoration ใดๆ เพราะโดย default ของ tag list จะมี จุด แต่ web จริง ไม่มี*/
+  display: flex;
+  align-self: center;
 }
 
 /*code css สำหรับกำหนด position ของ home option ใน html */
 .homelistclass {
-    position: relative;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
 }
 
-/*code css ที่ใช้เพื่อเพิ่มเนื้อหาหลังจากเนื้อหาขององค์ประกอบที่กำหนด โดยไม่ต้องเพิ่มองค์ประกอบ HTML จริง ๆ เข้าไปในโค้ด*/
+/*code css ที่ config เส้น track เนื้อหา (default เป็น home) โดยสร้าง สร้างเส้นใต้ปุ่ม Home ด้วย ::after*/
 .homelistclass::after {
-    content: '';
-    width: 100%;
-    height: 4px;
-    background-color: #000000;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: #000000;
+  position: absolute; /*กำหนดเพื่อรองรับ เมื่อถูกลบออกจาก flow ปกติของ layout ให้ไม่กินพื้นที่ ไม่ดัน element อื่น*/
+  left: 0;
+  bottom: 0;
+  /*ซึ่งเป็น code ที่ทำให้ดูเหมือนว่า ปุ่ม home เป็นตัวที่ select อยู่*/
 }
 
 /*code css สำหรับกำหนด style ของ home option ใน html */
 .homeoption {
-    position: relative;
-    display: block;
-    color: #000000;
-    cursor: pointer;
-    padding: 12px 8px;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0px;
+  display: block;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  color: #000000;
+  cursor: pointer;
+  padding: 12px 8px;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+  letter-spacing: 0px;
 }
 
 /*code css สำหรับกำหนดตำแหน่ง ของ option ที่เหลือนอกจาก home ใน navigation bar */
 .positionoptions {
-    position: relative;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
 }
 
 /*code css สำหรับกำหนด style ของ option ที่เหลือนอกจาก home ใน navigation bar */
 .options {
-    position: relative;
-    display: block;
-    color: #000000;
-    cursor: pointer;
-    padding: 12px 8px;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0px;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  display: block;
+  color: #000000;
+  cursor: pointer;
+  padding: 12px 8px;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
 }
 
 /*code css สำหรับกำหนดตำแหน่ง ของ option ที่แบ่งออกมา */
 .optionsplitter {
-    position: relative;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
 }
 
 /*code css ที่มีการสร้างเส้นแนวตั้งบาง ๆขึ้นมา โดยมีความสูง 30px และสีเทาอ่อน ซึ่งจะอยู่ชิดขอบซ้ายและตรงกลางในแนวตั้งขององค์ประกอบที่เป็นตำแหน่งอ้างอิง*/
+/*โดย code จะทำงานด้วยการ สร้าง เส้นแบ่งแนวตั้ง สูง 30px, สีเทาอ่อน และจัดให้เส้นอยู่ตรงกลางแนวตั้ง ของ container ใช้แยกกลุ่มปุ่มต่าง ๆ ใน navigation เช่น Home กับหมวดหมู่อื่น*/
 .optionsplitter::before {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 30px;
-    background: #e6e8ea;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+  content: "";
+  position: absolute; /*กำหนดเพื่อรองรับ เมื่อถูกลบออกจาก flow ปกติของ layout ให้ไม่กินพื้นที่ ไม่ดัน element อื่น*/
+  width: 1px;
+  height: 30px;
+  background: #e6e8ea;
+  left: 0;
+  top: 50%;
+  transform: translateY(
+    -50%
+  ); /*คือการเลื่อนตำแหน่งในแนวตั้ง โดยลบ 50% ของความสูงของตัว element เอง ซึ่งผลคือ เลื่อนขึ้นไปครึ่งหนึ่ง ของตัวเอง*/
 }
 
 /*End of CSS Section 3*/
-
-
 
 /*Code CSS Section 4 : Main content configuration*/
 
 /*class ชื่อ mainframe ไว้สำหรับกำหนด frame หลักของเนื้อหาข่าวทั้งหมด การสร้าง class นี้ขึ้นมาเกิดจากปัญหาที่เขียนตอนแรก เพราะ
 web จริง จะมีช่องว่างระหว่าง navigation bar กับเนื้อหาข่าวทั้งหมด ซึ่งจะกำหนดค่าช่องว่างใน class นี้ แล้วเอาไปใช้กับ tag article ใน html*/
 .mainframe {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-.mainframe > div:first-child+section {
-    margin-top: 30px;
-}
 /*code css class ชื่อ headnewssection (section ชื่อ main section 1 ใน html) กำหนดขึ้นมาเพื่อวางโครงสร้างของ section นี้ทั้งหมด*/
 .headnewssection {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 30px; /*ใช้เพื่อระบุระยะห่างองค์ประกอบทั้งด้านบนและด้านล่าง*/
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 30px; /*ใช้เพื่อระบุระยะห่างองค์ประกอบทั้งด้านบนและด้านล่าง*/
 }
 
 /*code css ชื่อ classframe ที่ใช้เพื่อ declare ไปหา tag div ที่คุม element ทั้งหมดที่อยู่ภายใต้ tag section อีกที*/
 .classframe {
-    max-width: 1280px; /*code ตรงนี้ ตอนเขียนได้ลองปรับจาก max-width เป็น min-width ผลปรากฏว่า element มาไม่เต็ม*/
-    width: 100%;
-    position: relative;
-    /*code นี้จะ declare ไปหา tag div ที่อยู่ภายใต้ tag section ของแต่ละ section ซึ่งจะทำงานโดยกำหนดความกว้างไม่เกิน 1280px โดยความกว้างจะปรับตามพื้นที่ที่มีอยู่ จะเต็ม 100% ของพื้นที่ที่มี แต่ไม่เกิน 1280px และองค์ประกอบนี้จะถูกวางในตำแหน่งเดิมด้วยการกำหนดให้เป็น relative และประกาศไว้ทุก tag เพื่อป้องกันการปรับความกว้างแล้วมีปัญหาเกิดขึ้น */
+  max-width: 2560px; /*code ตรงนี้ ตอนเขียนได้ลองปรับจาก max-width เป็น min-width ผลปรากฏว่า element มาไม่เต็ม*/
+  width: 100%;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  /*code นี้จะ declare ไปหา tag div ที่อยู่ภายใต้ tag section ของแต่ละ section ซึ่งจะทำงานโดยกำหนดความกว้างไม่เกิน 1280px โดยความกว้างจะปรับตามพื้นที่ที่มีอยู่ จะเต็ม 100% ของพื้นที่ที่มี แต่ไม่เกิน 2560px และองค์ประกอบนี้จะถูกวางในตำแหน่งเดิมด้วยการกำหนดให้เป็น relative และประกาศไว้ทุก tag เพื่อป้องกันการปรับความกว้างแล้วมีปัญหาเกิดขึ้น */
 }
 
-    @media screen and (max-width: 8120px){
-        .classframe {
-            margin: 0 auto;
-        }
-    }
+/*code css responsive handle (in case of Laptop / Coumputer screen*/
+/*เพื่อ align ข่าวแต่ละส่วนอยู่ตรงกลาง*/
+@media screen and (max-width: 1440px) {
+  .classframe {
+    margin: 0 auto; /*shorthand ที่กำหนด margin บนล่างเป็น 0 และ ซ้ายขวาเป็น auto จะทำให้อยู่ตรงกลาง*/
+    max-width: 1280px;
+  }
+}
 
 /*code css ที่ใช้สำหรับกำหนด tag div ที่คุม element ในส่วน (section) แรก ซึ่งจะเป็นกำหนด โครงสร้างทั้งหมด*/
 .contentgrid {
-    display: grid;
-    grid-template-columns: 3fr 1fr; /*กำหนดเป็น 3:1 เพราะ web จริง ส่วนที่เป็น 3/4 ใช้เพื่อวางข่่าวที่ม่ีรูป และอีก 1 ส่วนเป็นข่าวเพิ่มเติม โดย3/4 จะอยู่ด้านซ้าย และอีก 1/4 จะอยู่ด้านขวา*/
-    margin: 0 16px 0 16px; /*กำหนดระยะห่างด้านซ้ายและขวา เพื่อไม่ให้ชิดขอบ*/
-    grid-gap: 16px; /*กำหนดระยะห่างระหว่างกรอบ เพื่อไม่ให้ระหว่างขอบชิดกัน*/
-    align-items: start; /*กำหนดการจัดวาง element*/
+  display: grid;
+  grid-template-columns: 3fr 1fr; /*กำหนดเป็น 3:1 เพราะ web จริง ส่วนที่เป็น 3/4 ใช้เพื่อวางข่่าวที่ม่ีรูป และอีก 1 ส่วนเป็นข่าวเพิ่มเติม โดย3/4 จะอยู่ด้านซ้าย และอีก 1/4 จะอยู่ด้านขวา*/
+  margin: 0 16px 0 16px; /*กำหนดระยะห่างด้านซ้ายและขวา เพื่อไม่ให้ชิดขอบ*/
+  grid-gap: 16px; /*กำหนดระยะห่างระหว่างกรอบ เพื่อไม่ให้ระหว่างขอบชิดกัน*/
+  align-items: start; /*กำหนดการจัดวาง element*/
 }
-    /*code css ที่ทำ responsive handle ของ class contentgrid*/
-    /*การทำ responsive ส่วนตรงนี้เกิดขึ้นมาเพราะ ตอนลองเขียน แล้วเทียบกับ web จริง ตัว web จริง จะมีการลด column ของ grid ลงมาเมื่อย่อขนาดของหน้าจอลง ซึ่งจาก 4 ส่วน จะลดลงมาเหลือแค่ 1 ส่วน*/
-    @media screen and (max-width:1007px) {
-        .contentgrid {
-            grid-template-columns: 1fr;
-        }
-    }
+/*code css ที่ทำ responsive handle ของ class contentgrid*/
+/*การทำ responsive ส่วนตรงนี้เกิดขึ้นมาเพราะ ตอนลองเขียน แล้วเทียบกับ web จริง ตัว web จริง จะมีการลด column ของ grid ลงมาเมื่อย่อขนาดของหน้าจอลง ซึ่งจาก 4 ส่วน จะลดลงมาเหลือแค่ 1 ส่วน*/
+@media screen and (max-width: 425px) {
+  .contentgrid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /*code css ใช้สำหรับกำหนด layout ที่ย่อยลงมาจาก contentgrid ซึ่งเป็นการ config grid ในส่วน 3/4 ของ grid ทั้งหมด*/
 /*เป็นการกำหนด grid ย่อย ที่อยู่ในส่วน 3fr ของ class contentgrid เพื่อมาแบ่งซ้ายและขวาภายในอีก*/
 .class1leftcenteralign {
-    display: grid;
-    align-items: start;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 16px;
+  display: grid;
+  align-items: start;
+}
+/*responsive handle สำหรับ screen size เล็ก*/
+/*code นี้เกิดขึ้นมาจากการได้ลองลด window size ขนาเล็ก ซึ่งทำให้เห็นว่า element ถูกบีบลง ซึ่งเมื่อบีบลงแล้ว element ยังต้องเต็มจอ ซึ่งก่อนไม่กำหนด web ที่แสดง -> element ที่อยู่ภายใต้ tag นี้ จะ groupping รวมกันอยู่ที่ grid 1fr อันเดียว ซึ่งขนาดของ element เล็กมาก และไม่เป็นไปตาม web จริง */
+
+@media screen and (max-width: 425px) {
+  .class1leftcenteralign {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
 }
 
-    /*responsive handle สำหรับ screen size เล็ก*/
-    /*code นี้เกิดขึ้นมาจากการได้ลองลด window size ขนาเล็ก ซึ่งทำให้เห็นว่า element ถูกบีบลง ซึ่งเมื่อบีบลงแล้ว element ยังต้องเต็มจอ ซึ่งก่อนไม่กำหนด web ที่แสดง -> element ที่อยู่ภายใต้ tag นี้ จะ groupping รวมกันอยู่ที่ grid 1fr อันเดียว ซึ่งขนาดของ element เล็กมาก และไม่เป็นไปตาม web จริง */
-    @media screen and (max-width:599px) {
-        .class1leftcenteralign {
-            grid-template-columns: repeat(1, 1fr); /*กำหนดให้ทำซ้ำ โดยแต่ละครั้งมีขนาด 1fr*/
-            grid-gap: 24px;
-        }
-    }
+@media screen and (max-width: 1440px) {
+  .class1leftcenteralign {
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 2560px) {
+  .class1leftcenteralign {
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+  }
+}
 
 /*code css สำหรับด้านซ้ายสุด (ข่าว 2 ข่าวที่เป็นรูปเล็กๆ) โดยกำหนดให้เป็น grid */
 .class1leftalign {
-    display: grid;
-    grid-gap: 16px;
+  display: grid;
+  grid-gap: 16px;
 }
 
 /*code css สำหรับด้านซ้ายสุดเหมือนกัน แต่เป็น code ที่ใช้กำหนดเงื่อนไขตอนทำ responsive*/
 .class1config {
-    display: grid;
+  display: grid;
 }
-    /*responsive handle เกิดขึ้นเพราะ web จริง เมื่อขนาดหน้าจอที่ใกล้เคียงกับมือถือ ส่วนข่าวตรงนี้จะมีการแสดงขึ้น แต่ลำดับของการแสดงจะเปลี่ยน*/
-    @media screen and (max-width:599px) {
-        .class1config {
-            display: grid;
-        }
-    }
+/*responsive handle เกิดขึ้นเพราะ web จริง เมื่อขนาดหน้าจอที่ใกล้เคียงกับมือถือ ส่วนข่าวตรงนี้จะมีการแสดงขึ้น แต่ลำดับของการแสดงจะเปลี่ยน*/
+@media screen and (max-width: 425px) {
+  .class1config {
+    display: grid;
+    order: 2; /*การกำหนด order ในการแสดงของ grid -> จากการทำแล้วเทียบกับ web จริง จะมี 1 ส่วนที่เมื่อทำ responsive แล้ว ลำดับจะสลับกัน ซึ่งทำให้ต้องกำหนด order ขึ้นมา เพื่อที่ทำให้การ display ใน case ของ responsive*/
+  }
+}
+
+@media screeen and (max-width: 375px) {
+  .class1config {
+    display: grid;
+    order: 2; /*การกำหนด order ในการแสดงของ grid -> จากการทำแล้วเทียบกับ web จริง จะมี 1 ส่วนที่เมื่อทำ responsive แล้ว ลำดับจะสลับกัน ซึ่งทำให้ต้องกำหนด order ขึ้นมา เพื่อที่ทำให้การ display ใน case ของ responsive*/
+  }
+}
 
 /*code css สำหรับโครงสร้างของข่าวแรกที่มีรูปประกอบ*/
 .newsarticleconfig {
-    border-bottom: 1px solid #e6e8ea;
-    grid-template-columns: 1fr;
-    align-items: start;
-    grid-gap: 12px;
-    display: grid;
-    padding-bottom: 4px;
+  display: grid;
+  border-bottom: 1px solid #e6e8ea;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  align-items: start;
+  padding-bottom: 4px;
 }
-    /*เงื่อนไขเพิ่มเติม เกิดขึ้นเพราะตอนเขียน เมื่อเทียบกับ web จริง เห็นว่า ตอนเอา mouse ชี้ ตัว head กับรูป จะมีความจางลง*/
-    .newsarticleconfig:hover img {
-        opacity: 0.8;
-    }
 
-    .newsarticleconfig:hover h2 {
-        text-decoration: underline;
-    }
+/*เงื่อนไขเพิ่มเติม เกิดขึ้นเพราะตอนเขียน เมื่อเทียบกับ web จริง เห็นว่า ตอนเอา mouse ชี้ ตัว head ของข่าวจะมี เส้นใต้  กับรูป จะมีความจางลง*/
+.newsarticleconfig:hover img {
+  opacity: 0.8; /*code css ที่กำหนดเมื่อชี้ไป แล้วทำให้รูปมี opacity*/
+}
 
-    /*code css ที่ใช้เพื่อรองรับ responsive*/
-    @media screen and (max-width: 599px) {
-        .newsarticleconfig {
-            grid-template-columns: 132px auto;
-            grid-gap: 8px;
-            padding-bottom: 4px;
-        }
-    }
+.newsarticleconfig:hover h2 {
+  text-decoration: underline; /*code css ที่กำหนดเมื่อชี้ไปที่ตำแหน่งข่าว แล้วตัว text หัวข่าว (ระดับ h2) จะขึ้น */
+}
 
-/*code css สำหรับการวางตำแหน่งของรูปข่าว*/
-.Newsphotswrapconfig {
-    position: relative;
+/*code css ที่ใช้เพื่อรองรับ responsive*/
+@media screen and (max-width: 425px) {
+  .newsarticleconfig {
+    grid-template-columns: 132px auto;
+    grid-gap: 8px;
+    padding-bottom: 4px;
+  }
 }
 
 /*code css สำหรับการวางตำแหน่ง และกำหนดขนาดของรูปข่าว*/
 .cardmd {
-    position: relative;
-    height: 100%;
-    width: 100%;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  height: 100%;
+  width: 100%;
 }
 
-    /*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
-    .cardmd img {
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-    }
-
-/*code css ทำขึ้นมาเพื่อกำหนด position ของรูปทั้งหมด*/
-.grayplaceholder {
-    position: relative;
-    line-height: 0;
+/*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
+.cardmd img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 /*code css ทำขึ้นมาเพื่อกำหนด tag img ที่เป็นรูปภาพ "ทั้งหมด" ภายใน web นี้*/
 .phosconfig {
-    width: 100%;
-    object-fit: contain; /*new css attributes : เป็นการกำหนดเพื่อทำให้ภาพครอบคลุมโดยไม่ให้บิดเบือน สัดส่วนคงเดิม*/
+  width: 100%;
+  object-fit: contain; /*new css attributes : เป็นการกำหนดเพื่อทำให้ภาพครอบคลุมโดยไม่ให้บิดเบือน สัดส่วนคงเดิม*/
 }
 
 /*code css สำหรับการวางโครงสร้าง text ภายใต้ข่าว*/
 .justify {
-    display: grid;
-    box-sizing: border-box;
-    grid-gap: 12px;
+  display: grid;
+  box-sizing: border-box;
+  grid-gap: 12px;
 }
 
-
-    @media screen and (max-width:599px) {
-        .justify {
-            grid-gap: 8px;
-        }
-    }
-
-    @media screen and (max-width:399px) {
-        .justify {
-            grid-gap: 8px;
-        }
-    }
-    
-    
-    
-/*code css สำหรับการวางโครงสร้างหัวข่าว*/
-.textheadnews {
-        width: 100%;
+@media screen and (max-width: 425px) {
+  .justify {
+    grid-gap: 8px;
+  }
 }
-    
-    @media screen and (max-width:599px) {
-        .textheadnews {
-            min-height: 32px;
-            display: flex;
-            align-items: center;
-        }
-    }
-    
-    
-/*code css สำหรับการกำหนดความกว้างของ text ข่าว ต้องทำแยกขึ้นมาเพราะตอนทำ responsive เมื่อจอขนาดเล็กลง จะต้องกำหนด margin เพื่อไม่ให้ text ชิดด้านขวามากเกินไป (ref. จาก web จริง)*/
+
+@media screen and (max-width: 375px) {
+  .justify {
+    grid-gap: 8px;
+  }
+}
+
+/*code css สำหรับการทำ display ของหัวข่าว*/
+@media screen and (max-width: 425px) {
+  .textheadnews {
+    min-height: 32px; /*กำหนดความสูงขั้นต่ำของ element ให้ไม่ต่ำกว่า 32px*/
+    display: flex;
+    align-items: center; /*text จะอยู่แนวดิ่งตรงกลาง*/
+  }
+}
+
+/*code css สำหรับการกำหนดความกว้างของ text ข่าว ต้องทำแยกขึ้นมาเพราะตอนทำ responsive เมื่อจอขนาดเล็กลง จะต้องกำหนด margin เพื่อไม่ให้ text ชิดด้านขวามากเกินไป*/
 .textheadnewscontent {
-        width: 100%;
-        margin-right: 0;
+  width: 100%;
+  margin-right: 0;
 }
-        
-        @media screen and (max-width:599px) {
-                .textheadnewscontent {
-                    margin-right: 10px;
-                }
-        }
+
+@media screen and (max-width: 425px) {
+  .textheadnewscontent {
+    margin-right: 10px;
+  }
+}
 
 /*code css สำหรับการกำหนด style ของหัวข่าว*/
 .textheadnewscontain {
-    color: #202224;
-    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  color: #202224;
+  font: serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.36px;
+}
+
+@media screen and (max-width: 425px) {
+  .textheadnewscontain {
+    font: serif;
     font-weight: 500;
+    font-weight: bold;
     font-size: 18px;
     line-height: 22px;
     text-transform: none;
     text-decoration: none;
     letter-spacing: -0.36px;
+  }
 }
 
-    @media screen and (max-width:599px) {
-        .textheadnewscontain {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 22px;
-            text-transform: none;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            -webkit-letter-spacing: -0.36px;
-            -moz-letter-spacing: -0.36px;
-            -ms-letter-spacing: -0.36px;
-            letter-spacing: -0.36px;
-        }
-    }
-
-/*code css สำหรับการกำหนด style ของคำอธิบายข่าว*/
+/*code css สำหรับการกำหนด style ของคำอธิบายข่าว สำหรับบางส่วนที่ responsive แล้วจะหายไป และจะอยู่กับ text ที่ใช้ layout ภายใน เป็น */
 .textsubhd {
-    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 0px;
-    color: #202224;
-    margin-bottom: 4px;
-    display: block;
+  font: serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  color: #202224;
+  margin-bottom: 4px;
+  display: block;
 }
 
-    @media screen and (max-width:599px) {
-        .textsubhd {
-            display: none;
-            margin-bottom: 0;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .textsubhd {
+    display: none;
+    margin-bottom: 0;
+  }
+}
 
 /*code css สำหรับการกำหนดโครงสร้างของ เวลาและประเภท*/
 .continentandtime {
-    margin-top: 0px;
-    height: 32px;
-    align-items: center;
-    display: flex;
-    gap: 8px;
+  display: flex;
+  margin-top: 0px;
+  height: 32px;
+  align-items: center;
+  gap: 8px;
 }
 
 /*code css สำหรับการกำหนด style ของเวลา*/
 .timeconfig {
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.12px;
-    color: #545658;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.12px;
+  color: #545658;
 }
 
 /*code css สำหรับการกำหนด style ของเส้นคั่นระหว่างเวลา และ ประเภท*/
 .mdsep {
-    background-color: #545658;
-    margin: auto 2px;
-    height: 16px;
-    width: 1px;
+  background-color: #545658;
+  margin: auto 2px;
+  height: 16px;
+  width: 1px;
 }
 
 /*code css สำหรับการกำหนด style ของประเภท*/
 .mdtag {
-    color: #545658;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.12px;
-    pointer-events: none;
+  color: #545658;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.12px;
+  pointer-events: none;
 }
-
 
 /*code css สำหรับโครงสร้างของข่าวที่สองที่มีรูปประกอบ ต่างจาก class "newsarticleconfig* เพราะไม่มีเส้นคั่นด้านล่าง (ref. จาก web จริง) แต่ code responsive ยังคงเดิม*/
 .framenews2 {
-    border-bottom: 0;
-    grid-template-columns: 1fr;
-    align-items: start;
-    grid-gap: 12px;
-    display: grid;
-    padding-bottom: 4px;
+  border-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  grid-gap: 12px;
+  padding-bottom: 4px;
 }
 
-    .framenews2:hover img {
-        opacity: 0.8;
-    }
+.framenews2:hover img {
+  opacity: 0.8;
+}
 
-    .framenews2:hover h2 {
-        text-decoration: underline;
-    }
+.framenews2:hover h2 {
+  text-decoration: underline;
+}
 
-    @media screen and (max-width:599px) {
-        .framenews2 {
-            grid-template-columns: 132px auto;
-            grid-gap: 8px;
-            padding-bottom: 4px;
-        }
-    }
-
+@media screen and (max-width: 425px) {
+  .framenews2 {
+    grid-template-columns: 132px auto;
+    grid-gap: 8px;
+    padding-bottom: 4px;
+  }
+}
 
 .layoutlogoconfig {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 32px;
-    width: 32px;
-    margin: 4px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 32px;
+  width: 32px;
+  margin: 4px;
 }
 
-    .layoutlogoconfig > svg {
-        height: 20px;
-    }
+.layoutlogoconfig > svg {
+  height: 20px;
+}
 
-    @media screen and (max-width:599px) {
-        .layoutlogoconfig {
-            height: 20px;
-            width: 20px;
-            margin: 2px;
-        }
-        .layoutlogoconfig>svg {
-            height: 13px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .layoutlogoconfig {
+    height: 20px;
+    width: 20px;
+    margin: 2px;
+  }
+  .layoutlogoconfig > svg {
+    height: 13px;
+  }
+}
 
 /*code css สำหรับกำหนดค่า style ให้กับ logo live ที่เป็น วงกลม*/
 .livelogoconfig {
-    grid-template-columns: auto auto;
-    align-items: center;
-    position: relative;
-    padding-left: 2px;
-    margin: 0 6px 0 0;
-    display: grid;
-    height: auto;
-    width: auto;
-    float: left;
-    color: #EB0000;
-    grid-gap: 1.8px;
+  grid-template-columns: auto auto;
+  align-items: center;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  padding-left: 2px;
+  margin: 0 6px 0 0;
+  display: grid;
+  height: auto;
+  width: auto;
+  float: left;
+  color: #eb0000;
+  grid-gap: 1.8px;
 }
 
-    .livelogoconfig>svg {
-        height: 18.3px;
-        width: 18.3px;
-    }
+.livelogoconfig > svg {
+  height: 18.3px;
+  width: 18.3px;
+}
 
 /*code css สำหรับกำหนดค่าความสูงให้กับ logo live ที่เป็น วงกลม*/
 .liveiconconfig {
-    height: 3em;
-    width: 3em;
+  height: 3em;
+  width: 3em;
 }
 
-    .liveiconconfig #inner,
-    .liveiconconfig #outer {
-        fill: #e00000;
-    }
+.liveiconconfig #inner,
+.liveiconconfig #outer {
+  fill: #e00000;
+}
 
 /*code css สำหรับกำหนด display ให้กับ icon ต่างๆ*/
 .icondisplayconfig {
-    display: block;
-    fill: currentcolor;
+  display: block;
+  fill: currentcolor;
 }
 
 /*code css สำหรับกำหนด style ให้กับตัวอักษร live*/
 .livetextconfig {
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0px;
+  color: #eb0000;
+  text-decoration: none !important; /*ลบการตกแต่งข้อความ เช่น ขีดเส้นใต้ (underline) และใช้ !important เพื่อ บังคับให้คำสั่งนี้มีลำดับความสำคัญสูงสุด แม้จะถูกเขียนทับที่อื่นก็ตาม*/
+  text-transform: uppercase;
+}
+/*code css responsive handle สำหรับ class livetextconfig*/
+@media screen and (max-width: 425px) {
+  .livetextconfig {
     font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -681,2383 +704,2297 @@ web จริง จะมีช่องว่างระหว่าง navig
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0px;
-    color: #EB0000;
-    text-decoration: none !important;
-    text-transform: uppercase;
+  }
 }
-    /*code css responsive handle สำหรับ class livetextconfig*/
-    @media screen and (max-width:599px) {
-        .livetextconfig {
-            font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0px;
-        }
-    }
 
-
-    @media screen and (max-width:599px) {
-        .livetextconfig {
-            grid-gap: 1.8px;
-        }
-        .livetextconfig>svg {
-            height: 18px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .livetextconfig {
+    grid-gap: 1.8px;
+  }
+  .livetextconfig > svg {
+    height: 18px;
+  }
+}
 
 /*code css สำหรับกำหนด gap ระหว่างข่าว Gaza กับส่วน grid อื่นๆ*/
 .Gazaoverall {
-    grid-gap: 16px;
+  grid-gap: 16px;
 }
 
 /*code css สำหรับกำหนดโครงข่าว Gaza*/
 .gazaframe {
-    background-color: transparent;
-    align-items: stretch;
-    position: relative;
-    display: grid;
-    grid-gap: 16px;
+  background-color: transparent;
+  align-items: stretch; /*เป็นคำสั่งใน CSS ที่ใช้กับ Flexbox Container เพื่อกำหนดว่า "ลูกทุกตัว (flex items) จะยืดตัวเองให้สูง (หรือกว้าง ถ้า flex ทิศทางเป็นแนวนอน) เท่ากันโดยอัตโนมัติ"*/
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  display: grid;
+  grid-gap: 16px;
 }
 
 /*code css สำหรับการแบ่งข่าวระหว่างส่วนของรูปกับ text*/
 .gazasplit {
-    grid-template-columns: 1fr;
-    background-color: transparent;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    grid-gap: 16px;
-    display: grid;
+  grid-template-columns: 1fr;
+  background-color: transparent;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  padding: 0;
+  margin: 0;
+  grid-gap: 16px;
+  display: grid;
 }
 
-    .gazasplit:hover img {
-        opacity: 0.8;
-    }
+.gazasplit:hover img {
+  opacity: 0.8;
+}
 
-    .gazasplit:hover h2 {
-        text-decoration: underline;
-    }
+.gazasplit:hover h2 {
+  text-decoration: underline;
+}
 
-    @media screen and (max-width:599px) {
-        .gazasplit {
-            margin: 0 -16px;
-            padding: 0 16px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .gazasplit {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+}
 
 /*code css สำหรับกำหนดตำแหน่งรูปข่าว Gaza*/
 .gazaimgposition {
-    position: relative;
-    align-self: start;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  align-self: start;
 }
 
 /*code css สำหรับกำหนดขนาดรูปข่าว Gaza*/
 .gazaphotosize {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
-    /*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
-    .gazaphotosize img {
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-    }
+/*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
+.gazaphotosize img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
 
-    @media screen and (max-width:599px) {
-        .gazaphotosize {
-            width: calc(100% + 32px);
-            margin-right: -16px;
-            margin-left: -16px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .gazaphotosize {
+    width: calc(
+      100% + 32px
+    ); /*ตั้งค่าความกว้างของ element, ฟังก์ชันสำหรับคำนวณค่าด้วยสูตรคณิตศาสตร์, หมายถึง 100% ของความกว้างของแม่ (parent element), เพิ่มอีก 32px จากค่านั้น*/
+    margin-right: -16px;
+    margin-left: -16px;
+  }
+}
 
 /*css code กำหนดโครงสร้างของ text ที่อยู่ใต้รูป*/
 .gazacardtxtwrap {
-    grid-gap: 12px;
-    display: grid;
-    align-content: center;
-    align-items: center;
+  grid-gap: 12px;
+  display: grid;
+  align-content: center;
+  align-items: center;
 }
 
 /*css code กำหนดความกว้างของ text ที่อยู่ใต้รูป*/
 .gazatextsize {
-    width: 100%;
-    margin-right: 0;
+  width: 100%;
+  margin-right: 0;
 }
 
 /*css code กำหนดหัวข่าว Gaza*/
 .Gazatext {
-    color: #202224;
-    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 32px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.56px;
-    overflow-wrap: anywhere;
+  color: #202224;
+  font: serif;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.56px;
+  overflow-wrap: anywhere; /*ระบุว่าเมื่อข้อความยาวเกินขอบ จะให้ตัดคำอย่างไร, สามารถตัดคำตรงไหนก็ได้ (แม้จะไม่ใช่จุดเว้นวรรคหรือขีด)*/
 }
 
-    @media screen and (max-width:599px) {
-        .Gazatext {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 24px;
-            line-height: 28px;
-            text-transform: none;
-            text-decoration: none;
-            letter-spacing: -0.48px;
-        }
-    }
-
-    @media screen and (max-width:599px) {
-        .Gazatext {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 24px;
-            line-height: 28px;
-            text-transform: none;
-            text-decoration: none;
-            letter-spacing: -0.48px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .Gazatext {
+    font: serif;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-decoration: none;
+    letter-spacing: -0.48px;
+  }
+}
 
 /*code css สำหรับ description ของข่าว Gaza*/
 .carddesc1 {
-    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font: serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  color: #202224;
+  margin-bottom: 4px;
+}
+@media screen and (max-width: 425px) {
+  .carddesc1 {
+    font: serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
-    color: #202224;
-    margin-bottom: 4px;
+    margin-bottom: 0;
+  }
 }
-    @media screen and (max-width:599px) {
-        .carddesc1 {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0px;
-            margin-bottom: 0;
-        }
-    }
 
 /*code css สำหรับกำหนด โครง grid ด้านขวา*/
 .gridlayoutright {
-    display: grid;
-    box-sizing: border-box;
+  display: grid;
+  box-sizing: border-box;
 }
 
-    @media screen and (max-width:8192px) {
-        .gridlayoutright {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-        }
-    }
+@media screen and (max-width: 8192px) {
+  .gridlayoutright {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+  }
+}
 
-    @media screen and (max-width:1279px) {
-        .gridlayoutright {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-        }
-    }
+@media screen and (max-width: 1279px) {
+  .gridlayoutright {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+  }
+}
 
-    @media screen and (max-width:1007px) {
-        .gridlayoutright {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 16px;
-        }
-    }
+@media screen and (max-width: 1007px) {
+  .gridlayoutright {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+  }
+}
 
-    @media screen and (max-width:767px) {
-        .gridlayoutright {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 16px;
-        }
-    }
+@media screen and (max-width: 767px) {
+  .gridlayoutright {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .gridlayoutright {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .gridlayoutright {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+  }
+}
 
-    @media screen and (max-width:399px) {
-        .gridlayoutright {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-        }
-    }
+@media screen and (max-width: 399px) {
+  .gridlayoutright {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+  }
+}
 
 /*code css สำหรับกำหนดโครงของ ข่าวแต่ละตัวที่อยู่ด้านขวา แล้วมีเส้นคั่นตรงท้าย*/
 .gridarti {
-    border-bottom: 1px solid #e6e8ea;
-    position: relative;
-    grid-gap: 8px;
-    display: grid;
+  border-bottom: 1px solid #e6e8ea;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  grid-gap: 8px;
+  display: grid;
 }
 
-    .gridarti:hover h2 {
-        text-decoration: underline;
-    }
+.gridarti:hover h2 {
+  text-decoration: underline;
+}
 
 /*code css สำหรับการแบ่งส่วนของแต่ละข่าวที่อยู่ด้านขวา*/
 .gridtxtwrap {
-    position: relative;
-    grid-gap: 8px;
-    display: grid;
-}
-
-/*code css สำหรับการกำหนด position ของ icon play*/
-.playiconconfig {
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  grid-gap: 8px;
+  display: grid;
 }
 
 /*code css สำหรับการกำหนด style ของ icon play*/
-.playiconconfig2 {
-    color: #202224;
-    grid-template-columns: auto auto;
-    align-items: center;
-    position: relative;
-    padding-left: 2px;
-    margin: 0 6px 0 0;
-    display: grid;
-    height: auto;
-    width: auto;
-    float: left;
-    grid-gap: 1.8px;
+.playiconconfig {
+  color: #202224;
+  grid-template-columns: auto auto;
+  align-items: center;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  padding-left: 2px;
+  margin: 0 6px 0 0;
+  display: grid;
+  height: auto;
+  width: auto;
+  float: left;
+  grid-gap: 1.8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
-    .playiconconfig2>svg {
-        height: 18.3px;
-        width: 18.3px;
-    }
+.playiconconfig > svg {
+  height: 18.3px;
+  width: 18.3px;
+}
 
-    @media screen and (max-width:599px) {
-        .playiconconfig2 {
-            grid-gap: 1.8px;
-        }
-        .playiconconfig2>svg {
-            height: 18px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .playiconconfig {
+    grid-gap: 1.8px;
+  }
+  .playiconconfig > svg {
+    height: 18px;
+  }
+}
 
-/*code css สำหรับการกำหนด style ของ description ข่าว*/
+/*code css สำหรับการกำหนด style ของ description ข่าว บางส่วนที่ ทำ responsive แล้ว ยังคงอยู่*/
 .cardgriddesc {
-    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font: serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  color: #202224;
+  margin-bottom: 4px;
+}
+
+@media screen and (max-width: 425px) {
+  .cardgriddesc {
+    font: serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
-    color: #202224;
-    margin-bottom: 4px;
+    margin-bottom: 0;
+  }
 }
-
-    @media screen and (max-width:599px) {
-        .cardgriddesc {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0px;
-            margin-bottom: 0;
-        }
-    }
-
-
 
 /*code css สำหรับช่วงข่าวที่ 2 (หัวเรื่อง "WeekEnd reads")*/
 /*code css สำหรับการวางโครงสร้างพื้นฐานของช่วงข่าวที่ 2*/
 .weekendreadsectionclass {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 48px; /*กำหนดระยะห่างด้านบนและด้านล่างขององค์ประกอบ*/
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 48px; /*กำหนดระยะห่างด้านบนและด้านล่างขององค์ประกอบ*/
 }
 
-
-    @media screen and (max-width:599px) {
-        .weekendreadsectionclass {
-            margin-block: 32px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .weekendreadsectionclass {
+    margin-block: 32px;
+  }
+}
 
 /*กำหนดระยะห่างของด้านล่างสุด*/
 .margincontentconfig {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
-    /*responsive handle กำหนดระยะห่างของด้านล่างสุด โดยจะมีค่าที่น้อยกว่าเดิมหาก screen size ลด เพราะ web จริง ตอน responsive ระยะห่างไม่เยอะมาก*/
-    @media screen and (max-width:599px) {
-        .margincontentconfig {
-            margin-bottom: 16px;
-        }
-    }
+/*responsive handle กำหนดระยะห่างของด้านล่างสุด โดยจะมีค่าที่น้อยกว่าเดิมหาก screen size ลด เพราะ web จริง ตอน responsive ระยะห่างไม่เยอะมาก*/
+@media screen and (max-width: 425px) {
+  .margincontentconfig {
+    margin-bottom: 16px;
+  }
+}
 
 /*กำหนดตำแหน่งของ เส้นคั่นระหว่างเรื่อง*/
 .linesplitterpositionconfig {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*กำหนด style ของเส้นคั่นระหว่างเรื่ิอง*/
 .linesectionsplitter {
-    margin: 0 16px;
-    border-width: 0;
-    height: 2px;
-    width: 100%;
-    background-color: #3a3c3e;
+  margin: 0 16px;
+  border-width: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #3a3c3e;
 }
 
 /*กำหนด positions ของหัวข้อประเภทข่าว*/
 .h2sizeconfig {
-    padding: 0 16px;
-    justify-content: space-between;
-    color: #202224;
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    margin-top: 8px;
-    margin-bottom: 24px;
+  padding: 0 16px;
+  justify-content: space-between;
+  color: #202224;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin-top: 8px;
+  margin-bottom: 24px;
 }
 
 /*กำหนด style ของหัวข้อประเภทข่าว*/
 .cattxtconfig {
-    color: #202224;
+  color: #202224;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.75px;
+}
+
+/*responsive handle สำหรับ class cattxtconfig*/
+@media screen and (max-width: 425px) {
+  .cattxtconfig {
     font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
     font-weight: 800;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 18px;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 0.75px;
+    letter-spacing: 0.7px;
+  }
 }
 
-    /*responsive handle สำหรับ class cattxtconfig*/
-    @media screen and (max-width:599px) {
-        .cattxtconfig {
-            font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 18px;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.7px;
-        }
-    }
+@media screen and (max-width: 375px) {
+  .cattxtconfig {
+    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.7px;
+  }
+}
 
-    @media screen and (max-width:399px) {
-        .cattxtconfig {
-            font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 18px;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.7px;
-        }
-    }
-
-
-
-/*code css สำหรับการวางโครงสร้างเพื่อใช้ลงข่าว โดยใน section นี้ web จริง จะมีการแบ่ง 2 ส่วนเป็น ซ้าย ขวา แต่หากขนาดหน้าจอเล็กลงจะเป็นตำแหน่งเดียว ไม่มีแบ่งซ้ายขวา*/  
+/*code css สำหรับการวางโครงสร้างเพื่อใช้ลงข่าว โดยใน section นี้ web จริง จะมีการแบ่ง 2 ส่วนเป็น ซ้าย ขวา แต่หากขนาดหน้าจอเล็กลงจะเป็นตำแหน่งเดียว ไม่มีแบ่งซ้ายขวา*/
 .indgrid2config {
-    grid-template-columns: 1fr 1fr;
-    margin: 0 16px;
-    grid-gap: 16px;
-    display: grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 16px;
+  grid-gap: 16px;
 }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .indgrid2config {
-            grid-template-columns: 1fr;
-        }
-    }
+/*responsive handle เพือ่รองรับการบีบ โดย web จริง จะกำหนด grid เป็น 1fr แต่ตัว cloning นี้ ใช้ flex แทน*/
+@media screen and (max-width: 425px) {
+  .indgrid2config {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
 
-    /*กำหนดเส้นคั่นระหว่างข่าว*/
-    .indgrid2config>div a>div {
-        border-bottom: none;
-    }
-    
-    /*responsive handle กำหนดเส้นคั่นระหว่างข่าว โดยเมื่อ screen size เล็กลง จะต้องปรากฏ*/
-    @media screen and (max-width:599px) {
-        .indgrid2config>div a>div {
-            border-bottom: 1px solid #e6e8ea;
-        }
-    }
-    
-    
+/*กำหนดเส้นคั่นระหว่างข่าว*/
+.indgrid2config > div a > div {
+  border-bottom: none;
+}
 
-/*code css ที่ใช้เพื่อกำหนดโครงสร้างข่าวแต่ละข่าวที่อยู่ภายใต้หัวข้อ weekend reads*/   
+/*responsive handle กำหนดเส้นคั่นระหว่างข่าว โดยเมื่อ screen size เล็กลง จะต้องปรากฏ*/
+@media screen and (max-width: 425px) {
+  .indgrid2config > div a > div {
+    border-bottom: 1px solid #e6e8ea;
+  }
+}
+
+/*code css ที่ใช้เพื่อกำหนดโครงสร้างข่าวแต่ละข่าวที่อยู่ภายใต้หัวข้อ weekend reads*/
 .layoutnewssec2 {
-    transition: opacity 0.2s ease-in-out;
-    grid-auto-rows: auto auto 1fr auto;
-    position: relative;
-    display: grid;
-    opacity: 1;
+  display: grid;
+  transition: opacity 0.2s ease-in-out; /*เอฟเฟกต์เปลี่ยนค่าแบบนุ่มนวล (smooth animation) ให้กับ ความโปร่งใส (opacity) ของ element*/
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  opacity: 1;
 }
-    
 
-    .layoutnewssec2:hover img {
-        opacity: 0.8;
-    }
-      
-    .layoutnewssec2:hover h2 {
-        text-decoration: underline;
-    }
+.layoutnewssec2:hover img {
+  opacity: 0.8;
+}
 
-/*code css ตำแหน่งรูป*/   
+.layoutnewssec2:hover h2 {
+  text-decoration: underline;
+}
+
+/*code css ตำแหน่งรูป*/
 .imgposition {
-    position: relative;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
 }
 
-/*code css ตำแหน่งขนาดรูป*/  
+/*code css ตำแหน่งขนาดรูป*/
 .imgsizeratio {
-    height: 100%;
-    width: 100%;
-    }
-    .imgsizeratio img {
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-    }
+  height: 100%;
+  width: 100%;
+}
+.imgsizeratio img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
 
 /*code สำหรับการวางโครง text ของข่าวในหมวดหมู่ Weekend Reads*/
+/*web จริงเป็น grid แต่ cloning version ใช้เป็น flex แทน*/
 .textweekend1 {
-    background-color: #ffffff;
-    color: #ffffff;
-    grid-gap: 12px;
-    display: grid;
-    padding-top: 8px;
+  display: flex;
+  background-color: #ffffff;
+  color: #ffffff;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /*code สำหรับการวางโครง text description ของข่าวในหมวดหมู่ Weekend Reads*/
 .carddesc2 {
-    color: #202224;
+  color: #202224;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  display: flex;
+}
+/*responsive handle สำหรับการวางโครง text description ของข่าวในหมวดหมู่ Weekend Reads*/
+@media screen and (max-width: 425px) {
+  .carddesc2 {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
-    display: flex;
+  }
 }
-    /*responsive handle สำหรับการวางโครง text description ของข่าวในหมวดหมู่ Weekend Reads*/
-    @media screen and (max-width:599px) {
-        .carddesc2 {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0px;
-        }
-    }
 
 /*code css สำหรับการวางโครงสร้างของตัววัน เวลา เส้นคั่น และ หมวดหมู่ ซึ่ง code ตรงนี้ ไม่ไใช้ร่วมกับ class continentandtime ที่เคย declare ไป เพราะ ความสูงของโครสร้างที่ไม่เท่ากัน จึงต้องแยกมากำหนดใหม่*/
 .mdlastup {
+  margin-top: 4px;
+  height: 32px;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .mdlastup {
     margin-top: 4px;
-    height: 32px;
-    align-items: center;
-    display: flex;
-    gap: 8px;
-} 
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .mdlastup {
-            margin-top: 4px;
-        }
-    }
+  }
+}
 
 /*code css สำหรับกำหนดโครงสร้างพื้นฐานของ section ที่ 3 (หมวดหมู่ Premier League)*/
 .premierleaguesectionclass {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 48px;
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 48px;
 }
-    /*responsive handle เพื่อไม่ให้ระยะห่างมีมากเกินไป จึงต้องลดลงมา เมื่อขนาด screen เล็กลง*/
-    @media screen and (max-width:599px) {
-        .premierleaguesectionclass {
-            margin-block: 32px;
-        }
-    }
+/*responsive handle เพื่อไม่ให้ระยะห่างมีมากเกินไป จึงต้องลดลงมา เมื่อขนาด screen เล็กลง*/
+@media screen and (max-width: 425px) {
+  .premierleaguesectionclass {
+    margin-block: 32px;
+  }
+}
 
 /*code css สำหรับกำหนด style ของหัวข้อหมวดหมู่ (โดยเป็นประเภทหัวข้อที่มี > ต่อท้าย)*/
 .titlever2config {
-    color: #202224;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    line-height: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.75px;
+  color: #202224;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.75px;
 }
-    
-    /*code css สำหรับกำหนด style ของ svg ที่เป็น tag อยู่ภายใต้หัวข้อหมวดหมู่ (โดยเป็นประเภทหัวข้อที่มี > ต่อท้าย)*/
-    .titlever2config svg {
-        display: inline-block;
-        vertical-align: text-top;
-        width: 20px;
-        fill: #000000;
-    }
+
+/*code css สำหรับกำหนด style ของ svg ที่เป็น tag อยู่ภายใต้หัวข้อหมวดหมู่ (โดยเป็นประเภทหัวข้อที่มี > ต่อท้าย)*/
+.titlever2config svg {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  fill: #000000;
+}
 
 /*code css สำหรับวางโครงสร้างเพื่อใส่รูปและ text ของหัวข้อ premier league พื้นฐาน*/
 .premiergridconfig {
-    display: grid;
-    box-sizing: border-box;
-    margin: 0px 16px 0px 16px; /*แรกเริ่มจะกำหนดให้เป็นซ้ายขวา เพื่อไม่ให้ชิดเกินไป*/
+  display: grid;
+  box-sizing: border-box;
+  margin: 0px 16px 0px 16px; /*แรกเริ่มจะกำหนดให้เป็นซ้ายขวา เพื่อไม่ให้ชิดเกินไป*/
 }
 
 /*code css สำหรับวแบ่งโครงสร้างสำหรับใส่รูป และ text ข่าว ในหมวดหมู่ premier league*/
 .photoLtextRgrid2config {
-    grid-template-columns: 2fr 1fr;
-    position: relative;
-    display: grid;
-    grid-gap: 0;
-    margin-left: 20px;
+  grid-template-columns: 2fr 1fr;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  display: grid;
+  grid-gap: 0;
+  margin-left: 20px;
 }
-    
-    
-    /*code css responsive handle*/
-    @media screen and (max-width:1007px) {
-        .photoLtextRgrid2config {
-            grid-template-columns: 1fr;
-        }
-    }
-    
-    .photoLtextRgrid2config:hover img {
-        opacity: 0.8;
-    }
-    
-    .photoLtextRgrid2config:hover h2 {
-        text-decoration: underline;
-    }
+
+/*code css responsive handle*/
+@media screen and (max-width: 425px) {
+  .photoLtextRgrid2config {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 375px) {
+  .photoLtextRgrid2config {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photoLtextRgrid2config:hover img {
+  opacity: 0.8;
+}
+
+.photoLtextRgrid2config:hover h2 {
+  text-decoration: underline;
+}
 
 /*code css ใช้เพื่อ set การ wrap ของ รูป*/
 .mdwrap {
-    order: 0;
-    position: relative;
-    align-self: start;
+  order: 0;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  align-self: start;
 }
-    /*responsive code css ใช้เพื่อ set การ wrap ของ รูป*/
-    @media screen and (max-width:1007px) {
-        .mdwrap {
-            order: unset;
-                }
-    }
+/*responsive code css ใช้เพื่อ set การ wrap ของ รูป*/
+@media screen and (max-width: 1007px) {
+  .mdwrap {
+    order: unset;
+  }
+}
 
 /*code css ใช้เพื่อ set size ของรูปที่อยู่ด้านซ้ายของ grid*/
 .Lphotoconfigingrid2 {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
-    
 
-    .Lphotoconfigingrid2 img {
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-    }
-    
-    
-    @media screen and (max-width:599px) {
-        .Lphotoconfigingrid2 {
-            margin: 0;
-        }
-    }
+.Lphotoconfigingrid2 img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 425px) {
+  .Lphotoconfigingrid2 {
+    margin: 0;
+  }
+}
 
 /*code css ใช้เพื่อ set text ที่อยู่ด้านขวาของ grid*/
 .textudconfig {
-    background-color: #ffffff;
-    right: 0;
-    align-content: center;
-    align-items: center;
-    grid-gap: 12px;
-    padding: 16px;
-    display: grid;
+  background-color: #ffffff;
+  right: 0;
+  align-content: center;
+  align-items: center;
+  grid-gap: 12px;
+  padding: 16px;
+  display: grid;
 }
-    
-    @media screen and (max-width:8192px) {
-        .textudconfig {
-            grid-template-columns: subgrid; /*new css parameter : เป็นการกำหนดคอลัมน์ของกริดย่อย (subgrid) โดยการสืบทอดการตั้งค่าคอลัมน์จากกริดหลัก (parent grid) ไปยังกริดย่อย*/
-        }
-    }
-    
-    @media screen and (max-width:1007px) {
-        .textudconfig {
-            padding: 12px 0 0 0;
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-    
-    @media screen and (max-width:599px) {
-        .textudconfig {
-            padding: 12px 16px 0 12px;
-            grid-template-columns: subgrid;
-        }
-    }
+
+@media screen and (max-width: 2560px) {
+  .textudconfig {
+    grid-template-columns: subgrid; /*new css parameter : เป็นการกำหนดคอลัมน์ของกริดย่อย (subgrid) โดยการสืบทอดการตั้งค่าคอลัมน์จากกริดหลัก (parent grid) ไปยังกริดย่อย*/
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .textudconfig {
+    padding: 12px 16px 0 12px;
+    grid-template-columns: subgrid; /*การกำหนดคอลัมน์ของกริดย่อย (subgrid) โดยการสืบทอดการตั้งค่าคอลัมน์จากกริดหลัก (parent grid) ไปยังกริดย่อย*/
+  }
+}
 
 /*code css ใช้กำหนด position และ size ของ icon live */
 .logoconfig1 {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 48px;
-    width: 48px;
-    margin: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 48px;
+  width: 48px;
+  margin: 8px;
 }
 
-    .logoconfig1>svg {
-        height: 30px;
-    }
+.logoconfig1 > svg {
+  height: 30px;
+}
 
-
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .logoconfig1 {
-            height: 32px;
-            width: 32px;
-            margin: 4px;
-        }
-        .logoconfig1>svg {
-            height: 20px;
-        }
-    }
-
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .logoconfig1 {
+    height: 32px;
+    width: 32px;
+    margin: 4px;
+  }
+  .logoconfig1 > svg {
+    height: 20px;
+  }
+}
 
 /*code css ใช้กำหนด style ของ icon live ใน premier league */
 .livelogoprmconfig {
-    grid-template-columns: auto auto;
-    align-items: center;
-    position: relative;
-    padding-left: 2px;
-    margin: 0 6px 0 0;
-    display: grid;
-    height: auto;
-    width: auto;
-    float: left;
-    color: #EB0000;
-    grid-gap: 2.6px;
+  grid-template-columns: auto auto;
+  align-items: center;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  padding-left: 2px;
+  margin: 0 6px 0 0;
+  display: grid;
+  height: auto;
+  width: auto;
+  float: left;
+  color: #eb0000;
+  grid-gap: 2.6px;
 }
 
-    .livelogoprmconfig>svg {
-        height: 26.7px;
-        width: 26.7px;
-    }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .livelogoprmconfig {
-            grid-gap: 2.3px;
-        }
-        .livelogoprmconfig>svg {
-            height: 23px;
-        }
-    }
+.livelogoprmconfig > svg {
+  height: 26.7px;
+  width: 26.7px;
+}
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .livelogoprmconfig {
+    grid-gap: 2.3px;
+  }
+  .livelogoprmconfig > svg {
+    height: 23px;
+  }
+}
 
 /*code css ใช้กำหนด style ของ text live ใน premier league */
 .livetxtprmconfig {
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0px;
+  color: #eb0000;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+/*code css ใช้กำหนด responsive ของ text live ใน premier league */
+@media screen and (max-width: 425px) {
+  .livetxtprmconfig {
     font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
     font-weight: 700;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 28px;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0px;
-    color: #EB0000;
-    text-decoration: none !important;
-    text-transform: uppercase;
+  }
 }
-    /*code css ใช้กำหนด responsive ของ text live ใน premier league */
-    @media screen and (max-width:599px) {
-        .livetxtprmconfig {
-            font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 28px;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0px;
-        }
-    }
 
 /*code css ใช้กำหนด style ของ text headline ของ tag h2 */
 .hlconfig {
-    color: #202224;
-    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 32px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.56px;
+  color: #202224;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.56px;
 }
 
-
 /*responsive handle */
-    @media screen and (max-width:599px) {
-        .hlconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 24px;
-            line-height: 28px;
-            text-transform: none;
-            text-decoration: none;
-            letter-spacing: -0.48px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .hlconfig {
+    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: -0.48px;
+  }
+}
 
-/*code css ใช้กำหนด style ของ text description*/
+/*code css ใช้กำหนด style ของ text description ของข่าวส่วน premier league, watch, watch list*/
 .cdesc {
-    color: #202224;
+  color: #202224;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+}
+
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .cdesc {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
+  }
 }
 
-
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .cdesc {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0px;
-        }
-    }
-
-
-
-    @media screen and (max-width:1007px) {
-        .cdesc {
-            grid-column: 1 / span 2;
-        }
-    }
+@media screen and (max-width: 1007px) {
+  .cdesc {
+    grid-column: 1 / span 2;
+  }
+}
 
 /*code css ใช้กำหนด style text ของ button "See More"*/
 .smbuttonclass {
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0px;
-    margin-top: 12px;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
+  margin-top: 12px;
 }
 
 /*code css ใช้กำหนด style ของ button "See More"*/
 .smbuttonconfig {
-    background-color: transparent;
-    color: #000000;
-    border-color: #000000;
-    outline-color: #00000000;
+  background-color: transparent;
+  color: #000000;
+  border-color: #000000;
+  outline-color: #00000000;
 }
-    /*code css ใช้กำหนด style เมื่อ mouse ไปชี้ตำแหน่ง ของ button "See More"*/
-    .smbuttonconfig:hover {
-        background-color: #3a3c3e;
-        color: #ffffff;
-        border-color: #3a3c3e;
-        outline-color: #3a3c3e;
-    }
+/*code css ใช้กำหนด style เมื่อ mouse ไปชี้ตำแหน่ง ของ button "See More"*/
+.smbuttonconfig:hover {
+  background-color: #3a3c3e;
+  color: #ffffff;
+  border-color: #3a3c3e;
+  outline-color: #3a3c3e;
+}
 
+/*code css ใช้กำหนด style เมื่อ button "See More" ถูก select*/
+.smbuttonconfig:focus {
+  background-color: #3a3c3e;
+  color: #ffffff;
+  outline-color: #3a3c3e;
+  border-color: #3a3c3e;
+}
 
-    /*code css ใช้กำหนด style เมื่อ button "See More" ถูก select*/
-    .smbuttonconfig:focus {
-        background-color: #3a3c3e;
-        color: #ffffff;
-        outline-color: #3a3c3e;
-        border-color: #3a3c3e;
-    }
+/*code css ใช้กำหนด style เมื่อ button "See More" ถูก click*/
+.smbuttonconfig:active {
+  color: #ffffff;
+  background-color: #545658;
+  border-color: #545658;
+}
 
-
-    /*code css ใช้กำหนด style เมื่อ button "See More" ถูก click*/
-    .smbuttonconfig:active {
-        color: #ffffff;
-        background-color: #545658;
-        border-color: #545658;
-    }
-
-
-    /*code css ใช้กำหนด style เมื่อ button "See More" ถูกปิดใช้งาน*/
-    .smbuttonconfig:disabled,
-    .smbuttonconfig[disabled] {
-        cursor: not-allowed;
-        color: #d2d4d6;
-        outline-color: #00000000;
-        border-color: transparent;
-    }
+/*code css ใช้กำหนด style เมื่อ button "See More" ถูกปิดใช้งาน*/
+.smbuttonconfig:disabled,
+.smbuttonconfig[disabled] {
+  cursor: not-allowed;
+  color: #d2d4d6;
+  outline-color: #00000000;
+  border-color: transparent;
+}
 
 /*code css ใช้กำหนดระยะห่างพื้นฐานเมื่อ button "See More" ถูกปิดใช้งาน*/
 .thisweekaudsectionclass {
-    margin-top: 1;
+  display: block;
 }
 
-    /*code css (responsive handle) ใช้กำหนด style เมื่อ button "See More" ถูกปิดใช้งาน*/
-    @media screen and (max-width:599px) {
-        .thisweekaudsectionclass {
-            margin-block: 32px;
-        }
-    }
+/*code css (responsive handle) ใช้กำหนด style เมื่อ button "See More" ถูกปิดใช้งาน*/
+@media screen and (max-width: 425px) {
+  .thisweekaudsectionclass {
+    margin-block: 32px;
+  }
+}
 
 /*code css ใช้กำหนด position ของ button ให้เลือกฝั่ง*/
 .LRselectorsection {
-    padding: 14px 0px;
-    margin-left: auto;
+  padding: 14px 0px;
+  margin-left: auto;
 }
 
 /*code css ใช้กำหนด layout ของ button ให้เลือกฝั่ง*/
 .LRselectorsectionlayout {
-    color: rgb(0,0,0);
-    display: flex;
-    height: auto;
-    column-gap: 12px;
-    margin-left: auto;
-    margin-right: 0px;
-    width: 72px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  height: auto;
+  column-gap: 12px;
+  margin-left: auto;
+  margin-right: 0px;
+  width: 72px;
 }
 
 /*code css ใช้กำหนด layout position และ size ของ button ให้เลือกฝั่งไปทางซ้าย*/
 .leftbutt {
-    display: flex;
-    height: 24px;
-    width: 24px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  height: 24px;
+  width: 24px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-    /*code css ใช้กำหนด layout และ size ของ button ให้เลือกฝั่งไปทางซ้าย เมื่อถูกปิดใช้งาน*/
-    .leftbutt:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        background-color: transparent;
-    }
-    /*code css ใช้กำหนด size svg ของ button ให้เลือกฝั่งไปทางซ้าย*/
-    .leftbutt svg {
-        height: 20px;
-        width: auto;
-    }
+/*code css ใช้กำหนด layout และ size ของ button ให้เลือกฝั่งไปทางซ้าย เมื่อถูกปิดใช้งาน*/
+.leftbutt:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+/*code css ใช้กำหนด size svg ของ button ให้เลือกฝั่งไปทางซ้าย*/
+.leftbutt svg {
+  height: 20px;
+  width: auto;
+}
 
 /*code css ใช้กำหนด style ของ button ให้เลือกฝั่งไปทางซ้ายและขวา*/
 .svgsideselectorbutt {
-    display: block;
-    fill:#000000
+  display: block;
+  fill: #000000;
 }
 
 /*code css ใช้กำหนด layout position และ size ของ button ให้เลือกฝั่งไปทางขวา*/
 .rightbutt {
-    display: flex;
-    height: 24px;
-    width: 24px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  height: 24px;
+  width: 24px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-    /*code css ใช้กำหนด size svg ของ button ให้เลือกฝั่งไปทางขวา*/
-    .rightbutt svg {
-        height: 20px;
-        width: auto;
-    }
+/*code css ใช้กำหนด size svg ของ button ให้เลือกฝั่งไปทางขวา*/
+.rightbutt svg {
+  height: 20px;
+  width: auto;
+}
 
 /*code css ใช้กำหนด layout audio ทั้งหมด*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .audiotypegridconfig {
-    display: grid;
-    padding: 0 16px;
+  display: grid; /*ตอนแรกลองกำหนดเป็น block แต่ผลปรากฏว่า ล้นออกมา จึงทำให้มีการกกำหนดเป็น grid แทน แล้วผลที่ได้มาคือไม่ล้น*/
+  padding: 0 16px;
 }
 
 /*code css ใช้กำหนด position audio ทั้งหมด*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .audmarginbconfig {
-    margin-bottom: 8px;
-    position: relative;
+  margin-bottom: 8px;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
 }
 
 /*code css ใช้กำหนด overflow ที่เป็นประเภท audio ทั้งหมด โดยมีการกำหนดให้ scroll ไปทางขวา*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .thiswkscbconfig {
-    display: flex;
-    overflow: scroll;
-    column-gap: 16px;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
+  display: inline-flex;
+  overflow: scroll; /*เปิดให้ scroll ได้ ทั้งแนวนอนและแนวตั้ง (แต่ถ้าด้านใดไม่มีเนื้อหาเกิน ก็จะไม่แสดงแถบเลื่อน)*/
+  column-gap: 16px;
+  scroll-snap-type: x proximity; /*ทำให้ scroll แล้วหยุดพอดีกับจุด (snap point) ในแนวนอน*/
+  scrollbar-width: none; /*ซ่อน scrollbar ออกไป*/
 }
 
 /*code css ใช้กำหนดให้กับ content แต่ละตัว*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .audcardconfig {
-    width: 180px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    height: 100%;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
 }
 
-    .audcardconfig img {
-        aspect-ratio: 1/1;
-        object-fit: cover;
-    }
+/*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
+.audcardconfig img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
 
-    .audcardconfig {
-        justify-content: flex-start;
-        align-items: center;
-        gap: 6px;
-    }
+.audcardconfig {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
 
-    .audcardconfig span:first-of-type {
-        width: 24px;
-        height: 24px;
-    }
+.audcardconfig span:first-of-type {
+  width: 24px;
+  height: 24px;
+}
+/*ขนาดความกว้าง (width) และความสูง (height) ให้กับ span ตัวแรกที่อยู่ภายใน element ที่มี class ว่า .audcardconfig*/
 
-    .audcardconfig {
-        display: flex;
-        align-items: center;
-    }
+.audcardconfig {
+  display: flex;
+  align-items: center;
+}
 
-    .audcardconfig a:hover {
-        text-decoration: underline;
-    }
+.audcardconfig a:hover {
+  text-decoration: underline;
+}
 
-    @media screen and (max-width:599px) {
-        .audcardconfig {
-            width: 145px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .audcardconfig {
+    width: 145px;
+  }
+}
 
 /*code css ใช้กำหนดให้กับ style ของ graph audio*/
-/*เป็น class ที่ใช้ co กับ section Latest audio*/   
+/*เป็น class ที่ใช้ co กับ section Latest audio*/
 .ctlabel {
-    background-color: #ffffff;
-    color: #000000;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    position: absolute;
-    min-width: 24px;
-    bottom: 0px;
-    display: grid;
-    left: 0px;
+  background-color: #ffffff;
+  color: #000000;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  position: absolute; /*กำหนดเพื่อรองรับ เมื่อถูกลบออกจาก flow ปกติของ layout ให้ไม่กินพื้นที่ ไม่ดัน element อื่น*/
+  min-width: 24px;
+  bottom: 0px;
+  display: grid;
+  left: 0px;
 }
 
-    @media screen and (max-width:599px) {
-        .ctlabel {
-            left: 0px;
-            display: grid;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .ctlabel {
+    left: 0px;
+    display: grid;
+  }
+}
 
 /*code css ใช้ size และ position ของ graph audio*/
-/*เป็น class ที่ใช้ co กับ section Latest audio*/      
+/*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cttypeiconwrap {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 20px;
-    width: 20px;
-    margin: 2px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 20px;
+  width: 20px;
+  margin: 2px;
 }
 
-    .cttypeiconwrap > svg {
-        height: 13px;
-    }
+.cttypeiconwrap > svg {
+  height: 13px;
+}
 
 /*code css ใช้กำหนด style ของ title audio*/
-/*เป็น class ที่ใช้ co กับ section Latest audio*/  
+/*เป็น class ที่ใช้ co กับ section Latest audio*/
 .audtitle {
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  margin-bottom: 4px;
+  color: #545658;
+}
+
+@media screen and (max-width: 425px) {
+  .audtitle {
     font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0px;
-    margin-bottom: 4px;
-    color: #545658;
+  }
 }
 
-    @media screen and (max-width:599px) {
-        .audtitle {
-            font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
-            letter-spacing: 0px;
-        }
-    }
-
 /*code css ใช้กำหนด style ของ description audio*/
-/*เป็น class ที่ใช้ co กับ section Latest audio*/  
+/*เป็น class ที่ใช้ co กับ section Latest audio*/
 .auddesc {
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+  color: #000000;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 425px) {
+  .auddesc {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.28px;
-    color: #000000;
-    text-decoration: none;
+  }
 }
-
-    @media screen and (max-width:599px) {
-        .auddesc {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: -0.28px;
-        }
-    }
 
 /*code css ใช้กำหนด layout และ position ให้กับ ส่วนของ save button ของ audio*/
-/*เป็น class ที่ใช้ co กับ section Latest audio*/  
+/*เป็น class ที่ใช้ co กับ section Latest audio*/
 .savebuttsec {
-    display: flex;
-    flex-direction: row;
-    gap: 6px;
-    align-items: center;
-    margin-top: auto;
-    margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  margin-top: auto;
+  margin-right: auto;
 }
-    /*code css ใช้กำหนด size และ ระยะห่างระหว่าง save กับเวลา */
-    .savebuttsec button {
-        min-width: 24px;
-        margin-right: 6px;
-    }
-    /*code css ใช้กำหนด size ของ button save */
-    .savebuttsec button svg {
-        height: 12px;
-    }
+/*code css ใช้กำหนด size และ ระยะห่างระหว่าง save กับเวลา */
+.savebuttsec button {
+  min-width: 24px;
+  margin-right: 6px;
+}
+/*code css ใช้กำหนด size ของ button save */
+.savebuttsec button svg {
+  height: 12px;
+}
 
 /*code css ใช้กำหนด size display ระยะห่าง font style ของ button save */
 .savebuttconfig1 {
-    cursor: pointer;
-    font-weight: 500;
-    border: 2px solid transparent;
-    outline: 2px solid transparent;
-    display: flex;
-    flex-direction: row;
-    column-gap: 4px;
-    row-gap: 4px;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 0;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0px;
+  cursor: pointer;
+  font-weight: 500;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+  row-gap: 4px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
 }
 
 /*code css ใช้กำหนด display position การ padding ของ button save ที่แยกทำเป็น 2 อันเพราะจะมี case ต่างๆ */
 .savebuttconfig2 {
-    min-width: 90px;
-    border: none;
-    justify-content: flex-start;
-    color: #202224;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
+  min-width: 90px;
+  border: none;
+  justify-content: flex-start;
+  color: #202224;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-    .savebuttconfig2:disabled {
-        pointer-events: none;
-        cursor: not-allowed;
-    }
+.savebuttconfig2:disabled {
+  /*pseudo-class ที่ใช้กับปุ่มที่ถูกปิดใช้งาน*/
+  pointer-events: none; /*ปุ่มจะไม่สามารถถูกคลิกหรือ interact ได้*/
+  cursor: not-allowed; /*เมื่อเอาเมาส์ไปชี้จะเห็นเป็นรูป "ห้าม" บอกว่าปุ่มใช้งานไม่ได้*/
+}
 
-    .savebuttconfig2:focus {
-        border-width: 2px;
-    }
+.savebuttconfig2:focus {
+  border-width: 2px; /*เมื่อปุ่มถูก focus (เช่นใช้คีย์บอร์ด Tab มาเลือก) จะมีเส้นขอบหนา 2px แสดงขึ้น (ถ้า border-style ไม่ได้ตั้งไว้ อาจไม่มีผลเท่าไหร่)*/
+}
 
-    .savebuttconfig2:hover  {
-        background-color: #DCDEE0;
-    }
+.savebuttconfig2:hover {
+  background-color: #dcdee0; /*เมื่อเอาเมาส์ไปชี้ (hover) จะเปลี่ยนพื้นหลังเป็นสีเทาอ่อน*/
+}
 
 /*code css ใช้กำหนด style ของวงกลมที่ครอบ icon save อีกที */
 .buttwrapconfig {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #D2D4D6;
-    width: 24px;
-    height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /*การทำขอบของ ปุ่ม save ให้เป็นวงกลม*/
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d4d6;
+  width: 24px;
+  height: 24px;
 }
-    /*code css ใช้กำหนด size ของวงกลมที่ครอบ icon save อีกที */
-    .buttwrapconfig svg,
-    .buttwrapconfig img {
-        width: 24px;
-        height: 24px;
-    }
+/*code css ใช้กำหนด size ของวงกลมที่ครอบ icon save อีกที */
+.buttwrapconfig svg,
+.buttwrapconfig img {
+  width: 24px;
+  height: 24px;
+}
 
 /*code css ใช้กำหนด position ของ icon save*/
 .savebuttinspect {
-    position: relative;
-    display: flex;
-    align-items: center;
+  display: flex;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  align-items: center;
 }
 
 /*code css ที่ใช้กำหนดโครงสร้างระยะเวลาของ audio*/
 .timeaudframe {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 /*code css ที่ใช้กำหนด style ระยะเวลาของ audio*/
 .timeaudstyle {
-    font-family: "BBC Reith Sans", "BBCReithSans-fallback", sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.12px;
-    color: rgb(84, 86, 88);
-    display: inline-flex;
+  font-family: "BBC Reith Sans", "BBCReithSans-fallback", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-decoration: none;
+  letter-spacing: -0.12px;
+  color: rgb(84, 86, 88);
+  display: inline-flex;
 }
-
 
 /*code css สำหรับการวางโครงสร้าง พื้นฐานของ section More news*/
 .morenewsconfig {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 48px;
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 48px;
 }
 
-    @media screen and (max-width:599px) {
-        .morenewsconfig {
-            margin-block: 32px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .morenewsconfig {
+    margin-block: 32px;
+  }
+}
 /*code css สำหรับการวางโครงสร้าง พื้นฐานของ section More news*/
 .morenewsctconfig {
-    grid-template-columns: repeat(5, 1fr);
-    align-items: start;
-    margin: 0 16px;
-    grid-gap: 16px;
-    display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: start;
+  margin: 0 16px;
+  grid-gap: 16px;
+  display: grid;
 }
-    /*code css สำหรับการทำ responsive handle เมื่อเทียบกับ web จริง ขนาดหน้าจอที่ลดลง จะแบ่งขนาดของ grid ไม่เท่ากัน และถ้าเล็กมากๆจะมีเส้นคั่นระหว่างข่าว */
-    @media screen and (max-width:1007px) {
-        .morenewsctconfig {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
+/*code css สำหรับการทำ responsive handle เมื่อเทียบกับ web จริง ขนาดหน้าจอที่ลดลง จะแบ่งขนาดของ grid ไม่เท่ากัน และถ้าเล็กมากๆจะมีเส้นคั่นระหว่างข่าว */
+@media screen and (max-width: 1007px) {
+  .morenewsctconfig {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
-    @media screen and (max-width:767px) {
-        .morenewsctconfig {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
+@media screen and (max-width: 767px) {
+  .morenewsctconfig {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .morenewsctconfig {
-            grid-template-columns: 1fr;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .morenewsctconfig {
+    grid-template-columns: 1fr;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .morenewsctconfig>div:nth-of-type(-n + 4)>div>a>div {
-            border-bottom: 1px solid #e6e8ea;
-        }
-    }
+/*เส้นคั่นบางๆ เมื่อแบ่ง responsive*/
+@media screen and (max-width: 425px) {
+  .morenewsctconfig {
+    border-bottom: 1px solid #e6e8ea;
+  }
+}
+
+.morenewlyconfig {
+  border-bottom: none;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  grid-gap: 8px;
+  display: grid;
+}
+
+.morenewlyconfig:hover h2 {
+  text-decoration: underline;
+}
 
 /*code css สำหรับการวางโครงสร้าง พื้นฐานของ section Editor's Picks*/
 /*co class นี้กับ section Discover more from BBC*/
 .edpsectioncalss {
-    display: grid;
-    width: 100%;
-    background-color: #141618;
-    padding-block: 24px;
+  display: block;
+  width: 100%;
+  background-color: #141618;
+  padding-block: 24px;
 }
-    /*code css สำหรับ responsive handle*/
-    @media screen and (max-width:599px) {
-        .edpsectioncalss {
-            padding-block: 16px;
-        }
-    }
+/*code css สำหรับ responsive handle*/
+@media screen and (max-width: 425px) {
+  .edpsectioncalss {
+    padding-block: 16px;
+  }
+}
 
 /*code css สำหรับเส้นคั่นสีขาวด้่านบน section Editor's Picks หรือ Discover More from BBC*/
 /*co class นี้กับ section Discover more from BBC*/
 .whitesplitterlinestyle {
-    margin: 0 16px;
-    border-width: 0;
-    height: 2px;
-    width: 100%;
-    background-color: #e6e8ea;
+  margin: 0 16px;
+  border-width: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #e6e8ea;
 }
 
 /*code css สำหรับตัวอักษรสีขาวที่เป็น title ของหมวดหมู่*/
 /*co class นี้กับ section Discover more from BBC*/
 .h2whitetextstyle {
-    color: #e6e8ea;
+  color: #e6e8ea;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.75px;
+}
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .h2whitetextstyle {
     font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
     font-weight: 800;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 18px;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 0.75px;
+    letter-spacing: 0.7px;
+  }
 }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .h2whitetextstyle {
-            font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 18px;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.7px;
-        }
-    }
 
-
-
-    @media screen and (max-width:399px) {
-        .h2whitetextstyle {
-            font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 18px;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.7px;
-        }
-    }
-
+@media screen and (max-width: 399px) {
+  .h2whitetextstyle {
+    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.7px;
+  }
+}
 
 /*code css สำหรับ svg (เครื่องหมาย >)*/
 /*co class นี้กับ section Discover more from BBC*/
-    .h2whitetextstyle svg {
-        display: inline-block;
-        vertical-align: text-top;
-        width: 20px;
-        fill: #ffffff;
-    }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .h2whitetextstyle svg {
-            width: 18px;
-        }
-    }
-
+.h2whitetextstyle svg {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  fill: #ffffff;
+}
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .h2whitetextstyle svg {
+    width: 18px;
+  }
+}
 
 /*code css สำหรับ config style เครื่องหมายเลือกฝั่งซ้ายและขวา*/
 /*co class นี้กับ section Discover more from BBC*/
 .lrwhitesel {
-    color: rgb(255,255,255);
-    display: flex;
-    height: auto;
-    column-gap: 12px;
-    margin-left: auto;
-    padding: 0px 12px 0px 0px;
- }
+  display: flex;
+  color: rgb(255, 255, 255);
+  height: auto;
+  column-gap: 12px;
+  margin-left: auto;
+  padding: 0px 12px 0px 0px;
+}
 
 /*code css สำหรับ config ตำแหน่ง และของ เครื่องหมายฝั่งแต่ละฝั่ง*/
 /*co class นี้กับ section Discover more from BBC*/
 .lrconfig {
-    display: block;
-    fill: currentcolor;
+  display: block;
+  fill: currentcolor;
 }
 
 /*code css สำหรับการวางโครงสร้าง ใส่สี และ ระยะห่างพื่นฐาน*/
 /*co class นี้กับ section Discover more from BBC*/
 .gridhardcolorconfig {
-    display: grid;
-    background-color: rgb(20, 22, 24);
-    padding: 0 16px;
+  display: grid;
+  background-color: rgb(20, 22, 24);
+  padding: 0 16px;
 }
 
 /*code css ใช้กำหนด overflow โดยมีการกำหนดให้ scroll ไปทางขวา*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .displayhardbgconfig {
-    display: flex;
-    overflow: scroll;
-    column-gap: 12px;
-    scroll-snap-type: x;
-    scrollbar-width: none;
+  display: flex;
+  overflow: scroll;
+  column-gap: 12px;
+  scroll-snap-type: x;
+  scrollbar-width: none;
 }
 
 /*code css ใช้กำหนดขนาดของ flex โดยที่มีการ declare ให้ scroll ไปทางขวา*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .flexsizehardcolorbgconfig {
-    width: 270px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
+  width: 270px; /*กำหนดความกว้างของ element นี้ให้คงที่ๆ 270px*/
+  flex-shrink: 0; /*บังคับไม่ให้ flex ย่อขนาดโดยเด็ดขาด*/
+  scroll-snap-align: start; /*ใช้ร่วมกับ scorll container โดยที่ให้จัดตำแหน่งชิดขอบเริ่มต้น (ในบริบทนี้ ให้เริ่มจาก ด้านซ้ายในแนวนอน (จากการกำหนด scroll-snap-type เป็นแกน x*/
 }
 
 /*code css ที่ config โครงสร้างไว้สำหรับการใส่ข่าวแต่ละข่าว*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cardvdoconfig {
-    border-bottom: 0;
-    transition: opacity 0.2s ease-in-out;
-    grid-auto-rows: auto auto 1fr auto;
-    position: relative;
-    display: grid;
-    opacity: 1;
+  display: grid;
+  border-bottom: 0;
+  transition: opacity 0.2s ease-in-out; /*element มีการเปลี่ยนแปลงความโปร่งใส จะเกิด animation 2 วินาที*/
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  opacity: 1;
 }
 
-    .cardvdoconfig:hover img {
-        opacity: 0.8;
-    }
+.cardvdoconfig:hover img {
+  opacity: 0.8;
+}
 
-
-
-    .cardvdoconfig:hover h2 {
-        text-decoration: underline;
-    }
+.cardvdoconfig:hover h2 {
+  text-decoration: underline;
+}
 
 /*code css ที่ config style icon play สำหรับการใส่ข่าวแต่ละข่าว*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cttypelbstyle {
-    background-color: #000000;
-    color: #ffffff;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    position: absolute;
-    min-width: 24px;
-    bottom: 0;
-    display: grid;
-    left: 0;
+  background-color: #000000;
+  color: #ffffff;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  position: absolute; /*กำหนดเพื่อรองรับ เมื่อถูกลบออกจาก flow ปกติของ layout ให้ไม่กินพื้นที่ ไม่ดัน element อื่น*/
+  min-width: 24px;
+  bottom: 0;
+  display: grid;
+  left: 0;
 }
 
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .cttypelbstyle {
-            left: 0px;
-            display: grid;
-        }
-    }
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .cttypelbstyle {
+    left: 0px;
+    display: grid;
+  }
+}
 
 /*code css ที่ config size position และ display ของ icon play สำหรับการใส่ข่าวแต่ละข่าว*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cttypeicwrap {
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 32px;
+  width: 32px;
+  margin: 4px;
+}
+
+.cttypeicwrap > svg {
+  height: 20px;
+}
+
+@media screen and (max-width: 425px) {
+  .cttypeicwrap {
     height: 32px;
     width: 32px;
     margin: 4px;
+  }
+  .cttypeicwrap > svg {
+    height: 20px;
+  }
 }
-
-    .cttypeicwrap>svg {
-        height: 20px;
-    }
-
-    @media screen and (max-width:599px) {
-        .cttypeicwrap {
-            height: 32px;
-            width: 32px;
-            margin: 4px;
-        }
-        .cttypeicwrap>svg {
-            height: 20px;
-        }
-    }
 
 /*code css ที่ config structrue ของ text ทั้งหมดของข่าวแต่ละข่าวที่อยู่ภายใต้รูป ของ section นี้*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cardtxtwrapper {
-    background-color: #141618;
-    color: #000000;
-    grid-gap: 12px;
-    display: grid;
-    padding-top: 8px;
+  background-color: #141618;
+  color: #000000;
+  grid-gap: 12px;
+  display: grid;
+  padding-top: 8px;
 }
 
 /*code css ที่ config style ของ text header ทั้งหมดของข่าวแต่ละข่าวที่อยู่ภายใต้รูป ของ section นี้*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cardheadlineconfig {
-    color: rgb(230, 232, 234);
-    font-family: "BBC Reith Serif", BBCReithSerif-fallback, serif;
+  color: rgb(230, 232, 234);
+  font-family: "BBC Reith Serif", BBCReithSerif-fallback, serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.36px;
+}
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .cardheadlineconfig {
+    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
     text-transform: none;
     text-decoration: none;
     letter-spacing: -0.36px;
+  }
 }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .cardheadlineconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 22px;
-            text-transform: none;
-            text-decoration: none;
-            letter-spacing: -0.36px;
-        }
-    }
 
 /*code css ที่ config style ของ text description ทั้งหมดของข่าวแต่ละข่าวที่อยู่ภายใต้รูป ของ section นี้*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .carddesc {
-    color: #e6e8ea;
+  color: #e6e8ea;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+}
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .carddesc {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
+  }
 }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .carddesc {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0px;
-        }
-    }
 
 /*code css ที่ config style ของวัน (ตัวอักษรสีขาว) /
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .datelastup {
-    font-family: "BBC Reith Sans", BBCReithSans-fallback, sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.12px;
-    color: rgb(175, 177, 180);
+  font-family: "BBC Reith Sans", BBCReithSans-fallback, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.12px;
+  color: rgb(175, 177, 180);
 }
 
 /*code css ที่ style ของตัวคั่นระหว่างวัน และ ประเภทข่าว (สีขาว) */
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .metetaseperator {
-    background-color: #afb1b4;
-    margin: auto 2px;
-    height: 16px;
-    width: 1px;
+  background-color: #afb1b4;
+  margin: auto 2px;
+  height: 16px;
+  width: 1px;
 }
 
 /*code css ที่ config style ของประเภทข่าว  (ตัวอักษรสีขาว) */
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .metadatatag {
-    color: #afb1b4;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: -0.12px;
-    pointer-events: none;
+  color: #afb1b4;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.12px;
+  pointer-events: none;
 }
-
-
 
 /*code css ที่ config structure พื้นฐานของ watch list section*/
 .watchlistsectionclass {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 48px;
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 48px;
 }
-    /*code css ที่ทำ reponsive handle เพื่อมารองรับการ config structure พื้นฐานของ watch list section เมื่อขนาดหน้าจอเล็กลง*/
-    @media screen and (max-width:599px) {
-        .watchlistsectionclass {
-            margin-block: 32px;
-        }
-    }
+/*code css ที่ทำ reponsive handle เพื่อมารองรับการ config structure พื้นฐานของ watch list section เมื่อขนาดหน้าจอเล็กลง*/
+@media screen and (max-width: 425px) {
+  .watchlistsectionclass {
+    margin-block: 32px;
+  }
+}
 
 /*code css ที่ทำ config grid ของ watch list*/
 .watchlistgridconfig {
-    display: grid;
-    box-sizing: border-box;
-    margin: 0px 16px 0px 16px;
+  display: grid;
+  box-sizing: border-box;
+  margin: 0px 16px 0px 16px;
 }
 
 /*code css ที่ทำ config โครงสร้างพื้นฐาน ของ section Sustainable Travel*/
 .sustainabletralvelsectionclass {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 48px;
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 48px;
 }
 
 /*code css ที่ทำ config grid ของ Sustainable Travel โดยแบ่งตามเงื่อนไขจากการทำ responsive เพราะแต่ละช่วงของขนาดหน้าจอ การ display ไม่เท่ากัน โดย refer มาจาก web จริง*/
 .sustaintravelgridconfig {
-    display: grid;
-    box-sizing: border-box;
+  display: grid;
+  box-sizing: border-box;
 }
-    /*responsive handle*/
-    @media screen and (max-width:8192px) {
-        .sustaintravelgridconfig {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: auto;
-            grid-gap: 16px;
-            margin: 0 16px;
-        }
-    }
+/*responsive handle*/
+@media screen and (max-width: 2560px) {
+  .sustaintravelgridconfig {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 16px;
+    margin: 0 16px;
+  }
+}
 
-    @media screen and (max-width:1279px) {
-        .sustaintravelgridconfig {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: auto;
-            grid-gap: 16px;
-            margin: 0 16px;
-        }
-    }
+@media screen and (max-width: 1440px) {
+  .sustaintravelgridconfig {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 16px;
+    margin: 0 16px;
+  }
+}
 
-    @media screen and (max-width:1007px) {
-        .sustaintravelgridconfig {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: auto;
-            grid-gap: 16px;
-            margin: 0 16px;
-        }
-    }
+@media screen and (max-width: 767px) {
+  .sustaintravelgridconfig {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 16px;
+    margin: 0 16px;
+  }
+}
 
-    @media screen and (max-width:767px) {
-        .sustaintravelgridconfig {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto;
-            grid-gap: 16px;
-            margin: 0 16px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .sustaintravelgridconfig {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 16px;
+    margin: 0 16px;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .sustaintravelgridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: auto;
-            grid-gap: 16px;
-            margin: 0 16px;
-        }
-    }
-
-    @media screen and (max-width:399px) {
-        .sustaintravelgridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: auto;
-            grid-gap: 16px;
-            margin: 0 16px;
-        }
-    }
+@media screen and (max-width: 399px) {
+  .sustaintravelgridconfig {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 16px;
+    margin: 0 16px;
+  }
+}
 
 /*และเมื่อ screen size มีขนาดเล็กมากๆ ซึ่งต้องการเส้นคั่น โดยกำหนดผ่านการทำ responsive*/
-.sustaintravelborderconfig a>div {
-    border-bottom: none;
+.sustaintravelborderconfig a > div {
+  border-bottom: none;
 }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .sustaintravelborderconfig a>div {
-            border-bottom: 1px solid #e6e8ea;
-        }
-    }
-
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .sustaintravelborderconfig a > div {
+    border-bottom: 1px solid #e6e8ea;
+  }
+}
 
 /*code css สำหรับการวางโครงสร้างสำหรับลงข่าวที่เป็น ประเภทย่อย โดยมีการ declare ไว้ใน html*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .subcatesectionclass {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 48px;
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 48px;
 }
 
-    @media screen and (max-width:599px) {
-        .subcatesectionclass {
-            margin-block: 32px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .subcatesectionclass {
+    margin-block: 32px;
+  }
+}
 
 /*code css สำหรับการวางโครงสร้างแบ่ง grid เป็น 2 ส่วนหลัก*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .subcategridconfig {
-    display: grid;
-    box-sizing: border-box;
+  display: grid;
+  box-sizing: border-box;
 }
-    /*responsive handle เกิดขึ้นมาเพราะเมื่อขนาดหน้าจอเล็กลง การกำหนด column จะถูกแบ่ง โดยเริ่มต้น จะเป็น การสร้างคอลัมน์ 2 คอลัมน์ โดยแต่ละคอลัมน์มีขนาดเท่ากันคือ 1fr แต่เมื่อ screen size ถูกบีบลง การแสดงผลจะต้องเป็น การสร้างเพียง column เดียว และมีขนาดเท่ากันคือ 1fr*/
-    @media screen and (max-width:8192px) {
-        .subcategridconfig {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 16px;
-            margin: 16px;
-        }
-    }
+/*responsive handle เกิดขึ้นมาเพราะเมื่อขนาดหน้าจอเล็กลง การกำหนด column จะถูกแบ่ง โดยเริ่มต้น จะเป็น การสร้างคอลัมน์ 2 คอลัมน์ โดยแต่ละคอลัมน์มีขนาดเท่ากันคือ 1fr แต่เมื่อ screen size ถูกบีบลง การแสดงผลจะต้องเป็น การสร้างเพียง column เดียว และมีขนาดเท่ากันคือ 1fr*/
+@media screen and (max-width: 2560px) {
+  .subcategridconfig {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+    margin: 16px;
+  }
+}
 
-    @media screen and (max-width:1279px) {
-        .subcategridconfig {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 16px;
-            margin: 16px;
-        }
-    }
+@media screen and (max-width: 1440px) {
+  .subcategridconfig {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+    margin: 16px;
+  }
+}
 
-    @media screen and (max-width:1007px) {
-        .subcategridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-            margin: 16px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .subcategridconfig {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+    margin: 16px;
+  }
+}
 
-    @media screen and (max-width:767px) {
-        .subcategridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-            margin: 16px;
-        }
-    }
-
-    @media screen and (max-width:599px) {
-        .subcategridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-            margin: 16px;
-        }
-    }
-
-    @media screen and (max-width:399px) {
-        .subcategridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 16px;
-            margin: 16px;
-        }
-    }
+@media screen and (max-width: 375px) {
+  .subcategridconfig {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+    margin: 16px;
+  }
+}
 
 /*code css สำหรับการวางโครงสร้างแบ่ง grid เป็น 2 ส่วนย่อย ของแต่ละ 2 ส่วนหลัก (การทำ grid 2 ส่วนใหญ่ มาแบ่งอีกรอบ ให้เป็น 4 ส่วนย่อย เพื่อลงข่าว*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .groupgridconfig {
-    display: grid;
-    box-sizing: border-box;
+  display: grid;
+  box-sizing: border-box;
 }
-    /*responsive handle เกิดขึ้นมาเพราะเมื่อขนาดหน้าจอเล็กลง การกำหนด column จะถูกแบ่ง โดยเริ่มต้น จะเป็น การสร้างคอลัมน์ 2 คอลัมน์ โดยแต่ละคอลัมน์มีขนาดเท่ากันคือ 1fr แต่เมื่อ screen size ถูกบีบลง การแสดงผลจะต้องเป็น การสร้างเพียง column เดียว และมีขนาดเท่ากันคือ 1fr*/
-    /*ต้องทำเสริมจาก class subcategridconfig เพราะ class subcategridconfig ทำ responsive ที่ละ 2 แต่ class นี้ จะทำทีละ 1 เพราะเป็นการแบ่งย่อย */
-    @media screen and (max-width:8192px) {
-        .groupgridconfig {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 24px;
-        }
-    }
+/*responsive handle เกิดขึ้นมาเพราะเมื่อขนาดหน้าจอเล็กลง การกำหนด column จะถูกแบ่ง โดยเริ่มต้น จะเป็น การสร้างคอลัมน์ 2 คอลัมน์ โดยแต่ละคอลัมน์มีขนาดเท่ากันคือ 1fr แต่เมื่อ screen size ถูกบีบลง การแสดงผลจะต้องเป็น การสร้างเพียง column เดียว และมีขนาดเท่ากันคือ 1fr*/
+/*ต้องทำเสริมจาก class subcategridconfig เพราะ class subcategridconfig ทำ responsive ที่ละ 2 แต่ class นี้ จะทำทีละ 1 เพราะเป็นการแบ่งย่อย */
 
-    @media screen and (max-width:1279px) {
-        .groupgridconfig {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 24px;
-        }
-    }
+@media screen and (max-width: 2560px) {
+  .groupgridconfig {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
+}
 
-    @media screen and (max-width:1007px) {
-        .groupgridconfig {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 24px;
-        }
-    }
+@media screen and (max-width: 1440px) {
+  .groupgridconfig {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
+}
 
-    @media screen and (max-width:767px) {
-        .groupgridconfig {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 24px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .groupgridconfig {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 24px;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .groupgridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 24px;
-        }
-    }
-
-    @media screen and (max-width:399px) {
-        .groupgridconfig {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 24px;
-        }
-    }
+@media screen and (max-width: 399px) {
+  .groupgridconfig {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 24px;
+  }
+}
 
 /*code css สำหรับการวางโครงสร้างแบบ  grid ของแต่ละ 1 ส่วนที่แบ่งมา เพื่อลงข่าว*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .cardgridconfig {
-    display: grid;
-    box-sizing: border-box;
-    align-content: start;
-    grid-gap: 16px;
+  display: grid;
+  box-sizing: border-box;
+  align-content: start;
+  grid-gap: 16px;
 }
 
-.cardgridconfigborder>div>div:last-child a>div {
-    border-bottom: none;
+.cardgridconfigborder > div > div:last-child a > div {
+  border-bottom: none;
 }
 
 /*code css สำหรับการใส่เส้นคั่นสีดำด้านบนของ  grid ของแต่ละ 1 ส่วนที่แบ่งมา เพื่อลงข่าว*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .hr4gridconfig {
-    margin: 0;
-    border-width: 0;
-    height: 2px;
-    width: 100%;
-    background-color: #3a3c3e;
-    display: block !important;
+  margin: 0;
+  border-width: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #3a3c3e;
+  display: block !important;
 }
 
 /*code css set style ให้กับหัวข้อหมวดหมู่ใน grid แต่ละ 1 ส่วน*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .grid4sectitlewrapper {
-    padding: 0;
-    justify-content: space-between;
-    color: #202224;
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    margin-top: 8px;
+  padding: 0;
+  justify-content: space-between;
+  color: #202224;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin-top: 8px;
 }
 
 /*code css set style ให้กับข่าวที่ไม่มีรูปด้านบน และกำหนดให้มีเส้นคั่นด้านล่าง*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .nonimgarticleconfig {
-    border-bottom: 1px solid #e6e8ea;
-    position: relative;
-    grid-gap: 8px;
-    display: grid;
+  border-bottom: 1px solid #e6e8ea;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  grid-gap: 8px;
+  display: grid;
 }
-    /*code css set  ไว้สำหรับกรณีที่ mouse ชี้เข้าไป แล้วเกิดเส้นที่ หัวข่าว (ref. กับ web จริง)*/
-    /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
-    .nonimgarticleconfig:hover h2 {
-        text-decoration: underline;
-    }
+/*code css set  ไว้สำหรับกรณีที่ mouse ชี้เข้าไป แล้วเกิดเส้นที่ หัวข่าว (ref. กับ web จริง)*/
+/*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
+.nonimgarticleconfig:hover h2 {
+  text-decoration: underline;
+}
 
 /*code css set layout ของ part latest audio*/
 .latestaudiosection {
-    display: grid;
-    width: 100%;
-    background-color: #ffffff;
-    margin-block: 48px;
+  display: grid;
+  width: 100%;
+  background-color: #ffffff;
+  margin-block: 48px;
 }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .latestaudiosection {
-            margin-block: 32px;
-        }
-    }
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .latestaudiosection {
+    margin-block: 32px;
+  }
+}
 
 /*code css set color background, size, display ของ part latest audio*/
 .watchsecionconfig {
-    display: grid;
-    width: 100%;
-    background-color: #141618;
-    padding-block: 24px;
+  display: block;
+  width: 100%;
+  background-color: #141618;
+  padding-block: 24px;
 }
 
-    @media screen and (max-width:599px) {
-        .watchsecionconfig {
-            padding-block: 16px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .watchsecionconfig {
+    padding-block: 16px;
+  }
+}
 
 /*code css set display ของ part latest audio โดยแยกผ่านการทำ responsive ในกรณีที่ screen size เล็กมากๆ จะกำหนดระยะห่างไว้เล็กน้อย เพื่อไม่ให้ชิดเกินไป*/
 .watchgridconfig {
-    display: grid;
-    box-sizing: border-box;
-    margin: 0px 16px 0px 16px;
+  display: grid;
+  box-sizing: border-box;
+  margin: 0px 16px 0px 16px;
 }
 
-    @media screen and (max-width:599px) {
-        .watchgridconfig {
-            margin: 0px 0px 16px 0px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .watchgridconfig {
+    margin: 0px 0px 16px 0px;
+  }
+}
 
 /*code css set style ของ text หมวดหมู่ watch*/
 .watchconfig {
-    color: #e6e8ea;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    line-height: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.75px;
-    display: flex;
-
+  display: flex;
+  color: #e6e8ea;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.75px;
 }
-    /*code css set style ของ svg (เครื่องหมาย play) watch*/
-    .watchconfig svg {
-        display: inline-block;
-        vertical-align: text-top;
-        width: 20px;
-        fill: #ffffff;
-    }
+/*code css set style ของ svg (เครื่องหมาย play) watch*/
+.watchconfig svg {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  fill: #ffffff;
+}
 
-    /*code css set responsive handle เพื่อทำให้เครื่องหมาย play มีขนาดที่ลดลง เมื่อ screen size ลดลง*/
-    @media screen and (max-width:599px) {
-        .watchconfig svg {
-            width: 18px;
-        }
-    }
+/*code css set responsive handle เพื่อทำให้เครื่องหมาย play มีขนาดที่ลดลง เมื่อ screen size ลดลง*/
+@media screen and (max-width: 425px) {
+  .watchconfig svg {
+    width: 18px;
+  }
+}
 
 /*code css set structure ของ text ทั้งหมดในหมวดหมู่ watch*/
 .txtwatchconfig {
-    background-color: #000000;
-    right: 0;
-    align-content: center;
-    align-items: center;
-    grid-gap: 12px;
-    padding: 16px;
-    display: grid;
+  background-color: #000000;
+  right: 0;
+  align-content: center;
+  align-items: center;
+  grid-gap: 12px;
+  padding: 16px;
+  display: grid;
 }
 
-    @media screen and (max-width:8192px) {
-        .txtwatchconfig {
-            grid-template-columns: subgrid;
-        }
-    }
+@media screen and (max-width: 8192px) {
+  .txtwatchconfig {
+    grid-template-columns: subgrid;
+  }
+}
 
-    @media screen and (max-width:1007px) {
-        .txtwatchconfig {
-            padding: 12px 0 0 0;
-            grid-template-columns: 1fr 1fr;
-        }
-    }
+@media screen and (max-width: 1007px) {
+  .txtwatchconfig {
+    padding: 12px 0 0 0;
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .txtwatchconfig {
-            padding: 12px 16px 0 12px;
-            grid-template-columns: subgrid;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .txtwatchconfig {
+    padding: 12px 16px 0 12px;
+    grid-template-columns: subgrid;
+  }
+}
 
 /*code css set style ของหัวข่าวที่อยู่ในหมวดหมู่ watch*/
 .watchHLconfig {
-    color: #e6e8ea;
+  color: #e6e8ea;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: -0.56px;
+}
+/*responsive handle*/
+@media screen and (max-width: 425px) {
+  .watchHLconfig {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 500;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 28px;
     text-transform: none;
     text-decoration: none;
-    letter-spacing: -0.56px;
+    letter-spacing: -0.48px;
+  }
 }
-    /*responsive handle*/
-    @media screen and (max-width:599px) {
-        .watchHLconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 24px;
-            line-height: 28px;
-            text-transform: none;
-            text-decoration: none;
-            letter-spacing: -0.48px;
-        }
-    }
 
-     /*code css set เมื่อ mouse ชี้ไปที่ text จะให้ขึ้นเส้นใต้*/
-     .watchconHLfig:hover {
-        text-decoration: underline;
-    }
+/*code css set เมื่อ mouse ชี้ไปที่ text จะให้ขึ้นเส้นใต้*/
+.watchconHLfig:hover {
+  text-decoration: underline;
+}
 
 /*code css set style ของ text description ทั้งหมดในหมวดหมู่ watch*/
 .watchdescconfig {
-    color: #e6e8ea;
+  color: #e6e8ea;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+}
+
+@media screen and (max-width: 425px) {
+  .watchdescconfig {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
+  }
 }
-
-    @media screen and (max-width:599px) {
-        .watchdescconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0px;
-        }
-    }
-
-    @media screen and (max-width:1007px) {
-        .watchdescconfig {
-            grid-column: 1 / span 2;
-        }
-    }
 
 /*code css set style ของ see more button ในหมวดหมู่ watch*/
 .smbuttonwatchconfig {
-        background-color: transparent;
-        color: rgb(255, 255, 255);
-        border-color: rgb(255, 255, 255);
-        outline-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  outline-color: rgba(0, 0, 0, 0);
 }
 
 /*End of CSS Section 4*/
 
-
 /*code css set style ของ เส้นแบ่งระหว่างส่วน main และส่วน footer*/
 .mainfootersplitter {
-    background-color: #3a3c3e;
-    margin-top: 16px;
-    height: 1px;
-    border: none;
+  background-color: #3a3c3e;
+  margin-top: 16px;
+  height: 1px;
+  border: none;
 }
 
-
-
 /*CSS Section 5  : footer class*/
-
-
 /*css class สำหรับการวางโครงสร้างพื้นฐานในส่วน footer ทั้งหมด*/
 .footerclass {
-    max-width: 1280px;
-    width: 100%;
-    margin: 16px auto 48px auto;
-    padding: 0 16px;
-    box-sizing: border-box;
+  max-width: 1280px;
+  width: 100%;
+  margin: 16px auto 48px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 /*css class สำหรับ config display logo BBC ที่อยู่ด้านล่าง*/
 .footerlogo {
-    display: flex;
+  display: flex;
 }
 
 /*css class สำหรับ config ระยะห่างด้านบน option ของ หมวดหมู่ที่อยู่ด้านล่าง โดยประกาศ class นี้กับ tag section ที่ย่อยมาอีกที*/
 .sectionoptfooterconfig {
-        margin-top: 29px;
+  margin-top: 29px;
 }
-    
-    @media screen and (max-width:399px) {
-        .sectionoptfooterconfig {
-            margin-top: 24px;
-        }
-    }
-    
-    @media screen and (max-width:399px) {
-        .sectionoptfooterconfig {
-            margin-top: 24px;
-        }
-    }
+
+@media screen and (max-width: 399px) {
+  .sectionoptfooterconfig {
+    margin-top: 24px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .sectionoptfooterconfig {
+    margin-top: 24px;
+  }
+}
 
 /*css class สำหรับ config list option ของหมวดหมู่ที่อยู่ด้านล่าง*/
 .footeroptlsconfig {
-    display: flex;
-    flex-direction: row;
-    column-gap: 16px;
-    row-gap: 18px;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  row-gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
 }
-    /*css class responsive handle*/
-    @media screen and (max-width:399px) {
-        .footeroptlsconfig {
-            align-items: flex-start;
-            flex-direction: column;
-            row-gap: 24px;
-            column-gap: 0;
-        }
-    }
+/*css class responsive handle*/
+@media screen and (max-width: 399px) {
+  .footeroptlsconfig {
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: 24px;
+    column-gap: 0;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .footeroptlsconfig {
-            align-items: flex-start;
-            flex-direction: column;
-            row-gap: 24px;
-            column-gap: 0;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .footeroptlsconfig {
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: 24px;
+    column-gap: 0;
+  }
+}
 
 /*css class สำหรับ config style option ของ หมวดหมู่ที่อยู่ด้านล่าง*/
 .footeroptionconfig {
-    text-decoration: none;
-    position: relative;
-    color: #000000;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0px;
+  text-decoration: none;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  color: #000000;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
 }
-    /*css class สำหรับ config เมื่อ mouse ไปชี้ option ของ หมวดหมู่ที่อยู่ด้านล่าง*/
-    .footeroptionconfig:hover {
-        text-decoration: underline;
-    }
-
+/*css class สำหรับ config เมื่อ mouse ไปชี้ option ของ หมวดหมู่ที่อยู่ด้านล่าง*/
+.footeroptionconfig:hover {
+  text-decoration: underline;
+}
 
 /*การ config ให้ list ไม่มี decorator ด้านหน้า เกิดขึ้นมาจากการเทียบกับ web จริง เพราะ web จริง ไม่มี decorator จึงกำหนดอันนี้ขึ้นมา*/
-ol, ul {
-    list-style: none;
+ol,
+ul {
+  list-style: none;
 }
 
 /*css class สำหรับ config section ของ button ที่เลือกภาษา โดยกำหนดให้มีระยะห่าง และเมื่อทำ responsive ระยะห่างด้านบนจะต้องมีมากขึ้น เพื่อทำให้ไม่ชิดกันมากเกินไป*/
 .sectionlangselstyle {
-    margin-top: 21px;
+  margin-top: 21px;
 }
-    /*responsive handle*/
-    @media screen and (max-width:1007px) {
-        .sectionlangselstyle {
-            margin-top: 24px;
-        }
-    }
+/*responsive handle*/
+@media screen and (max-width: 1007px) {
+  .sectionlangselstyle {
+    margin-top: 24px;
+  }
+}
 
-    @media screen and (max-width:399px) {
-        .sectionlangselstyle {
-            margin-top: 40px;
-        }
-    }
+@media screen and (max-width: 399px) {
+  .sectionlangselstyle {
+    margin-top: 40px;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .sectionlangselstyle {
-            margin-top: 40px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .sectionlangselstyle {
+    margin-top: 40px;
+  }
+}
 
 /*css class สำหรับ config position ของ button ที่เลือกภาษา*/
 .divfoesellangbutt {
-    position: relative;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
 }
 
 /*css class สำหรับ config style ของ button ที่เลือกภาษา*/
 .sellangbuttsyle {
-    cursor: pointer;
-    height: 44px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6px 12px;
-    background-color: #e6e8ea;
-    color: #202224;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0px;
+  cursor: pointer;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background-color: #e6e8ea;
+  color: #202224;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
 }
-    /*css class สำหรับ config style ของ button ที่เลือกภาษา เมื่อ mouse ชี้เข้าไป*/
-    .sellangbuttsyle:hover {
-        background-color: #d2d4d6;
-    }
+/*css class สำหรับ config style ของ button ที่เลือกภาษา เมื่อ mouse ชี้เข้าไป*/
+.sellangbuttsyle:hover {
+  background-color: #d2d4d6;
+}
 
 /*css class สำหรับ config style ลูกศรชี้ลง ของ button ที่เลือกภาษา*/
 .dropiconstyle {
-    width: 24px;
-    height: 24px;
-    margin-left: 4.5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000000;
+  width: 24px;
+  height: 24px;
+  margin-left: 4.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
 }
 
 /*css class สำหรับ config structure เส้นคั่นด้านบน ของ follow BBC on social media ต่างๆ*/
 .mainflulay {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 16px 0;
-    border-top: 1px solid #e6e8ea;
-    padding-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  border-top: 1px solid #e6e8ea;
+  padding-top: 16px;
 }
-    /*responsive handle โดยเปลี่ยน direction จาก row ให้เป็น column โดย ref. จาก web จริง*/
-    @media screen and (max-width:599px) {
-        .mainflulay{
-            flex-direction: column;
-        }
-    }
+/*responsive handle โดยเปลี่ยน direction จาก row ให้เป็น column โดย ref. จาก web จริง*/
+@media screen and (max-width: 425px) {
+  .mainflulay {
+    flex-direction: column;
+  }
+}
 
 /*css class สำหรับ config style text ของ follow BBC on social media ต่างๆ*/
 .followbbctextstyle {
-    font-family: 'BBC Reith Sans';
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    margin-right: 40px;
+  font-family: "BBC Reith Sans";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
 }
-    /*responsive handle เพืื่อ config ระยะห่างระหว่าง text กับ icon social เมื่อขนาดหน้าจอเล็กลง เพื่อไม่ให้ชิดเกินไป*/
-    @media screen and (max-width:599px) {
-        .followbbctextstyle {
-            margin-bottom: 16px;
-            margin-right: 0;
-        }
-    }
+/*responsive handle เพืื่อ config ระยะห่างระหว่าง text กับ icon social เมื่อขนาดหน้าจอเล็กลง เพื่อไม่ให้ชิดเกินไป*/
+@media screen and (max-width: 425px) {
+  .followbbctextstyle {
+    margin-bottom: 16px;
+    margin-right: 0;
+  }
+}
 
 /*css class สำหรับ config position ของ button ที่เป็น icon social media ต่างๆ */
 .socbuttonstyle {
-    display: flex;
-    gap: 16px;
-    align-items: center;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
-    /*css class สำหรับ config size ของ button ที่เป็น icon social media ต่างๆ*/
-    .socbuttonstyle button {
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+/*css class สำหรับ config size ของ button ที่เป็น icon social media ต่างๆ*/
+.socbuttonstyle button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    /*responsive handle ที่จะขยาย size ของ icon ให้ใหญ่ขึ้น ไม่เล็กเกินไป*/
-    @media screen and (max-width:599px) {
-        .socbuttonstyle button {
-            width: 28px;
-            height: 28px;
-        }
-    }
+/*responsive handle ที่จะขยาย size ของ icon ให้ใหญ่ขึ้น ไม่เล็กเกินไป*/
+@media screen and (max-width: 425px) {
+  .socbuttonstyle button {
+    width: 28px;
+    height: 28px;
+  }
+}
 
 /*css class สำหรับ config position ของ button ที่เป็น icon social media แต่ละตัว*/
 .persocbuttstyle {
-    position: relative;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
 }
-    /*css class สำหรับ config position ของ button ที่เป็น icon social media แต่ละตัว เมื่อ mouse ชี้ไปหา*/
-    .persocbuttstyle:hover {
-        outline: 1px solid #3a3c3e;
-    }
+/*css class สำหรับ config position ของ button ที่เป็น icon social media แต่ละตัว เมื่อ mouse ชี้ไปหา*/
+.persocbuttstyle:hover {
+  outline: 1px solid #3a3c3e;
+}
 
 /*css class สำหรับ config ระยะห่างด้่านบน ของ other section (พวก Term of Use, About the BBC และ อื่นๆ)*/
 .othsectionmarginconfig {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 /*css class สำหรับ config การ display ของ list ของ other section (พวก Term of Use, About the BBC และ อื่นๆ) โดย config กับ tag ul*/
 .othlistconfig {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 16px;
-    row-gap: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /*กำหนดสำหรับกรณีที่เกิน ให้ wrap ด้วยการขึ้นบรรทัดใหม่*/
+  column-gap: 16px;
+  row-gap: 12px;
 }
 
 /*css class สำหรับ config การ display flex ของ list ของ other section (พวก Term of Use, About the BBC และ อื่นๆ) โดย config กับ tag li แต่ละตัว*/
 .othflexconfig {
-    flex: 0 0 auto;
+  flex: 0 0 auto;
+  /*flex-grow = 0 การไม่อนุญาตให้ขยายตัวเลย แม้จะมีพื้นที่เหลือ; flex-shrink = 0 ไม่ให้ย่อขนาดลงเลย; flex-basis = auto ขนาดเริ่มต้นของ item*/
 }
 
 /*css class สำหรับ config style ของ list ของตัวเลือกแต่ละตัว (พวก Term of Use, About the BBC และ อื่นๆ)*/
 .othoptionstyle {
-    cursor: pointer;
-    text-decoration: none;
-    color: #000000;
-    font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0px;
+  cursor: pointer; /*กำหนดลักษณะของ cursor mouse เมื่อผู้ใช้เอาไปชี้ที่ element นั้น*/
+  text-decoration: none;
+  color: #000000;
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
 }
-    /*css class สำหรับ config style ของ list ของตัวเลือกแต่ละตัว (พวก Term of Use, About the BBC และ อื่นๆ) เมื่อ mouse ชี้เข้าไป*/
-    .othoptionstyle:hover {
-        text-decoration: underline;
-    }
+/*css class สำหรับ config style ของ list ของตัวเลือกแต่ละตัว (พวก Term of Use, About the BBC และ อื่นๆ) เมื่อ mouse ชี้เข้าไป*/
+.othoptionstyle:hover {
+  text-decoration: underline;
+}
 
 /*css class สำหรับ config layout และระยะห่างด้านบนของ text ที่อยู่ด้านล่างสุด (Copyright...)*/
 .bottomtextconfigly {
-    margin-top: 16px;
-    word-wrap: break-word;
+  margin-top: 16px;
+  word-wrap: break-word; /*ควบคุมการตัดคำเมื่อข้อความยาวเกิน*/
 }
-    /*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag p*/
-    .bottomtextconfigly p {
-        font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16px;
-        text-transform: none;
-        text-decoration: none;
-        letter-spacing: 0px;
-    }
+/*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag p*/
+.bottomtextconfigly p {
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
 
-    /*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag a และ tag b*/
-    .bottomtextconfigly b,
-    .bottomtextconfigly a {
-        font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 16px;
-        text-transform: none;
-        text-decoration: none;
-        letter-spacing: 0px;
-    }
+/*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag a และ tag b*/
+.bottomtextconfigly b,
+.bottomtextconfigly a {
+  font-family: BBC Reith Sans, BBCReithSans-fallback, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  letter-spacing: 0px;
+}
 
-    /*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) เฉพาะที่ประกาศอยู่ภายใต้ tag a*/
-    .bottomtextconfigly a {
-        text-decoration: none;
-        color: #000000;
-    }
+/*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) เฉพาะที่ประกาศอยู่ภายใต้ tag a*/
+.bottomtextconfigly a {
+  text-decoration: none;
+  color: #000000;
+}
 
-    /*resposive handle ทำขึ้นมาเพื่อให้มีระยะห่างง่ายขึ้น ดูง่ายขึ้น ไม่ชิดเกินไป*/
-    @media screen and (max-width:599px) {
-        .bottomtextconfigly {
-            margin-top: 24px;
-        }
-    }
+/*resposive handle ทำขึ้นมาเพื่อให้มีระยะห่างง่ายขึ้น ดูง่ายขึ้น ไม่ชิดเกินไป*/
+@media screen and (max-width: 425px) {
+  .bottomtextconfigly {
+    margin-top: 24px;
+  }
+}
 
- /*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag p*/
+/*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag p*/
 .pfooterconfig {
-    color: #202224;
+  color: #202224;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  text-decoration: none;
+  letter-spacing: -0.36px;
+}
+
+/*responsive handle : css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag p*/
+@media screen and (max-width: 399px) {
+  .pfooterconfig {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 26px;
-    text-transform: none;
+    font-size: 16px;
+    line-height: 24px;
     text-decoration: none;
-    letter-spacing: -0.36px;
+    letter-spacing: -0.32px;
+  }
 }
 
-    @media screen and (max-width:399px) {
-        .pfooterconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            text-transform: none;
-            text-decoration: none;
-            letter-spacing: -0.32px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .pfooterconfig {
+    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.32px;
+  }
+}
 
-    @media screen and (max-width:599px) {
-        .pfooterconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            text-transform: none;
-            text-decoration: none;
-            letter-spacing: -0.32px;
-        }
-    }
-
- /*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag i*/
+/*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (text : The BBC is not responsible) ที่ประกาศอยู่ภายใต้ tag i*/
 .ifooterconfig {
-    font-style: italic;
+  font-style: italic;
 }
 
-    @media screen and (max-width:599px) {
-        .ifooterconfig {
-            word-break: break-word;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .ifooterconfig {
+    word-break: break-word; /*ช้ควบคุมลักษณะการตัดคำ (หรือห่อคำ) เมื่อ text ยาวเกิน*/
+  }
+}
 
-/*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Copyright...) ที่ประกาศอยู่ภายใต้ tag b*/
+/*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Read about our aprroach)  ที่ประกาศอยู่ภายใต้ tag b*/
 .readfooterconfig {
-    text-decoration: underline;
-    color: #202224;
+  text-decoration: underline;
+  color: #202224;
+  font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  text-decoration: underline;
+  letter-spacing: -0.36px;
+}
+/*responsive handle เพื่อย่อขนาดของ text ลง เมื่อขนาดจอเล็กลง*/
+@media screen and (max-width: 375px) {
+  .readfooterconfig {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 26px;
-    text-transform: none;
+    font-size: 16px;
+    line-height: 24px;
     text-decoration: underline;
-    letter-spacing: -0.36px;
+    letter-spacing: -0.32px;
+  }
 }
-    /*responsive handle เพื่อย่อขนาดของ text ลง เมื่อขนาดจอเล็กลง*/
-    @media screen and (max-width:399px) {
-        .readfooterconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
-            text-transform: none;
-            text-decoration: underline;
-            letter-spacing: -0.32px;
-        }
-    }
 
-    @media screen and (max-width:599px) {
-        .readfooterconfig {
-            font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
-            text-transform: none;
-            text-decoration: underline;
-            letter-spacing: -0.32px;
-        }
-    }
+@media screen and (max-width: 425px) {
+  .readfooterconfig {
+    font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: underline;
+    letter-spacing: -0.32px;
+  }
+}
 /*End of CSS Section 5*/
 
-
 /*Section 6 : code สำหรับ ช่วง advertisement แต่ละช่วง ที่ทำเพิ่มขึ้นมา*/
+
+/*code css ที่กำหนดไว้สำหรับการระยะห่างโครงสร้าง advertisement ทั้งหมด ซึ่งเป็นการ config รอบนอกสุด*/
 .advertisement {
-    margin-block: 48px;
+  margin-block: 48px;
+}
+/*responsive handle เมื่อหน้าจอเล็กลง กำหนดค่าระยะห่างให้น้อยลง เพื่อทำให้ไม่มีระยะห่างมากเกินไป*/
+@media screen and (max-width: 425px) {
+  .advertisement {
+    margin-block: 32px;
+  }
 }
 
-@media screen and (max-width: 599px) {
-    .advertisement {
-        margin-block: 32px;
-    }
-}
-
+/*กำหนด ค่าภายใน โดยใน class นี้จะประกาศ และเป้น child class ของ advertisement อีกที */
+/*หลักๆคือ จะเป็นการกำหนด format สำหรับ ใส่ advertisement ภายใน โดยที่ class จะสร้างเส้นคั่นทั้งบนและล่าง (เหมือน web จริง ด้วย) */
 .ad {
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-    font-size: 1rem;
-    background-color: rgb(248, 248, 248);
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  background-color: rgb(248, 248, 248);
+  display: block;
+  padding: 15px 0 5px;
+  border-top: 1px solid rgb(84, 86, 88);
+  border-bottom: 1px solid rgb(84, 86, 88);
 }
 
-.ad.active {
-    display: block;
-    padding: 15px 0 5px;
-    border-top: 1px solid rgb(84, 86, 88);
-    border-bottom: 1px solid rgb(84, 86, 88);
-}
-
+/*เป็น การ config frame ภายในให้มีระยะห่าง และ set การ display ทั้ง text advertisement และ ตัวรูปข่าว (ประกาศ class นี้ ไปที่ div ที่คุมทั้ง text และ รูปข่าว*/
 .adinner {
+  display: inline-block;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+/*responsive handle ที่สร้างขึ้นมาเพื่อลดขนาดความกว้างลงมา เพื่อไม่ให้ล้นเกินไป*/
+/*การสร้างส่วนนี้ เกิดขึ้นมาจากปัญหาที่ลด screen size ลง แล้วพบว่า ส่วน ad มีขนาดที่ล้นหน้าจอ จึงต้องกำหนดขึ้นมาเพื่อลดขนาดความกว้าง เพื่อให้ขนาดสัมพันธ์กันกับขนาดของหน้าจอที่ reduce ลงมา*/
+@media screen and (max-width: 425px) {
+  .adinner {
     display: inline-block;
     margin-bottom: 8px;
-    width: 100%;
-    max-width: 600px;
+    width: 80%;
+  }
 }
 
-@media screen and (max-width:599px) {
-    .adinner {
-        display: inline-block;
-        margin-bottom: 8px;
-        width: 80%;
-        max-width: 600px;
-    }
-} 
-
+/*config การวางตำแหน่งของ text Advertisement*/
 .adtext-wrapper {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
+/*config style ของ text ที่อยู่กับ ad ที่เป็นรูปสี่เหลี่ยมผืนผ้า*/
 .adtext {
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin: 8px 0 5px;
-    text-transform: uppercase;
-    text-align: right;
+  font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  color: #505050;
+  letter-spacing: 0;
+  margin: 8px 0 5px;
+  text-transform: uppercase;
+  text-align: right;
 }
 
+/*config ตำแหน่งแสดงผลรูปประเภท advertisement*/
 .imgadborder {
-    border: none;
+  display: block;
 }
 
+/*config style ของ รูป ad*/
 .imgadalign {
-    border: 0.2px solid darkgray;
-    vertical-align: bottom;
-    max-width: 100%;
-    height: auto;
+  border: 0.2px solid darkgray;
+  vertical-align: bottom; /*จัดตำแหน่งแนวตั้งของหน้า web ให้อยู่ด้านล่าง*/
+  max-width: 100%;
+  height: auto;
 }
 
+/*config style ของ text ที่อยู่กับ ad ที่เป็นรูปสี่เหลี่ยมจตุรัส*/
 .adtext2 {
-    position: relative;
+  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+  font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  color: #505050;
+  letter-spacing: 0;
+  margin: 8px 0 5px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+@media screen and (max-width: 2560px) {
+  .adtext {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
     font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-size: 0.75rem;
@@ -3065,17 +3002,191 @@ ol, ul {
     color: #505050;
     letter-spacing: 0;
     margin-left: auto;
-    margin-right: 170px;
+    margin-right: 500px; /*จุดที่ต่างกัน*/
     margin-bottom: 5px;
     text-transform: uppercase;
     text-align: right;
+  }
 }
-.imgadalign2 {
-    border: 0.2px solid darkgray;
-    vertical-align: bottom;
-    max-width: 100%;
-    height: 207px;
-    width: 252px;
+
+@media screen and (max-width: 1440px) {
+  .adtext {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 400px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .adtext {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 3px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .adtext {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+/*responsive handle ที่ config style ของ text ที่อยู่กับ ad ที่เป็นรูปสี่เหลี่ยมจตุรัส*/
+/*ที่ทำแยกกัน 2 ส่วนเพราะปัญหาที่เจอ คือการเคลื่อนตัวของ text advertisement ที่ไม่เท่ากัน จึงไป เมื่อทำ responsive จึงกำหนดเป็นระยะๆ เพื่อให้อยู่ตำแหน่งที่ใกล้เคียงกันมากที่สุด*/
+
+@media screen and (max-width: 2560px) {
+  .adtext2 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 695px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .adtext2 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 590px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .adtext2 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 45px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .adtext2 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 25px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 2560px) {
+  .adtext3 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 0px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .adtext3 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 295px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .adtext3 {
+    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
+    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: #505050;
+    letter-spacing: 0;
+    margin-left: auto;
+    margin-right: 4px; /*จุดที่ต่างกัน*/
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+/*config style ของรูป advertisement (ใน case รูปข่าวที่เป็นรูปแบบที่ใกล้เคียงกับสี่เหลี่ยมจตุรัส*/
+.imgadalign2 {
+  border: 0.2px solid darkgray;
+  vertical-align: bottom;
+  max-width: 100%;
+  height: 207px;
+  width: 252px;
+  margin-left: auto;
+  margin-right: auto;
 }
