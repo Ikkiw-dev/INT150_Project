@@ -458,8 +458,8 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
 .cardmd img {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  aspect-ratio: 16 / 9; /*การกำหนดอัตราส่วนความกว้าง (ผืนผ้า)*/
+  object-fit: cover; /*โดยที่ขยายภาพให้เต็ม และตัดขอบที่เกินออก*/
 }
 
 /*code css ทำขึ้นมาเพื่อกำหนด tag img ที่เป็นรูปภาพ "ทั้งหมด" ภายใน web นี้*/
@@ -769,8 +769,8 @@ web จริง จะมีช่องว่างระหว่าง navig
 }
 /*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
 .gazaphotosize img {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  aspect-ratio: 16 / 9; /*การกำหนดอัตราส่วนความกว้าง (ผืนผ้า)*/
+  object-fit: cover; /*โดยที่ขยายภาพให้เต็ม และตัดขอบที่เกินออก*/
 }
 
 @media screen and (max-width: 425px) {
@@ -1095,8 +1095,8 @@ web จริง จะมีช่องว่างระหว่าง navig
   width: 100%;
 }
 .imgsizeratio img {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  aspect-ratio: 16 / 9; /*การกำหนดอัตราส่วนความกว้าง (ผืนผ้า)*/
+  object-fit: cover; /*โดยที่ขยายภาพให้เต็ม และตัดขอบที่เกินออก*/
 }
 
 /*code สำหรับการวางโครง text ของข่าวในหมวดหมู่ Weekend Reads*/
@@ -1221,12 +1221,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
   align-self: start;
 }
-/*responsive code css ใช้เพื่อ set การ wrap ของ รูป*/
-@media screen and (max-width: 1007px) {
-  .mdwrap {
-    order: unset;
-  }
-}
 
 /*code css ใช้เพื่อ set size ของรูปที่อยู่ด้านซ้ายของ grid*/
 .Lphotoconfigingrid2 {
@@ -1235,8 +1229,8 @@ web จริง จะมีช่องว่างระหว่าง navig
 }
 
 .Lphotoconfigingrid2 img {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  aspect-ratio: 16 / 9; /*การกำหนดอัตราส่วนความกว้าง (ผืนผ้า)*/
+  object-fit: cover; /*โดยที่ขยายภาพให้เต็ม และตัดขอบที่เกินออก*/
 }
 
 @media screen and (max-width: 425px) {
@@ -1393,12 +1387,6 @@ web จริง จะมีช่องว่างระหว่าง navig
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0px;
-  }
-}
-
-@media screen and (max-width: 1007px) {
-  .cdesc {
-    grid-column: 1 / span 2;
   }
 }
 
@@ -1560,8 +1548,8 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css สำหรับการกำหนด tag img ที่อยู่ภายใต้ div นี้ โดยกำหนดขึ้นมาเพื่อทำขนาดอันตราส่วนของรูป และกำหนดรูปภาพเพื่อครอบคลุมพื้นที่ทั้งหมด โดยไม่ให้บิดเบี้ยว */
 .audcardconfig img {
-  aspect-ratio: 1/1;
-  object-fit: cover;
+  aspect-ratio: 1/1; /*รูปสี่เหลี่ยมจตุรัส*/
+  object-fit: cover; /*ขยายภาพให้เต็มกล่อง โดยตัดขอบเกินออก*/
 }
 
 .audcardconfig {
@@ -1570,6 +1558,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   gap: 6px;
 }
 
+/*การกำหนดความกว้าและความสูง ให้กับ span ตัวแรกที่อยู่ใน class นี้ เพื่อแสดง icon หรืแภาพนำหน้าข้อความ*/
 .audcardconfig span:first-of-type {
   width: 24px;
   height: 24px;
@@ -1932,7 +1921,6 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*co class นี้กับ section Discover more from BBC*/
 .lrconfig {
   display: block;
-  fill: currentcolor;
 }
 
 /*code css สำหรับการวางโครงสร้าง ใส่สี และ ระยะห่างพื่นฐาน*/
@@ -1946,11 +1934,10 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css ใช้กำหนด overflow โดยมีการกำหนดให้ scroll ไปทางขวา*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .displayhardbgconfig {
-  display: flex;
-  overflow: scroll;
+  display: flex; /*จัดเรียงรูปแบบแนวนอน*/
+  overflow: scroll; /*เปิดให้มีการ scroll ในแนวนอน*/
   column-gap: 12px;
-  scroll-snap-type: x;
-  scrollbar-width: none;
+  scroll-snap-type: x; /*Scroll Snap ในแนวนอน (x-axis)*/
 }
 
 /*code css ใช้กำหนดขนาดของ flex โดยที่มีการ declare ให้ scroll ไปทางขวา*/
@@ -2046,7 +2033,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
-  text-transform: none;
   text-decoration: none;
   letter-spacing: -0.36px;
 }
@@ -2057,7 +2043,6 @@ web จริง จะมีช่องว่างระหว่าง navig
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
-    text-transform: none;
     text-decoration: none;
     letter-spacing: -0.36px;
   }
@@ -2091,7 +2076,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  text-transform: none;
   text-decoration: none;
   letter-spacing: -0.12px;
   color: rgb(175, 177, 180);
@@ -2114,7 +2098,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  text-transform: none;
   text-decoration: none;
   letter-spacing: -0.12px;
   pointer-events: none;
@@ -2311,10 +2294,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   grid-gap: 16px;
 }
 
-.cardgridconfigborder > div > div:last-child a > div {
-  border-bottom: none;
-}
-
 /*code css สำหรับการใส่เส้นคั่นสีดำด้านบนของ  grid ของแต่ละ 1 ส่วนที่แบ่งมา เพื่อลงข่าว*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .hr4gridconfig {
@@ -2458,7 +2437,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-weight: bold;
   font-size: 28px;
   line-height: 32px;
-  text-transform: none;
   text-decoration: none;
   letter-spacing: -0.56px;
 }
@@ -2469,7 +2447,6 @@ web จริง จะมีช่องว่างระหว่าง navig
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
-    text-transform: none;
     text-decoration: none;
     letter-spacing: -0.48px;
   }
@@ -2850,13 +2827,11 @@ ul {
 
 /*css class สำหรับ config style ของ text ที่อยู่ด้านล่างสุด (Read about our aprroach)  ที่ประกาศอยู่ภายใต้ tag b*/
 .readfooterconfig {
-  text-decoration: underline;
   color: #202224;
   font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 26px;
-  text-decoration: underline;
   letter-spacing: -0.36px;
 }
 /*responsive handle เพื่อย่อขนาดของ text ลง เมื่อขนาดจอเล็กลง*/
@@ -2866,7 +2841,6 @@ ul {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    text-decoration: underline;
     letter-spacing: -0.32px;
   }
 }
@@ -2876,7 +2850,6 @@ ul {
     font-family: BBC Reith Serif, BBCReithSerif-fallback, serif;
     font-weight: 500;
     font-size: 16px;
-    text-decoration: underline;
     letter-spacing: -0.32px;
   }
 }
@@ -3108,6 +3081,9 @@ ul {
   }
 }
 
+
+/*responsive handle ที่ config style ของ text ที่อยู่กับ ad สุดท้าย*/
+/*ที่ทำแยกกัน  ส่วนเพราะปัญหาที่เจอ คือการเคลื่อนตัวของ text advertisement ที่ไม่เท่ากัน จึงไป เมื่อทำ responsive จึงกำหนดเป็นระยะๆ เพื่อให้อยู่ตำแหน่งที่ใกล้เคียงกันมากที่สุด*/
 @media screen and (max-width: 2560px) {
   .adtext3 {
     position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
