@@ -343,7 +343,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 
 /*code css responsive handle (in case of Laptop / Coumputer screen*/
 /*เพื่อ align ข่าวแต่ละส่วนอยู่ตรงกลาง*/
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 2560px) {
   .classframe {
     margin: 0 auto; /*shorthand ที่กำหนด margin บนล่างเป็น 0 และ ซ้ายขวาเป็น auto จะทำให้อยู่ตรงกลาง*/
     max-width: 1280px;
