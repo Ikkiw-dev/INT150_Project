@@ -310,9 +310,7 @@ img {
   background: #e6e8ea;
   left: 0;
   top: 50%;
-  transform: translateY(
-    -50%
-  ); /*คือการเลื่อนตำแหน่งในแนวตั้ง โดยลบ 50% ของความสูงของตัว element เอง ซึ่งผลคือ เลื่อนขึ้นไปครึ่งหนึ่ง ของตัวเอง*/
+  transform: translateY(-50%); /*คือการเลื่อนตำแหน่งในแนวตั้ง โดยลบ 50% ของความสูงของตัว element เอง ซึ่งผลคือ เลื่อนขึ้นไปครึ่งหนึ่ง ของตัวเอง*/
 }
 
 /*End of CSS Section 3*/
@@ -517,7 +515,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   line-height: 22px;
   text-transform: none;
   text-decoration: none;
-  letter-spacing: -0.36px;
+  letter-spacing: -0.35px;
 }
 
 @media screen and (max-width: 425px) {
@@ -529,7 +527,7 @@ web จริง จะมีช่องว่างระหว่าง navig
     line-height: 22px;
     text-transform: none;
     text-decoration: none;
-    letter-spacing: -0.36px;
+    letter-spacing: -0.35px;
   }
 }
 
@@ -567,9 +565,8 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  text-transform: none;
   text-decoration: none;
-  letter-spacing: -0.12px;
+  letter-spacing: -0.10px;
   color: #545658;
 }
 
@@ -588,9 +585,8 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  text-transform: none;
   text-decoration: none;
-  letter-spacing: -0.12px;
+  letter-spacing: -0.10px;
   pointer-events: none;
 }
 
@@ -640,7 +636,7 @@ web จริง จะมีช่องว่างระหว่าง navig
     margin: 2px;
   }
   .layoutlogoconfig > svg {
-    height: 13px;
+    height: 15px;
   }
 }
 
@@ -660,8 +656,8 @@ web จริง จะมีช่องว่างระหว่าง navig
 }
 
 .livelogoconfig > svg {
-  height: 18.3px;
-  width: 18.3px;
+  height: 18px;
+  width: 18px;
 }
 
 /*code css สำหรับกำหนดค่าความสูงให้กับ logo live ที่เป็น วงกลม*/
@@ -991,11 +987,10 @@ web จริง จะมีช่องว่างระหว่าง navig
   background-color: #3a3c3e;
 }
 
-/*กำหนด positions ของหัวข้อประเภทข่าว*/
+/*กำหนดการแสดง ของหัวข้อประเภทข่าว Weekends reads, Premier League, This week in audio, More news, Editor's picks  Watch, Sustainable Travel, Latest audio, Watch list และ discover more from BBC*/
 .h2sizeconfig {
   padding: 0 16px;
   justify-content: space-between;
-  color: #202224;
   display: flex;
   flex-direction: row;
   align-items: start;
