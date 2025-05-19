@@ -2912,7 +2912,6 @@ ul {
   line-height: 0.75rem;
   color: #505050;
   letter-spacing: 0;
-  margin: 8px 0 5px;
   text-transform: uppercase;
   text-align: right;
 }
@@ -2930,211 +2929,6 @@ ul {
   height: auto;
 }
 
-/*config style ของ text ที่อยู่กับ ad ที่เป็นรูปสี่เหลี่ยมจตุรัส*/
-.adtext2 {
-  position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-  font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-  color: #505050;
-  letter-spacing: 0;
-  margin: 8px 0 5px;
-  text-transform: uppercase;
-  text-align: right;
-}
-
-@media screen and (max-width: 2560px) {
-  .adtext {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 500px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-@media screen and (max-width: 1440px) {
-  .adtext {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 400px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .adtext {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 3px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .adtext {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-/*responsive handle ที่ config style ของ text ที่อยู่กับ ad ที่เป็นรูปสี่เหลี่ยมจตุรัส*/
-/*ที่ทำแยกกัน 2 ส่วนเพราะปัญหาที่เจอ คือการเคลื่อนตัวของ text advertisement ที่ไม่เท่ากัน จึงไป เมื่อทำ responsive จึงกำหนดเป็นระยะๆ เพื่อให้อยู่ตำแหน่งที่ใกล้เคียงกันมากที่สุด*/
-
-@media screen and (max-width: 2560px) {
-  .adtext2 {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 695px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .adtext2 {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 590px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .adtext2 {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 45px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .adtext2 {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 25px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-
-/*responsive handle ที่ config style ของ text ที่อยู่กับ ad สุดท้าย*/
-/*ที่ทำแยกกัน  ส่วนเพราะปัญหาที่เจอ คือการเคลื่อนตัวของ text advertisement ที่ไม่เท่ากัน จึงไป เมื่อทำ responsive จึงกำหนดเป็นระยะๆ เพื่อให้อยู่ตำแหน่งที่ใกล้เคียงกันมากที่สุด*/
-@media screen and (max-width: 2560px) {
-  .adtext3 {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 0px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-@media screen and (max-width: 1440px) {
-  .adtext3 {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 295px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .adtext3 {
-    position: relative; /*กำหนดตำแหน่งของ element ให้ไม่หลุดจาก layout เดิม*/
-    font-family: "BBC Reith Sans", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    color: #505050;
-    letter-spacing: 0;
-    margin-left: auto;
-    margin-right: 4px; /*จุดที่ต่างกัน*/
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-align: right;
-  }
-}
-
 /*config style ของรูป advertisement (ใน case รูปข่าวที่เป็นรูปแบบที่ใกล้เคียงกับสี่เหลี่ยมจตุรัส*/
 .imgadalign2 {
   border: 0.2px solid darkgray;
@@ -3144,4 +2938,11 @@ ul {
   width: 252px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/*code css มาแก้การวางของข่าว และ text ข่าว*/
+.fixad {
+  width: max-content;
+  margin-inline: auto;
+  text-align: end;
 }
