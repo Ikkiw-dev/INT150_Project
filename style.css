@@ -843,51 +843,35 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
-/*code css สำหรับกำหนด โครง grid ด้านขวา*/
-.gridlayoutright {
-  display: grid;
+/*code css สำหรับกำหนด โครงสร้างข่าวด้านขวา*/
+.section1right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 8192px) {
-  .gridlayoutright {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 16px;
-  }
-}
-
-@media screen and (max-width: 1279px) {
-  .gridlayoutright {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 16px;
-  }
-}
-
-@media screen and (max-width: 1007px) {
-  .gridlayoutright {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 16px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .gridlayoutright {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 16px;
+@media screen and (max-width: 1440px) {
+  .section1right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .gridlayoutright {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 16px;
+  .section1right {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 
-@media screen and (max-width: 399px) {
-  .gridlayoutright {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 16px;
+@media screen and (max-width: 375px) {
+  .section1right {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 
@@ -1067,8 +1051,8 @@ web จริง จะมีช่องว่างระหว่าง navig
 @media screen and (max-width: 425px) {
   .indgrid2config {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex: 1;
+    flex-direction: column;
   }
 }
 
@@ -1567,9 +1551,9 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css ใช้กำหนดให้กับ content แต่ละตัว*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .audcardconfig {
-  width: 180px;
   display: flex;
   flex-direction: column;
+  width: 180px;
   gap: 8px;
   height: 100%;
 }
@@ -1617,8 +1601,8 @@ web จริง จะมีช่องว่างระหว่าง navig
   align-items: center;
   position: absolute; /*กำหนดเพื่อรองรับ เมื่อถูกลบออกจาก flow ปกติของ layout ให้ไม่กินพื้นที่ ไม่ดัน element อื่น*/
   min-width: 24px;
-  bottom: 0px;
   display: grid;
+  bottom: 0px;
   left: 0px;
 }
 
@@ -1632,9 +1616,9 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css ใช้ size และ position ของ graph audio*/
 /*เป็น class ที่ใช้ co กับ section Latest audio*/
 .cttypeiconwrap {
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   height: 20px;
   width: 20px;
   margin: 2px;
@@ -1825,17 +1809,12 @@ web จริง จะมีช่องว่างระหว่าง navig
   display: grid;
 }
 /*code css สำหรับการทำ responsive handle เมื่อเทียบกับ web จริง ขนาดหน้าจอที่ลดลง จะแบ่งขนาดของ grid ไม่เท่ากัน และถ้าเล็กมากๆจะมีเส้นคั่นระหว่างข่าว */
-@media screen and (max-width: 1007px) {
+@media screen and (max-width: 1440px) {
   .morenewsctconfig {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media screen and (max-width: 767px) {
-  .morenewsctconfig {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 @media screen and (max-width: 425px) {
   .morenewsctconfig {
@@ -2339,12 +2318,12 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*code css สำหรับการใส่เส้นคั่นสีดำด้านบนของ  grid ของแต่ละ 1 ส่วนที่แบ่งมา เพื่อลงข่าว*/
 /*class นี้จะมีการ declare ไปถึง section ดังต่อไปนี้ -> 1. subcategorysection 1, 2. subcategorysection 2, 3. subcategorysection 3 */
 .hr4gridconfig {
+  background-color: #3a3c3e;
+  display: block !important;
   margin: 0;
   border-width: 0;
   height: 2px;
   width: 100%;
-  background-color: #3a3c3e;
-  display: block !important;
 }
 
 /*code css set style ให้กับหัวข้อหมวดหมู่ใน grid แต่ละ 1 ส่วน*/
@@ -2452,7 +2431,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   display: grid;
 }
 
-@media screen and (max-width: 8192px) {
+@media screen and (max-width: 2560px) {
   .txtwatchconfig {
     grid-template-columns: subgrid;
   }
