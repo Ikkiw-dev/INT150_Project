@@ -310,7 +310,9 @@ img {
   background: #e6e8ea;
   left: 0;
   top: 50%;
-  transform: translateY(-50%); /*คือการเลื่อนตำแหน่งในแนวตั้ง โดยลบ 50% ของความสูงของตัว element เอง ซึ่งผลคือ เลื่อนขึ้นไปครึ่งหนึ่ง ของตัวเอง*/
+  transform: translateY(
+    -50%
+  ); /*คือการเลื่อนตำแหน่งในแนวตั้ง โดยลบ 50% ของความสูงของตัว element เอง ซึ่งผลคือ เลื่อนขึ้นไปครึ่งหนึ่ง ของตัวเอง*/
 }
 
 /*End of CSS Section 3*/
@@ -566,7 +568,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-size: 12px;
   line-height: 14px;
   text-decoration: none;
-  letter-spacing: -0.10px;
+  letter-spacing: -0.1px;
   color: #545658;
 }
 
@@ -586,7 +588,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   font-size: 12px;
   line-height: 14px;
   text-decoration: none;
-  letter-spacing: -0.10px;
+  letter-spacing: -0.1px;
   pointer-events: none;
 }
 
@@ -1799,7 +1801,6 @@ web จริง จะมีช่องว่างระหว่าง navig
   }
 }
 
-
 @media screen and (max-width: 425px) {
   .morenewsctconfig {
     grid-template-columns: 1fr;
@@ -1916,6 +1917,7 @@ web จริง จะมีช่องว่างระหว่าง navig
 /*co class นี้กับ section Discover more from BBC*/
 .lrconfig {
   display: block;
+  fill: currentColor;
 }
 
 /*code css สำหรับการวางโครงสร้าง ใส่สี และ ระยะห่างพื่นฐาน*/
@@ -1933,6 +1935,7 @@ web จริง จะมีช่องว่างระหว่าง navig
   overflow: scroll; /*เปิดให้มีการ scroll ในแนวนอน*/
   column-gap: 12px;
   scroll-snap-type: x; /*Scroll Snap ในแนวนอน (x-axis)*/
+  scrollbar-width: none;
 }
 
 /*code css ใช้กำหนดขนาดของ flex โดยที่มีการ declare ให้ scroll ไปทางขวา*/
